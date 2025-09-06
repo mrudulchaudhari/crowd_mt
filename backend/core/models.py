@@ -1,11 +1,15 @@
 from django.db import models
 from django.utils import timezone
 
+
 class Event(models.Model):
     name = models.CharField(max_length=200)
     date = models.DateField(null=True, blank=True)
-    green_yellow_threshold = models.IntegerField(default=500)
-    yellow_red_threshold = models.IntegerField(default=1000)
+
+    # Renamed for clarity
+    safe_threshold = models.IntegerField(default=500)        # Below this → Green
+    crowded_threshold = models.IntegerField(default=1000)    # Above this → Red
+
     created_at = models.DateTimeField(auto_now_add=True)
 
     def __str__(self):
