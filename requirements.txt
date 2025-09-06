@@ -17,3 +17,10 @@ whitenoise==6.6.0
 
 # Database (optional: only if using Postgres for deployment)
 # psycopg2-binary==2.9.9
+asgiref==3.9.1
+channels==4.3.1
+Django==5.2.6
+djangorestframework==3.16.1
+sqlparse==0.5.3
+typing_extensions==4.15.0
+tzdata==2025.2
