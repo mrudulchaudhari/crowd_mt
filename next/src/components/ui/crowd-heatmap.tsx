@@ -3,7 +3,7 @@
 import { Card, CardContent, CardHeader, CardTitle } from "@/src/components/ui/card"
 import { BarChart3 } from "lucide-react"
 
-// Mock crowd pattern data - represents crowd density percentages for each time slot and day
+// d density percentages for each time slot and day
 const crowdPatternData = [
   { day: "Monday", periods: [15, 25, 35, 45, 65, 85, 75, 45] },
   { day: "Tuesday", periods: [20, 30, 40, 50, 70, 90, 80, 50] },
