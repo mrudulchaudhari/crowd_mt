@@ -1,0 +1,2161 @@
+temple_name,city,year,month,day_of_month,time_slot,is_holiday,is_festival,weather,headcount
+Somnath,Gujarat,2010,10,1,0,0,1,Sunny,10498
+Somnath,Gujarat,2010,10,1,1,0,1,Heavy Rain,23985
+Somnath,Gujarat,2010,10,1,2,0,1,Humid,17643
+Somnath,Gujarat,2010,10,1,3,0,1,Light Rain,24383
+Somnath,Gujarat,2010,10,1,4,0,1,Cloudy,21803
+Somnath,Gujarat,2010,10,1,5,0,1,Sunny,24589
+Somnath,Gujarat,2010,10,1,6,0,1,Humid,27337
+Somnath,Gujarat,2010,10,1,7,0,1,Humid,14932
+Somnath,Gujarat,2010,10,1,8,0,1,Humid,10496
+Somnath,Gujarat,2010,10,1,9,0,1,Heavy Rain,24896
+Somnath,Gujarat,2010,10,1,10,0,1,Heavy Rain,26479
+Somnath,Gujarat,2010,10,1,11,0,1,Light Rain,45777
+Somnath,Gujarat,2010,10,1,12,0,1,Heavy Rain,36591
+Somnath,Gujarat,2010,10,1,13,0,1,Sunny,17405
+Somnath,Gujarat,2010,10,1,14,0,1,Heavy Rain,17354
+Somnath,Gujarat,2010,10,1,15,0,1,Cloudy,36609
+Somnath,Gujarat,2010,10,1,16,0,1,Light Rain,33677
+Somnath,Gujarat,2010,10,1,17,0,1,Sunny,14466
+Somnath,Gujarat,2010,10,1,18,0,1,Sunny,79137
+Somnath,Gujarat,2010,10,1,19,0,1,Heavy Rain,44624
+Somnath,Gujarat,2010,10,1,20,0,1,Heavy Rain,69220
+Somnath,Gujarat,2010,10,1,21,0,1,Sunny,26644
+Somnath,Gujarat,2010,10,1,22,0,1,Light Rain,47657
+Somnath,Gujarat,2010,10,1,23,0,1,Humid,42956
+Somnath,Gujarat,2010,10,2,0,1,1,Light Rain,8095
+Somnath,Gujarat,2010,10,2,1,1,1,Cloudy,11321
+Somnath,Gujarat,2010,10,2,2,1,1,Sunny,4028
+Somnath,Gujarat,2010,10,2,3,1,1,Light Rain,11885
+Somnath,Gujarat,2010,10,2,4,1,1,Cloudy,7291
+Somnath,Gujarat,2010,10,2,5,1,1,Sunny,5547
+Somnath,Gujarat,2010,10,2,6,1,1,Heavy Rain,8026
+Somnath,Gujarat,2010,10,2,7,1,1,Humid,5231
+Somnath,Gujarat,2010,10,2,8,1,1,Humid,10788
+Somnath,Gujarat,2010,10,2,9,1,1,Light Rain,5326
+Somnath,Gujarat,2010,10,2,10,1,1,Cloudy,9752
+Somnath,Gujarat,2010,10,2,11,1,1,Humid,7205
+Somnath,Gujarat,2010,10,2,12,1,1,Heavy Rain,10508
+Somnath,Gujarat,2010,10,2,13,1,1,Sunny,11554
+Somnath,Gujarat,2010,10,2,14,1,1,Light Rain,15772
+Somnath,Gujarat,2010,10,2,15,1,1,Humid,6825
+Somnath,Gujarat,2010,10,2,16,1,1,Heavy Rain,11115
+Somnath,Gujarat,2010,10,2,17,1,1,Cloudy,8932
+Somnath,Gujarat,2010,10,2,18,1,1,Sunny,16097
+Somnath,Gujarat,2010,10,2,19,1,1,Sunny,22645
+Somnath,Gujarat,2010,10,2,20,1,1,Heavy Rain,16965
+Somnath,Gujarat,2010,10,2,21,1,1,Humid,23084
+Somnath,Gujarat,2010,10,2,22,1,1,Humid,24669
+Somnath,Gujarat,2010,10,2,23,1,1,Heavy Rain,27321
+Somnath,Gujarat,2010,10,3,0,1,1,Humid,10518
+Somnath,Gujarat,2010,10,3,1,1,1,Humid,6354
+Somnath,Gujarat,2010,10,3,2,1,1,Light Rain,8520
+Somnath,Gujarat,2010,10,3,3,1,1,Humid,6778
+Somnath,Gujarat,2010,10,3,4,1,1,Heavy Rain,5239
+Somnath,Gujarat,2010,10,3,5,1,1,Humid,9146
+Somnath,Gujarat,2010,10,3,6,1,1,Light Rain,7765
+Somnath,Gujarat,2010,10,3,7,1,1,Humid,5492
+Somnath,Gujarat,2010,10,3,8,1,1,Humid,9431
+Somnath,Gujarat,2010,10,3,9,1,1,Light Rain,11136
+Somnath,Gujarat,2010,10,3,10,1,1,Light Rain,7415
+Somnath,Gujarat,2010,10,3,11,1,1,Heavy Rain,12051
+Somnath,Gujarat,2010,10,3,12,1,1,Humid,8231
+Somnath,Gujarat,2010,10,3,13,1,1,Light Rain,9067
+Somnath,Gujarat,2010,10,3,14,1,1,Light Rain,18341
+Somnath,Gujarat,2010,10,3,15,1,1,Light Rain,14404
+Somnath,Gujarat,2010,10,3,16,1,1,Cloudy,17782
+Somnath,Gujarat,2010,10,3,17,1,1,Sunny,8148
+Somnath,Gujarat,2010,10,3,18,1,1,Light Rain,26798
+Somnath,Gujarat,2010,10,3,19,1,1,Light Rain,12429
+Somnath,Gujarat,2010,10,3,20,1,1,Light Rain,15104
+Somnath,Gujarat,2010,10,3,21,1,1,Light Rain,18479
+Somnath,Gujarat,2010,10,3,22,1,1,Humid,33778
+Somnath,Gujarat,2010,10,3,23,1,1,Sunny,11272
+Somnath,Gujarat,2010,10,4,0,0,1,Sunny,7754
+Somnath,Gujarat,2010,10,4,1,0,1,Light Rain,11871
+Somnath,Gujarat,2010,10,4,2,0,1,Sunny,11713
+Somnath,Gujarat,2010,10,4,3,0,1,Humid,11604
+Somnath,Gujarat,2010,10,4,4,0,1,Heavy Rain,10192
+Somnath,Gujarat,2010,10,4,5,0,1,Sunny,9541
+Somnath,Gujarat,2010,10,4,6,0,1,Light Rain,4408
+Somnath,Gujarat,2010,10,4,7,0,1,Sunny,8867
+Somnath,Gujarat,2010,10,4,8,0,1,Heavy Rain,10837
+Somnath,Gujarat,2010,10,4,9,0,1,Light Rain,4091
+Somnath,Gujarat,2010,10,4,10,0,1,Heavy Rain,11379
+Somnath,Gujarat,2010,10,4,11,0,1,Light Rain,15258
+Somnath,Gujarat,2010,10,4,12,0,1,Humid,18854
+Somnath,Gujarat,2010,10,4,13,0,1,Sunny,7997
+Somnath,Gujarat,2010,10,4,14,0,1,Light Rain,16331
+Somnath,Gujarat,2010,10,4,15,0,1,Cloudy,6219
+Somnath,Gujarat,2010,10,4,16,0,1,Heavy Rain,11659
+Somnath,Gujarat,2010,10,4,17,0,1,Sunny,8468
+Somnath,Gujarat,2010,10,4,18,0,1,Humid,18492
+Somnath,Gujarat,2010,10,4,19,0,1,Heavy Rain,12541
+Somnath,Gujarat,2010,10,4,20,0,1,Humid,12266
+Somnath,Gujarat,2010,10,4,21,0,1,Cloudy,16242
+Somnath,Gujarat,2010,10,4,22,0,1,Sunny,18443
+Somnath,Gujarat,2010,10,4,23,0,1,Cloudy,23455
+Somnath,Gujarat,2010,10,5,0,0,1,Heavy Rain,8798
+Somnath,Gujarat,2010,10,5,1,0,1,Sunny,20895
+Somnath,Gujarat,2010,10,5,2,0,1,Cloudy,25148
+Somnath,Gujarat,2010,10,5,3,0,1,Humid,26458
+Somnath,Gujarat,2010,10,5,4,0,1,Sunny,19787
+Somnath,Gujarat,2010,10,5,5,0,1,Humid,23842
+Somnath,Gujarat,2010,10,5,6,0,1,Sunny,20799
+Somnath,Gujarat,2010,10,5,7,0,1,Humid,28057
+Somnath,Gujarat,2010,10,5,8,0,1,Light Rain,18652
+Somnath,Gujarat,2010,10,5,9,0,1,Humid,11378
+Somnath,Gujarat,2010,10,5,10,0,1,Heavy Rain,29475
+Somnath,Gujarat,2010,10,5,11,0,1,Light Rain,23980
+Somnath,Gujarat,2010,10,5,12,0,1,Light Rain,30753
+Somnath,Gujarat,2010,10,5,13,0,1,Sunny,32257
+Somnath,Gujarat,2010,10,5,14,0,1,Sunny,29734
+Somnath,Gujarat,2010,10,5,15,0,1,Light Rain,28495
+Somnath,Gujarat,2010,10,5,16,0,1,Humid,33159
+Somnath,Gujarat,2010,10,5,17,0,1,Cloudy,17941
+Somnath,Gujarat,2010,10,5,18,0,1,Humid,80198
+Somnath,Gujarat,2010,10,5,19,0,1,Sunny,55138
+Somnath,Gujarat,2010,10,5,20,0,1,Light Rain,55230
+Somnath,Gujarat,2010,10,5,21,0,1,Heavy Rain,51524
+Somnath,Gujarat,2010,10,5,22,0,1,Sunny,20551
+Somnath,Gujarat,2010,10,5,23,0,1,Light Rain,50422
+Somnath,Gujarat,2010,10,6,0,0,1,Cloudy,6080
+Somnath,Gujarat,2010,10,6,1,0,1,Heavy Rain,5472
+Somnath,Gujarat,2010,10,6,2,0,1,Sunny,10722
+Somnath,Gujarat,2010,10,6,3,0,1,Cloudy,6938
+Somnath,Gujarat,2010,10,6,4,0,1,Cloudy,4898
+Somnath,Gujarat,2010,10,6,5,0,1,Light Rain,7445
+Somnath,Gujarat,2010,10,6,6,0,1,Light Rain,9854
+Somnath,Gujarat,2010,10,6,7,0,1,Cloudy,4044
+Somnath,Gujarat,2010,10,6,8,0,1,Sunny,6770
+Somnath,Gujarat,2010,10,6,9,0,1,Humid,4108
+Somnath,Gujarat,2010,10,6,10,0,1,Sunny,8036
+Somnath,Gujarat,2010,10,6,11,0,1,Cloudy,15493
+Somnath,Gujarat,2010,10,6,12,0,1,Heavy Rain,12764
+Somnath,Gujarat,2010,10,6,13,0,1,Sunny,13713
+Somnath,Gujarat,2010,10,6,14,0,1,Light Rain,5871
+Somnath,Gujarat,2010,10,6,15,0,1,Humid,13901
+Somnath,Gujarat,2010,10,6,16,0,1,Sunny,13516
+Somnath,Gujarat,2010,10,6,17,0,1,Cloudy,8732
+Somnath,Gujarat,2010,10,6,18,0,1,Heavy Rain,8255
+Somnath,Gujarat,2010,10,6,19,0,1,Heavy Rain,11046
+Somnath,Gujarat,2010,10,6,20,0,1,Light Rain,11649
+Somnath,Gujarat,2010,10,6,21,0,1,Humid,28701
+Somnath,Gujarat,2010,10,6,22,0,1,Heavy Rain,11633
+Somnath,Gujarat,2010,10,6,23,0,1,Cloudy,16368
+Somnath,Gujarat,2010,10,7,0,0,1,Heavy Rain,4707
+Somnath,Gujarat,2010,10,7,1,0,1,Heavy Rain,4790
+Somnath,Gujarat,2010,10,7,2,0,1,Sunny,8184
+Somnath,Gujarat,2010,10,7,3,0,1,Heavy Rain,10676
+Somnath,Gujarat,2010,10,7,4,0,1,Light Rain,6765
+Somnath,Gujarat,2010,10,7,5,0,1,Cloudy,7705
+Somnath,Gujarat,2010,10,7,6,0,1,Light Rain,8083
+Somnath,Gujarat,2010,10,7,7,0,1,Cloudy,6630
+Somnath,Gujarat,2010,10,7,8,0,1,Heavy Rain,10118
+Somnath,Gujarat,2010,10,7,9,0,1,Heavy Rain,4570
+Somnath,Gujarat,2010,10,7,10,0,1,Light Rain,7703
+Somnath,Gujarat,2010,10,7,11,0,1,Light Rain,16583
+Somnath,Gujarat,2010,10,7,12,0,1,Light Rain,12134
+Somnath,Gujarat,2010,10,7,13,0,1,Humid,9195
+Somnath,Gujarat,2010,10,7,14,0,1,Cloudy,7918
+Somnath,Gujarat,2010,10,7,15,0,1,Sunny,9273
+Somnath,Gujarat,2010,10,7,16,0,1,Sunny,8330
+Somnath,Gujarat,2010,10,7,17,0,1,Sunny,10787
+Somnath,Gujarat,2010,10,7,18,0,1,Heavy Rain,20587
+Somnath,Gujarat,2010,10,7,19,0,1,Light Rain,21187
+Somnath,Gujarat,2010,10,7,20,0,1,Cloudy,24584
+Somnath,Gujarat,2010,10,7,21,0,1,Cloudy,24625
+Somnath,Gujarat,2010,10,7,22,0,1,Humid,26655
+Somnath,Gujarat,2010,10,7,23,0,1,Humid,16203
+Somnath,Gujarat,2010,10,8,0,0,1,Heavy Rain,5337
+Somnath,Gujarat,2010,10,8,1,0,1,Heavy Rain,7623
+Somnath,Gujarat,2010,10,8,2,0,1,Cloudy,8712
+Somnath,Gujarat,2010,10,8,3,0,1,Cloudy,10874
+Somnath,Gujarat,2010,10,8,4,0,1,Light Rain,7045
+Somnath,Gujarat,2010,10,8,5,0,1,Light Rain,4876
+Somnath,Gujarat,2010,10,8,6,0,1,Cloudy,6545
+Somnath,Gujarat,2010,10,8,7,0,1,Sunny,11627
+Somnath,Gujarat,2010,10,8,8,0,1,Heavy Rain,9835
+Somnath,Gujarat,2010,10,8,9,0,1,Humid,4882
+Somnath,Gujarat,2010,10,8,10,0,1,Light Rain,9496
+Somnath,Gujarat,2010,10,8,11,0,1,Cloudy,15804
+Somnath,Gujarat,2010,10,8,12,0,1,Light Rain,16897
+Somnath,Gujarat,2010,10,8,13,0,1,Light Rain,11084
+Somnath,Gujarat,2010,10,8,14,0,1,Sunny,12878
+Somnath,Gujarat,2010,10,8,15,0,1,Heavy Rain,20341
+Somnath,Gujarat,2010,10,8,16,0,1,Heavy Rain,11799
+Somnath,Gujarat,2010,10,8,17,0,1,Light Rain,6117
+Somnath,Gujarat,2010,10,8,18,0,1,Light Rain,22057
+Somnath,Gujarat,2010,10,8,19,0,1,Light Rain,15304
+Somnath,Gujarat,2010,10,8,20,0,1,Sunny,12077
+Somnath,Gujarat,2010,10,8,21,0,1,Light Rain,9839
+Somnath,Gujarat,2010,10,8,22,0,1,Heavy Rain,12893
+Somnath,Gujarat,2010,10,8,23,0,1,Sunny,14230
+Somnath,Gujarat,2010,10,9,0,1,1,Humid,25740
+Somnath,Gujarat,2010,10,9,1,1,1,Humid,14544
+Somnath,Gujarat,2010,10,9,2,1,1,Sunny,21176
+Somnath,Gujarat,2010,10,9,3,1,1,Cloudy,21543
+Somnath,Gujarat,2010,10,9,4,1,1,Heavy Rain,14509
+Somnath,Gujarat,2010,10,9,5,1,1,Light Rain,12828
+Somnath,Gujarat,2010,10,9,6,1,1,Cloudy,17572
+Somnath,Gujarat,2010,10,9,7,1,1,Humid,27568
+Somnath,Gujarat,2010,10,9,8,1,1,Light Rain,15132
+Somnath,Gujarat,2010,10,9,9,1,1,Sunny,18824
+Somnath,Gujarat,2010,10,9,10,1,1,Light Rain,25039
+Somnath,Gujarat,2010,10,9,11,1,1,Sunny,39256
+Somnath,Gujarat,2010,10,9,12,1,1,Heavy Rain,32649
+Somnath,Gujarat,2010,10,9,13,1,1,Cloudy,43175
+Somnath,Gujarat,2010,10,9,14,1,1,Cloudy,15592
+Somnath,Gujarat,2010,10,9,15,1,1,Sunny,36514
+Somnath,Gujarat,2010,10,9,16,1,1,Heavy Rain,34929
+Somnath,Gujarat,2010,10,9,17,1,1,Sunny,8398
+Somnath,Gujarat,2010,10,9,18,1,1,Light Rain,59547
+Somnath,Gujarat,2010,10,9,19,1,1,Sunny,49494
+Somnath,Gujarat,2010,10,9,20,1,1,Heavy Rain,52812
+Somnath,Gujarat,2010,10,9,21,1,1,Cloudy,29239
+Somnath,Gujarat,2010,10,9,22,1,1,Cloudy,40554
+Somnath,Gujarat,2010,10,9,23,1,1,Light Rain,27592
+Somnath,Gujarat,2011,10,1,0,1,1,Humid,11632
+Somnath,Gujarat,2011,10,1,1,1,1,Cloudy,14506
+Somnath,Gujarat,2011,10,1,2,1,1,Heavy Rain,9028
+Somnath,Gujarat,2011,10,1,3,1,1,Heavy Rain,17722
+Somnath,Gujarat,2011,10,1,4,1,1,Humid,27703
+Somnath,Gujarat,2011,10,1,5,1,1,Heavy Rain,12620
+Somnath,Gujarat,2011,10,1,6,1,1,Heavy Rain,22257
+Somnath,Gujarat,2011,10,1,7,1,1,Cloudy,28833
+Somnath,Gujarat,2011,10,1,8,1,1,Cloudy,18561
+Somnath,Gujarat,2011,10,1,9,1,1,Light Rain,11337
+Somnath,Gujarat,2011,10,1,10,1,1,Heavy Rain,14535
+Somnath,Gujarat,2011,10,1,11,1,1,Heavy Rain,15801
+Somnath,Gujarat,2011,10,1,12,1,1,Sunny,19086
+Somnath,Gujarat,2011,10,1,13,1,1,Sunny,26487
+Somnath,Gujarat,2011,10,1,14,1,1,Cloudy,21596
+Somnath,Gujarat,2011,10,1,15,1,1,Sunny,14506
+Somnath,Gujarat,2011,10,1,16,1,1,Sunny,29861
+Somnath,Gujarat,2011,10,1,17,1,1,Cloudy,18094
+Somnath,Gujarat,2011,10,1,18,1,1,Heavy Rain,42940
+Somnath,Gujarat,2011,10,1,19,1,1,Light Rain,53906
+Somnath,Gujarat,2011,10,1,20,1,1,Humid,62538
+Somnath,Gujarat,2011,10,1,21,1,1,Heavy Rain,50937
+Somnath,Gujarat,2011,10,1,22,1,1,Heavy Rain,37639
+Somnath,Gujarat,2011,10,1,23,1,1,Humid,53327
+Somnath,Gujarat,2011,10,2,0,1,1,Light Rain,11225
+Somnath,Gujarat,2011,10,2,1,1,1,Heavy Rain,11598
+Somnath,Gujarat,2011,10,2,2,1,1,Heavy Rain,4829
+Somnath,Gujarat,2011,10,2,3,1,1,Cloudy,9260
+Somnath,Gujarat,2011,10,2,4,1,1,Humid,5063
+Somnath,Gujarat,2011,10,2,5,1,1,Heavy Rain,8834
+Somnath,Gujarat,2011,10,2,6,1,1,Sunny,11447
+Somnath,Gujarat,2011,10,2,7,1,1,Heavy Rain,6979
+Somnath,Gujarat,2011,10,2,8,1,1,Heavy Rain,4544
+Somnath,Gujarat,2011,10,2,9,1,1,Sunny,4419
+Somnath,Gujarat,2011,10,2,10,1,1,Sunny,8606
+Somnath,Gujarat,2011,10,2,11,1,1,Sunny,14842
+Somnath,Gujarat,2011,10,2,12,1,1,Cloudy,14696
+Somnath,Gujarat,2011,10,2,13,1,1,Sunny,10194
+Somnath,Gujarat,2011,10,2,14,1,1,Humid,13013
+Somnath,Gujarat,2011,10,2,15,1,1,Humid,14759
+Somnath,Gujarat,2011,10,2,16,1,1,Sunny,11141
+Somnath,Gujarat,2011,10,2,17,1,1,Heavy Rain,10105
+Somnath,Gujarat,2011,10,2,18,1,1,Sunny,27226
+Somnath,Gujarat,2011,10,2,19,1,1,Heavy Rain,18897
+Somnath,Gujarat,2011,10,2,20,1,1,Humid,24138
+Somnath,Gujarat,2011,10,2,21,1,1,Humid,18961
+Somnath,Gujarat,2011,10,2,22,1,1,Humid,15568
+Somnath,Gujarat,2011,10,2,23,1,1,Sunny,24604
+Somnath,Gujarat,2011,10,3,0,0,1,Heavy Rain,6636
+Somnath,Gujarat,2011,10,3,1,0,1,Humid,5894
+Somnath,Gujarat,2011,10,3,2,0,1,Heavy Rain,5261
+Somnath,Gujarat,2011,10,3,3,0,1,Cloudy,6879
+Somnath,Gujarat,2011,10,3,4,0,1,Sunny,7187
+Somnath,Gujarat,2011,10,3,5,0,1,Sunny,10485
+Somnath,Gujarat,2011,10,3,6,0,1,Sunny,4216
+Somnath,Gujarat,2011,10,3,7,0,1,Light Rain,5025
+Somnath,Gujarat,2011,10,3,8,0,1,Heavy Rain,6688
+Somnath,Gujarat,2011,10,3,9,0,1,Light Rain,9932
+Somnath,Gujarat,2011,10,3,10,0,1,Humid,11805
+Somnath,Gujarat,2011,10,3,11,0,1,Cloudy,11505
+Somnath,Gujarat,2011,10,3,12,0,1,Heavy Rain,10157
+Somnath,Gujarat,2011,10,3,13,0,1,Light Rain,6774
+Somnath,Gujarat,2011,10,3,14,0,1,Humid,15816
+Somnath,Gujarat,2011,10,3,15,0,1,Sunny,7607
+Somnath,Gujarat,2011,10,3,16,0,1,Heavy Rain,19813
+Somnath,Gujarat,2011,10,3,17,0,1,Cloudy,9702
+Somnath,Gujarat,2011,10,3,18,0,1,Heavy Rain,20193
+Somnath,Gujarat,2011,10,3,19,0,1,Humid,22806
+Somnath,Gujarat,2011,10,3,20,0,1,Sunny,26855
+Somnath,Gujarat,2011,10,3,21,0,1,Sunny,23200
+Somnath,Gujarat,2011,10,3,22,0,1,Heavy Rain,33832
+Somnath,Gujarat,2011,10,3,23,0,1,Humid,32065
+Somnath,Gujarat,2011,10,4,0,0,1,Heavy Rain,7636
+Somnath,Gujarat,2011,10,4,1,0,1,Light Rain,5257
+Somnath,Gujarat,2011,10,4,2,0,1,Humid,4757
+Somnath,Gujarat,2011,10,4,3,0,1,Heavy Rain,4926
+Somnath,Gujarat,2011,10,4,4,0,1,Humid,6519
+Somnath,Gujarat,2011,10,4,5,0,1,Cloudy,9341
+Somnath,Gujarat,2011,10,4,6,0,1,Heavy Rain,9436
+Somnath,Gujarat,2011,10,4,7,0,1,Sunny,5899
+Somnath,Gujarat,2011,10,4,8,0,1,Heavy Rain,11006
+Somnath,Gujarat,2011,10,4,9,0,1,Humid,9125
+Somnath,Gujarat,2011,10,4,10,0,1,Cloudy,5959
+Somnath,Gujarat,2011,10,4,11,0,1,Sunny,19231
+Somnath,Gujarat,2011,10,4,12,0,1,Heavy Rain,7232
+Somnath,Gujarat,2011,10,4,13,0,1,Humid,16276
+Somnath,Gujarat,2011,10,4,14,0,1,Cloudy,19186
+Somnath,Gujarat,2011,10,4,15,0,1,Humid,18990
+Somnath,Gujarat,2011,10,4,16,0,1,Light Rain,12716
+Somnath,Gujarat,2011,10,4,17,0,1,Sunny,9961
+Somnath,Gujarat,2011,10,4,18,0,1,Cloudy,17033
+Somnath,Gujarat,2011,10,4,19,0,1,Light Rain,20931
+Somnath,Gujarat,2011,10,4,20,0,1,Humid,21964
+Somnath,Gujarat,2011,10,4,21,0,1,Humid,18047
+Somnath,Gujarat,2011,10,4,22,0,1,Heavy Rain,19244
+Somnath,Gujarat,2011,10,4,23,0,1,Heavy Rain,27706
+Somnath,Gujarat,2011,10,5,0,0,1,Sunny,15556
+Somnath,Gujarat,2011,10,5,1,0,1,Sunny,31122
+Somnath,Gujarat,2011,10,5,2,0,1,Light Rain,25551
+Somnath,Gujarat,2011,10,5,3,0,1,Light Rain,20882
+Somnath,Gujarat,2011,10,5,4,0,1,Light Rain,19153
+Somnath,Gujarat,2011,10,5,5,0,1,Light Rain,22685
+Somnath,Gujarat,2011,10,5,6,0,1,Cloudy,21278
+Somnath,Gujarat,2011,10,5,7,0,1,Humid,30913
+Somnath,Gujarat,2011,10,5,8,0,1,Sunny,24567
+Somnath,Gujarat,2011,10,5,9,0,1,Humid,21318
+Somnath,Gujarat,2011,10,5,10,0,1,Humid,18198
+Somnath,Gujarat,2011,10,5,11,0,1,Humid,38304
+Somnath,Gujarat,2011,10,5,12,0,1,Heavy Rain,25069
+Somnath,Gujarat,2011,10,5,13,0,1,Light Rain,18976
+Somnath,Gujarat,2011,10,5,14,0,1,Cloudy,30808
+Somnath,Gujarat,2011,10,5,15,0,1,Cloudy,32480
+Somnath,Gujarat,2011,10,5,16,0,1,Light Rain,31113
+Somnath,Gujarat,2011,10,5,17,0,1,Heavy Rain,12347
+Somnath,Gujarat,2011,10,5,18,0,1,Humid,27514
+Somnath,Gujarat,2011,10,5,19,0,1,Cloudy,46419
+Somnath,Gujarat,2011,10,5,20,0,1,Light Rain,55906
+Somnath,Gujarat,2011,10,5,21,0,1,Sunny,24243
+Somnath,Gujarat,2011,10,5,22,0,1,Sunny,41535
+Somnath,Gujarat,2011,10,5,23,0,1,Light Rain,46552
+Somnath,Gujarat,2011,10,6,0,0,1,Heavy Rain,5367
+Somnath,Gujarat,2011,10,6,1,0,1,Cloudy,5089
+Somnath,Gujarat,2011,10,6,2,0,1,Cloudy,8946
+Somnath,Gujarat,2011,10,6,3,0,1,Sunny,9406
+Somnath,Gujarat,2011,10,6,4,0,1,Humid,7601
+Somnath,Gujarat,2011,10,6,5,0,1,Sunny,7809
+Somnath,Gujarat,2011,10,6,6,0,1,Humid,7163
+Somnath,Gujarat,2011,10,6,7,0,1,Humid,10079
+Somnath,Gujarat,2011,10,6,8,0,1,Humid,6493
+Somnath,Gujarat,2011,10,6,9,0,1,Sunny,4801
+Somnath,Gujarat,2011,10,6,10,0,1,Heavy Rain,8227
+Somnath,Gujarat,2011,10,6,11,0,1,Cloudy,18688
+Somnath,Gujarat,2011,10,6,12,0,1,Heavy Rain,8953
+Somnath,Gujarat,2011,10,6,13,0,1,Humid,15106
+Somnath,Gujarat,2011,10,6,14,0,1,Sunny,9024
+Somnath,Gujarat,2011,10,6,15,0,1,Humid,7860
+Somnath,Gujarat,2011,10,6,16,0,1,Humid,13341
+Somnath,Gujarat,2011,10,6,17,0,1,Light Rain,7842
+Somnath,Gujarat,2011,10,6,18,0,1,Light Rain,32476
+Somnath,Gujarat,2011,10,6,19,0,1,Cloudy,22979
+Somnath,Gujarat,2011,10,6,20,0,1,Light Rain,18319
+Somnath,Gujarat,2011,10,6,21,0,1,Heavy Rain,8990
+Somnath,Gujarat,2011,10,6,22,0,1,Sunny,19045
+Somnath,Gujarat,2011,10,6,23,0,1,Light Rain,18249
+Somnath,Gujarat,2011,10,7,0,0,1,Heavy Rain,6541
+Somnath,Gujarat,2011,10,7,1,0,1,Humid,5693
+Somnath,Gujarat,2011,10,7,2,0,1,Light Rain,7941
+Somnath,Gujarat,2011,10,7,3,0,1,Light Rain,7821
+Somnath,Gujarat,2011,10,7,4,0,1,Cloudy,9334
+Somnath,Gujarat,2011,10,7,5,0,1,Humid,10875
+Somnath,Gujarat,2011,10,7,6,0,1,Humid,10720
+Somnath,Gujarat,2011,10,7,7,0,1,Heavy Rain,6983
+Somnath,Gujarat,2011,10,7,8,0,1,Cloudy,6733
+Somnath,Gujarat,2011,10,7,9,0,1,Humid,4235
+Somnath,Gujarat,2011,10,7,10,0,1,Humid,5805
+Somnath,Gujarat,2011,10,7,11,0,1,Cloudy,15126
+Somnath,Gujarat,2011,10,7,12,0,1,Heavy Rain,8216
+Somnath,Gujarat,2011,10,7,13,0,1,Heavy Rain,5918
+Somnath,Gujarat,2011,10,7,14,0,1,Light Rain,13557
+Somnath,Gujarat,2011,10,7,15,0,1,Cloudy,13471
+Somnath,Gujarat,2011,10,7,16,0,1,Heavy Rain,12005
+Somnath,Gujarat,2011,10,7,17,0,1,Sunny,7839
+Somnath,Gujarat,2011,10,7,18,0,1,Sunny,30391
+Somnath,Gujarat,2011,10,7,19,0,1,Light Rain,25481
+Somnath,Gujarat,2011,10,7,20,0,1,Light Rain,30525
+Somnath,Gujarat,2011,10,7,21,0,1,Cloudy,17653
+Somnath,Gujarat,2011,10,7,22,0,1,Sunny,32420
+Somnath,Gujarat,2011,10,7,23,0,1,Cloudy,30553
+Somnath,Gujarat,2011,10,8,0,1,1,Light Rain,7924
+Somnath,Gujarat,2011,10,8,1,1,1,Sunny,6983
+Somnath,Gujarat,2011,10,8,2,1,1,Cloudy,10714
+Somnath,Gujarat,2011,10,8,3,1,1,Heavy Rain,5770
+Somnath,Gujarat,2011,10,8,4,1,1,Sunny,6886
+Somnath,Gujarat,2011,10,8,5,1,1,Cloudy,9734
+Somnath,Gujarat,2011,10,8,6,1,1,Cloudy,5426
+Somnath,Gujarat,2011,10,8,7,1,1,Heavy Rain,5809
+Somnath,Gujarat,2011,10,8,8,1,1,Humid,11924
+Somnath,Gujarat,2011,10,8,9,1,1,Sunny,11802
+Somnath,Gujarat,2011,10,8,10,1,1,Light Rain,6629
+Somnath,Gujarat,2011,10,8,11,1,1,Cloudy,8551
+Somnath,Gujarat,2011,10,8,12,1,1,Cloudy,14961
+Somnath,Gujarat,2011,10,8,13,1,1,Sunny,4999
+Somnath,Gujarat,2011,10,8,14,1,1,Sunny,15542
+Somnath,Gujarat,2011,10,8,15,1,1,Humid,17347
+Somnath,Gujarat,2011,10,8,16,1,1,Light Rain,7685
+Somnath,Gujarat,2011,10,8,17,1,1,Light Rain,11224
+Somnath,Gujarat,2011,10,8,18,1,1,Heavy Rain,26744
+Somnath,Gujarat,2011,10,8,19,1,1,Humid,15398
+Somnath,Gujarat,2011,10,8,20,1,1,Heavy Rain,21709
+Somnath,Gujarat,2011,10,8,21,1,1,Light Rain,16825
+Somnath,Gujarat,2011,10,8,22,1,1,Heavy Rain,21754
+Somnath,Gujarat,2011,10,8,23,1,1,Cloudy,19118
+Somnath,Gujarat,2011,10,9,0,1,1,Light Rain,23446
+Somnath,Gujarat,2011,10,9,1,1,1,Light Rain,9932
+Somnath,Gujarat,2011,10,9,2,1,1,Heavy Rain,26262
+Somnath,Gujarat,2011,10,9,3,1,1,Heavy Rain,24856
+Somnath,Gujarat,2011,10,9,4,1,1,Humid,19288
+Somnath,Gujarat,2011,10,9,5,1,1,Light Rain,13355
+Somnath,Gujarat,2011,10,9,6,1,1,Humid,22641
+Somnath,Gujarat,2011,10,9,7,1,1,Cloudy,10847
+Somnath,Gujarat,2011,10,9,8,1,1,Humid,9697
+Somnath,Gujarat,2011,10,9,9,1,1,Cloudy,13625
+Somnath,Gujarat,2011,10,9,10,1,1,Sunny,25249
+Somnath,Gujarat,2011,10,9,11,1,1,Heavy Rain,20205
+Somnath,Gujarat,2011,10,9,12,1,1,Cloudy,12084
+Somnath,Gujarat,2011,10,9,13,1,1,Sunny,39603
+Somnath,Gujarat,2011,10,9,14,1,1,Cloudy,39785
+Somnath,Gujarat,2011,10,9,15,1,1,Heavy Rain,25037
+Somnath,Gujarat,2011,10,9,16,1,1,Heavy Rain,42535
+Somnath,Gujarat,2011,10,9,17,1,1,Cloudy,22062
+Somnath,Gujarat,2011,10,9,18,1,1,Humid,59288
+Somnath,Gujarat,2011,10,9,19,1,1,Heavy Rain,46153
+Somnath,Gujarat,2011,10,9,20,1,1,Humid,30430
+Somnath,Gujarat,2011,10,9,21,1,1,Heavy Rain,30350
+Somnath,Gujarat,2011,10,9,22,1,1,Cloudy,56014
+Somnath,Gujarat,2011,10,9,23,1,1,Heavy Rain,33080
+Somnath,Gujarat,2012,10,1,0,0,1,Sunny,12256
+Somnath,Gujarat,2012,10,1,1,0,1,Sunny,25299
+Somnath,Gujarat,2012,10,1,2,0,1,Light Rain,16722
+Somnath,Gujarat,2012,10,1,3,0,1,Sunny,27539
+Somnath,Gujarat,2012,10,1,4,0,1,Humid,23357
+Somnath,Gujarat,2012,10,1,5,0,1,Sunny,20799
+Somnath,Gujarat,2012,10,1,6,0,1,Humid,21990
+Somnath,Gujarat,2012,10,1,7,0,1,Humid,16265
+Somnath,Gujarat,2012,10,1,8,0,1,Humid,20781
+Somnath,Gujarat,2012,10,1,9,0,1,Heavy Rain,13632
+Somnath,Gujarat,2012,10,1,10,0,1,Sunny,30871
+Somnath,Gujarat,2012,10,1,11,0,1,Sunny,18141
+Somnath,Gujarat,2012,10,1,12,0,1,Light Rain,34525
+Somnath,Gujarat,2012,10,1,13,0,1,Heavy Rain,26964
+Somnath,Gujarat,2012,10,1,14,0,1,Humid,39029
+Somnath,Gujarat,2012,10,1,15,0,1,Light Rain,43248
+Somnath,Gujarat,2012,10,1,16,0,1,Cloudy,22625
+Somnath,Gujarat,2012,10,1,17,0,1,Light Rain,22096
+Somnath,Gujarat,2012,10,1,18,0,1,Sunny,54533
+Somnath,Gujarat,2012,10,1,19,0,1,Light Rain,53677
+Somnath,Gujarat,2012,10,1,20,0,1,Cloudy,65913
+Somnath,Gujarat,2012,10,1,21,0,1,Heavy Rain,59332
+Somnath,Gujarat,2012,10,1,22,0,1,Heavy Rain,38003
+Somnath,Gujarat,2012,10,1,23,0,1,Light Rain,44595
+Somnath,Gujarat,2012,10,2,0,0,1,Light Rain,10402
+Somnath,Gujarat,2012,10,2,1,0,1,Light Rain,5698
+Somnath,Gujarat,2012,10,2,2,0,1,Sunny,9210
+Somnath,Gujarat,2012,10,2,3,0,1,Sunny,6866
+Somnath,Gujarat,2012,10,2,4,0,1,Humid,6858
+Somnath,Gujarat,2012,10,2,5,0,1,Sunny,4606
+Somnath,Gujarat,2012,10,2,6,0,1,Light Rain,10372
+Somnath,Gujarat,2012,10,2,7,0,1,Humid,6417
+Somnath,Gujarat,2012,10,2,8,0,1,Cloudy,7727
+Somnath,Gujarat,2012,10,2,9,0,1,Sunny,6704
+Somnath,Gujarat,2012,10,2,10,0,1,Cloudy,6185
+Somnath,Gujarat,2012,10,2,11,0,1,Cloudy,5086
+Somnath,Gujarat,2012,10,2,12,0,1,Humid,15796
+Somnath,Gujarat,2012,10,2,13,0,1,Sunny,9448
+Somnath,Gujarat,2012,10,2,14,0,1,Cloudy,21306
+Somnath,Gujarat,2012,10,2,15,0,1,Light Rain,19607
+Somnath,Gujarat,2012,10,2,16,0,1,Sunny,13050
+Somnath,Gujarat,2012,10,2,17,0,1,Light Rain,6927
+Somnath,Gujarat,2012,10,2,18,0,1,Heavy Rain,31317
+Somnath,Gujarat,2012,10,2,19,0,1,Humid,19977
+Somnath,Gujarat,2012,10,2,20,0,1,Light Rain,17263
+Somnath,Gujarat,2012,10,2,21,0,1,Light Rain,19828
+Somnath,Gujarat,2012,10,2,22,0,1,Sunny,14123
+Somnath,Gujarat,2012,10,2,23,0,1,Light Rain,25977
+Somnath,Gujarat,2012,10,3,0,0,1,Heavy Rain,8081
+Somnath,Gujarat,2012,10,3,1,0,1,Heavy Rain,7355
+Somnath,Gujarat,2012,10,3,2,0,1,Humid,8372
+Somnath,Gujarat,2012,10,3,3,0,1,Sunny,4392
+Somnath,Gujarat,2012,10,3,4,0,1,Light Rain,4876
+Somnath,Gujarat,2012,10,3,5,0,1,Heavy Rain,8538
+Somnath,Gujarat,2012,10,3,6,0,1,Sunny,10488
+Somnath,Gujarat,2012,10,3,7,0,1,Heavy Rain,5754
+Somnath,Gujarat,2012,10,3,8,0,1,Sunny,5321
+Somnath,Gujarat,2012,10,3,9,0,1,Cloudy,4217
+Somnath,Gujarat,2012,10,3,10,0,1,Humid,8398
+Somnath,Gujarat,2012,10,3,11,0,1,Cloudy,9620
+Somnath,Gujarat,2012,10,3,12,0,1,Cloudy,13713
+Somnath,Gujarat,2012,10,3,13,0,1,Light Rain,9243
+Somnath,Gujarat,2012,10,3,14,0,1,Sunny,16049
+Somnath,Gujarat,2012,10,3,15,0,1,Humid,12396
+Somnath,Gujarat,2012,10,3,16,0,1,Sunny,8847
+Somnath,Gujarat,2012,10,3,17,0,1,Sunny,6311
+Somnath,Gujarat,2012,10,3,18,0,1,Sunny,18441
+Somnath,Gujarat,2012,10,3,19,0,1,Heavy Rain,18125
+Somnath,Gujarat,2012,10,3,20,0,1,Humid,30193
+Somnath,Gujarat,2012,10,3,21,0,1,Heavy Rain,22137
+Somnath,Gujarat,2012,10,3,22,0,1,Humid,19920
+Somnath,Gujarat,2012,10,3,23,0,1,Humid,29234
+Somnath,Gujarat,2012,10,4,0,0,1,Light Rain,5519
+Somnath,Gujarat,2012,10,4,1,0,1,Humid,8837
+Somnath,Gujarat,2012,10,4,2,0,1,Cloudy,4296
+Somnath,Gujarat,2012,10,4,3,0,1,Sunny,10898
+Somnath,Gujarat,2012,10,4,4,0,1,Humid,7136
+Somnath,Gujarat,2012,10,4,5,0,1,Sunny,7896
+Somnath,Gujarat,2012,10,4,6,0,1,Sunny,8363
+Somnath,Gujarat,2012,10,4,7,0,1,Heavy Rain,11859
+Somnath,Gujarat,2012,10,4,8,0,1,Heavy Rain,6798
+Somnath,Gujarat,2012,10,4,9,0,1,Heavy Rain,5472
+Somnath,Gujarat,2012,10,4,10,0,1,Light Rain,7496
+Somnath,Gujarat,2012,10,4,11,0,1,Heavy Rain,7266
+Somnath,Gujarat,2012,10,4,12,0,1,Heavy Rain,14572
+Somnath,Gujarat,2012,10,4,13,0,1,Sunny,11776
+Somnath,Gujarat,2012,10,4,14,0,1,Humid,13973
+Somnath,Gujarat,2012,10,4,15,0,1,Humid,9230
+Somnath,Gujarat,2012,10,4,16,0,1,Cloudy,10495
+Somnath,Gujarat,2012,10,4,17,0,1,Cloudy,4936
+Somnath,Gujarat,2012,10,4,18,0,1,Sunny,14529
+Somnath,Gujarat,2012,10,4,19,0,1,Sunny,10330
+Somnath,Gujarat,2012,10,4,20,0,1,Humid,11949
+Somnath,Gujarat,2012,10,4,21,0,1,Humid,24875
+Somnath,Gujarat,2012,10,4,22,0,1,Heavy Rain,13629
+Somnath,Gujarat,2012,10,4,23,0,1,Sunny,28653
+Somnath,Gujarat,2012,10,5,0,0,1,Sunny,19306
+Somnath,Gujarat,2012,10,5,1,0,1,Humid,22277
+Somnath,Gujarat,2012,10,5,2,0,1,Humid,28521
+Somnath,Gujarat,2012,10,5,3,0,1,Heavy Rain,9960
+Somnath,Gujarat,2012,10,5,4,0,1,Cloudy,12854
+Somnath,Gujarat,2012,10,5,5,0,1,Cloudy,13682
+Somnath,Gujarat,2012,10,5,6,0,1,Cloudy,13374
+Somnath,Gujarat,2012,10,5,7,0,1,Humid,20386
+Somnath,Gujarat,2012,10,5,8,0,1,Light Rain,16654
+Somnath,Gujarat,2012,10,5,9,0,1,Cloudy,22274
+Somnath,Gujarat,2012,10,5,10,0,1,Humid,14324
+Somnath,Gujarat,2012,10,5,11,0,1,Light Rain,38945
+Somnath,Gujarat,2012,10,5,12,0,1,Sunny,14523
+Somnath,Gujarat,2012,10,5,13,0,1,Sunny,38513
+Somnath,Gujarat,2012,10,5,14,0,1,Light Rain,24417
+Somnath,Gujarat,2012,10,5,15,0,1,Cloudy,31343
+Somnath,Gujarat,2012,10,5,16,0,1,Heavy Rain,25262
+Somnath,Gujarat,2012,10,5,17,0,1,Sunny,23463
+Somnath,Gujarat,2012,10,5,18,0,1,Heavy Rain,55136
+Somnath,Gujarat,2012,10,5,19,0,1,Light Rain,51245
+Somnath,Gujarat,2012,10,5,20,0,1,Sunny,33106
+Somnath,Gujarat,2012,10,5,21,0,1,Heavy Rain,66435
+Somnath,Gujarat,2012,10,5,22,0,1,Cloudy,33178
+Somnath,Gujarat,2012,10,5,23,0,1,Sunny,50401
+Somnath,Gujarat,2012,10,6,0,1,1,Light Rain,9643
+Somnath,Gujarat,2012,10,6,1,1,1,Heavy Rain,11713
+Somnath,Gujarat,2012,10,6,2,1,1,Humid,11142
+Somnath,Gujarat,2012,10,6,3,1,1,Sunny,7239
+Somnath,Gujarat,2012,10,6,4,1,1,Humid,11767
+Somnath,Gujarat,2012,10,6,5,1,1,Sunny,4873
+Somnath,Gujarat,2012,10,6,6,1,1,Cloudy,8475
+Somnath,Gujarat,2012,10,6,7,1,1,Cloudy,4114
+Somnath,Gujarat,2012,10,6,8,1,1,Sunny,10961
+Somnath,Gujarat,2012,10,6,9,1,1,Heavy Rain,6637
+Somnath,Gujarat,2012,10,6,10,1,1,Heavy Rain,8667
+Somnath,Gujarat,2012,10,6,11,1,1,Sunny,8945
+Somnath,Gujarat,2012,10,6,12,1,1,Heavy Rain,10954
+Somnath,Gujarat,2012,10,6,13,1,1,Sunny,8315
+Somnath,Gujarat,2012,10,6,14,1,1,Sunny,7617
+Somnath,Gujarat,2012,10,6,15,1,1,Light Rain,19255
+Somnath,Gujarat,2012,10,6,16,1,1,Humid,13713
+Somnath,Gujarat,2012,10,6,17,1,1,Cloudy,4222
+Somnath,Gujarat,2012,10,6,18,1,1,Sunny,16381
+Somnath,Gujarat,2012,10,6,19,1,1,Sunny,29660
+Somnath,Gujarat,2012,10,6,20,1,1,Light Rain,11323
+Somnath,Gujarat,2012,10,6,21,1,1,Light Rain,25823
+Somnath,Gujarat,2012,10,6,22,1,1,Heavy Rain,24749
+Somnath,Gujarat,2012,10,6,23,1,1,Sunny,12334
+Somnath,Gujarat,2012,10,7,0,1,1,Humid,7818
+Somnath,Gujarat,2012,10,7,1,1,1,Heavy Rain,6819
+Somnath,Gujarat,2012,10,7,2,1,1,Cloudy,10720
+Somnath,Gujarat,2012,10,7,3,1,1,Light Rain,4586
+Somnath,Gujarat,2012,10,7,4,1,1,Heavy Rain,10170
+Somnath,Gujarat,2012,10,7,5,1,1,Sunny,7720
+Somnath,Gujarat,2012,10,7,6,1,1,Sunny,6792
+Somnath,Gujarat,2012,10,7,7,1,1,Humid,5604
+Somnath,Gujarat,2012,10,7,8,1,1,Humid,11086
+Somnath,Gujarat,2012,10,7,9,1,1,Heavy Rain,11691
+Somnath,Gujarat,2012,10,7,10,1,1,Light Rain,10158
+Somnath,Gujarat,2012,10,7,11,1,1,Sunny,13453
+Somnath,Gujarat,2012,10,7,12,1,1,Sunny,12308
+Somnath,Gujarat,2012,10,7,13,1,1,Light Rain,13231
+Somnath,Gujarat,2012,10,7,14,1,1,Cloudy,19284
+Somnath,Gujarat,2012,10,7,15,1,1,Cloudy,8847
+Somnath,Gujarat,2012,10,7,16,1,1,Humid,10616
+Somnath,Gujarat,2012,10,7,17,1,1,Sunny,10830
+Somnath,Gujarat,2012,10,7,18,1,1,Light Rain,26556
+Somnath,Gujarat,2012,10,7,19,1,1,Humid,22118
+Somnath,Gujarat,2012,10,7,20,1,1,Sunny,17607
+Somnath,Gujarat,2012,10,7,21,1,1,Humid,10975
+Somnath,Gujarat,2012,10,7,22,1,1,Light Rain,14135
+Somnath,Gujarat,2012,10,7,23,1,1,Cloudy,19453
+Somnath,Gujarat,2012,10,8,0,0,1,Light Rain,10568
+Somnath,Gujarat,2012,10,8,1,0,1,Heavy Rain,6718
+Somnath,Gujarat,2012,10,8,2,0,1,Sunny,9131
+Somnath,Gujarat,2012,10,8,3,0,1,Heavy Rain,8585
+Somnath,Gujarat,2012,10,8,4,0,1,Humid,6712
+Somnath,Gujarat,2012,10,8,5,0,1,Heavy Rain,8204
+Somnath,Gujarat,2012,10,8,6,0,1,Heavy Rain,10301
+Somnath,Gujarat,2012,10,8,7,0,1,Cloudy,10577
+Somnath,Gujarat,2012,10,8,8,0,1,Humid,7982
+Somnath,Gujarat,2012,10,8,9,0,1,Heavy Rain,6842
+Somnath,Gujarat,2012,10,8,10,0,1,Cloudy,9666
+Somnath,Gujarat,2012,10,8,11,0,1,Sunny,7753
+Somnath,Gujarat,2012,10,8,12,0,1,Heavy Rain,15983
+Somnath,Gujarat,2012,10,8,13,0,1,Light Rain,18956
+Somnath,Gujarat,2012,10,8,14,0,1,Light Rain,15770
+Somnath,Gujarat,2012,10,8,15,0,1,Heavy Rain,11913
+Somnath,Gujarat,2012,10,8,16,0,1,Sunny,13263
+Somnath,Gujarat,2012,10,8,17,0,1,Cloudy,4367
+Somnath,Gujarat,2012,10,8,18,0,1,Sunny,27106
+Somnath,Gujarat,2012,10,8,19,0,1,Sunny,16578
+Somnath,Gujarat,2012,10,8,20,0,1,Sunny,21964
+Somnath,Gujarat,2012,10,8,21,0,1,Humid,26204
+Somnath,Gujarat,2012,10,8,22,0,1,Cloudy,25366
+Somnath,Gujarat,2012,10,8,23,0,1,Cloudy,21958
+Somnath,Gujarat,2012,10,9,0,0,1,Heavy Rain,16447
+Somnath,Gujarat,2012,10,9,1,0,1,Cloudy,23158
+Somnath,Gujarat,2012,10,9,2,0,1,Light Rain,25005
+Somnath,Gujarat,2012,10,9,3,0,1,Sunny,17939
+Somnath,Gujarat,2012,10,9,4,0,1,Cloudy,15863
+Somnath,Gujarat,2012,10,9,5,0,1,Light Rain,24572
+Somnath,Gujarat,2012,10,9,6,0,1,Humid,31095
+Somnath,Gujarat,2012,10,9,7,0,1,Cloudy,14716
+Somnath,Gujarat,2012,10,9,8,0,1,Heavy Rain,29052
+Somnath,Gujarat,2012,10,9,9,0,1,Heavy Rain,9553
+Somnath,Gujarat,2012,10,9,10,0,1,Heavy Rain,23011
+Somnath,Gujarat,2012,10,9,11,0,1,Cloudy,28970
+Somnath,Gujarat,2012,10,9,12,0,1,Sunny,11438
+Somnath,Gujarat,2012,10,9,13,0,1,Cloudy,14486
+Somnath,Gujarat,2012,10,9,14,0,1,Light Rain,21064
+Somnath,Gujarat,2012,10,9,15,0,1,Light Rain,20712
+Somnath,Gujarat,2012,10,9,16,0,1,Heavy Rain,50867
+Somnath,Gujarat,2012,10,9,17,0,1,Sunny,13974
+Somnath,Gujarat,2012,10,9,18,0,1,Humid,54818
+Somnath,Gujarat,2012,10,9,19,0,1,Light Rain,58741
+Somnath,Gujarat,2012,10,9,20,0,1,Light Rain,36353
+Somnath,Gujarat,2012,10,9,21,0,1,Light Rain,35383
+Somnath,Gujarat,2012,10,9,22,0,1,Light Rain,30373
+Somnath,Gujarat,2012,10,9,23,0,1,Sunny,58976
+Somnath,Gujarat,2013,10,1,0,0,1,Light Rain,26522
+Somnath,Gujarat,2013,10,1,1,0,1,Humid,14443
+Somnath,Gujarat,2013,10,1,2,0,1,Cloudy,18733
+Somnath,Gujarat,2013,10,1,3,0,1,Cloudy,28949
+Somnath,Gujarat,2013,10,1,4,0,1,Heavy Rain,10077
+Somnath,Gujarat,2013,10,1,5,0,1,Sunny,22456
+Somnath,Gujarat,2013,10,1,6,0,1,Humid,23478
+Somnath,Gujarat,2013,10,1,7,0,1,Humid,31084
+Somnath,Gujarat,2013,10,1,8,0,1,Light Rain,19708
+Somnath,Gujarat,2013,10,1,9,0,1,Cloudy,26122
+Somnath,Gujarat,2013,10,1,10,0,1,Humid,19629
+Somnath,Gujarat,2013,10,1,11,0,1,Humid,22256
+Somnath,Gujarat,2013,10,1,12,0,1,Cloudy,25781
+Somnath,Gujarat,2013,10,1,13,0,1,Heavy Rain,19107
+Somnath,Gujarat,2013,10,1,14,0,1,Heavy Rain,24251
+Somnath,Gujarat,2013,10,1,15,0,1,Humid,44084
+Somnath,Gujarat,2013,10,1,16,0,1,Heavy Rain,34406
+Somnath,Gujarat,2013,10,1,17,0,1,Sunny,9975
+Somnath,Gujarat,2013,10,1,18,0,1,Sunny,60760
+Somnath,Gujarat,2013,10,1,19,0,1,Heavy Rain,34556
+Somnath,Gujarat,2013,10,1,20,0,1,Cloudy,69753
+Somnath,Gujarat,2013,10,1,21,0,1,Cloudy,37597
+Somnath,Gujarat,2013,10,1,22,0,1,Humid,33562
+Somnath,Gujarat,2013,10,1,23,0,1,Heavy Rain,56723
+Somnath,Gujarat,2013,10,2,0,0,1,Humid,4601
+Somnath,Gujarat,2013,10,2,1,0,1,Heavy Rain,5829
+Somnath,Gujarat,2013,10,2,2,0,1,Humid,9241
+Somnath,Gujarat,2013,10,2,3,0,1,Cloudy,7465
+Somnath,Gujarat,2013,10,2,4,0,1,Sunny,9661
+Somnath,Gujarat,2013,10,2,5,0,1,Light Rain,9078
+Somnath,Gujarat,2013,10,2,6,0,1,Humid,7366
+Somnath,Gujarat,2013,10,2,7,0,1,Humid,10094
+Somnath,Gujarat,2013,10,2,8,0,1,Cloudy,10601
+Somnath,Gujarat,2013,10,2,9,0,1,Heavy Rain,10392
+Somnath,Gujarat,2013,10,2,10,0,1,Heavy Rain,8633
+Somnath,Gujarat,2013,10,2,11,0,1,Humid,11667
+Somnath,Gujarat,2013,10,2,12,0,1,Light Rain,17668
+Somnath,Gujarat,2013,10,2,13,0,1,Sunny,13714
+Somnath,Gujarat,2013,10,2,14,0,1,Sunny,12794
+Somnath,Gujarat,2013,10,2,15,0,1,Light Rain,9689
+Somnath,Gujarat,2013,10,2,16,0,1,Humid,18185
+Somnath,Gujarat,2013,10,2,17,0,1,Cloudy,10697
+Somnath,Gujarat,2013,10,2,18,0,1,Heavy Rain,30695
+Somnath,Gujarat,2013,10,2,19,0,1,Cloudy,19495
+Somnath,Gujarat,2013,10,2,20,0,1,Humid,13904
+Somnath,Gujarat,2013,10,2,21,0,1,Light Rain,25184
+Somnath,Gujarat,2013,10,2,22,0,1,Humid,16189
+Somnath,Gujarat,2013,10,2,23,0,1,Cloudy,21388
+Somnath,Gujarat,2013,10,3,0,0,1,Sunny,10253
+Somnath,Gujarat,2013,10,3,1,0,1,Heavy Rain,10483
+Somnath,Gujarat,2013,10,3,2,0,1,Cloudy,5033
+Somnath,Gujarat,2013,10,3,3,0,1,Humid,8941
+Somnath,Gujarat,2013,10,3,4,0,1,Light Rain,10295
+Somnath,Gujarat,2013,10,3,5,0,1,Sunny,6425
+Somnath,Gujarat,2013,10,3,6,0,1,Sunny,6297
+Somnath,Gujarat,2013,10,3,7,0,1,Cloudy,6015
+Somnath,Gujarat,2013,10,3,8,0,1,Heavy Rain,7305
+Somnath,Gujarat,2013,10,3,9,0,1,Light Rain,11266
+Somnath,Gujarat,2013,10,3,10,0,1,Sunny,5273
+Somnath,Gujarat,2013,10,3,11,0,1,Humid,15070
+Somnath,Gujarat,2013,10,3,12,0,1,Heavy Rain,15027
+Somnath,Gujarat,2013,10,3,13,0,1,Heavy Rain,16674
+Somnath,Gujarat,2013,10,3,14,0,1,Light Rain,11324
+Somnath,Gujarat,2013,10,3,15,0,1,Sunny,19455
+Somnath,Gujarat,2013,10,3,16,0,1,Light Rain,18736
+Somnath,Gujarat,2013,10,3,17,0,1,Cloudy,5166
+Somnath,Gujarat,2013,10,3,18,0,1,Sunny,17815
+Somnath,Gujarat,2013,10,3,19,0,1,Light Rain,28727
+Somnath,Gujarat,2013,10,3,20,0,1,Cloudy,22765
+Somnath,Gujarat,2013,10,3,21,0,1,Heavy Rain,16601
+Somnath,Gujarat,2013,10,3,22,0,1,Cloudy,31670
+Somnath,Gujarat,2013,10,3,23,0,1,Cloudy,13127
+Somnath,Gujarat,2013,10,4,0,0,1,Sunny,9807
+Somnath,Gujarat,2013,10,4,1,0,1,Sunny,4591
+Somnath,Gujarat,2013,10,4,2,0,1,Sunny,9965
+Somnath,Gujarat,2013,10,4,3,0,1,Sunny,5126
+Somnath,Gujarat,2013,10,4,4,0,1,Cloudy,4241
+Somnath,Gujarat,2013,10,4,5,0,1,Light Rain,7164
+Somnath,Gujarat,2013,10,4,6,0,1,Sunny,4732
+Somnath,Gujarat,2013,10,4,7,0,1,Cloudy,4071
+Somnath,Gujarat,2013,10,4,8,0,1,Cloudy,4192
+Somnath,Gujarat,2013,10,4,9,0,1,Humid,4721
+Somnath,Gujarat,2013,10,4,10,0,1,Light Rain,9899
+Somnath,Gujarat,2013,10,4,11,0,1,Light Rain,10651
+Somnath,Gujarat,2013,10,4,12,0,1,Cloudy,17046
+Somnath,Gujarat,2013,10,4,13,0,1,Sunny,9945
+Somnath,Gujarat,2013,10,4,14,0,1,Cloudy,14564
+Somnath,Gujarat,2013,10,4,15,0,1,Humid,14822
+Somnath,Gujarat,2013,10,4,16,0,1,Cloudy,12354
+Somnath,Gujarat,2013,10,4,17,0,1,Sunny,8522
+Somnath,Gujarat,2013,10,4,18,0,1,Light Rain,12120
+Somnath,Gujarat,2013,10,4,19,0,1,Heavy Rain,16886
+Somnath,Gujarat,2013,10,4,20,0,1,Light Rain,9368
+Somnath,Gujarat,2013,10,4,21,0,1,Light Rain,21481
+Somnath,Gujarat,2013,10,4,22,0,1,Cloudy,22470
+Somnath,Gujarat,2013,10,4,23,0,1,Sunny,19407
+Somnath,Gujarat,2013,10,5,0,1,1,Light Rain,17091
+Somnath,Gujarat,2013,10,5,1,1,1,Heavy Rain,15685
+Somnath,Gujarat,2013,10,5,2,1,1,Sunny,13029
+Somnath,Gujarat,2013,10,5,3,1,1,Heavy Rain,26381
+Somnath,Gujarat,2013,10,5,4,1,1,Sunny,10105
+Somnath,Gujarat,2013,10,5,5,1,1,Humid,20604
+Somnath,Gujarat,2013,10,5,6,1,1,Light Rain,17899
+Somnath,Gujarat,2013,10,5,7,1,1,Humid,18237
+Somnath,Gujarat,2013,10,5,8,1,1,Heavy Rain,20720
+Somnath,Gujarat,2013,10,5,9,1,1,Sunny,19337
+Somnath,Gujarat,2013,10,5,10,1,1,Sunny,21316
+Somnath,Gujarat,2013,10,5,11,1,1,Humid,18893
+Somnath,Gujarat,2013,10,5,12,1,1,Humid,18573
+Somnath,Gujarat,2013,10,5,13,1,1,Heavy Rain,36165
+Somnath,Gujarat,2013,10,5,14,1,1,Light Rain,35030
+Somnath,Gujarat,2013,10,5,15,1,1,Heavy Rain,42546
+Somnath,Gujarat,2013,10,5,16,1,1,Heavy Rain,14612
+Somnath,Gujarat,2013,10,5,17,1,1,Sunny,14836
+Somnath,Gujarat,2013,10,5,18,1,1,Sunny,59825
+Somnath,Gujarat,2013,10,5,19,1,1,Light Rain,55779
+Somnath,Gujarat,2013,10,5,20,1,1,Heavy Rain,53938
+Somnath,Gujarat,2013,10,5,21,1,1,Sunny,55751
+Somnath,Gujarat,2013,10,5,22,1,1,Light Rain,72407
+Somnath,Gujarat,2013,10,5,23,1,1,Humid,55494
+Somnath,Gujarat,2013,10,6,0,1,1,Cloudy,10904
+Somnath,Gujarat,2013,10,6,1,1,1,Sunny,9885
+Somnath,Gujarat,2013,10,6,2,1,1,Humid,5390
+Somnath,Gujarat,2013,10,6,3,1,1,Humid,8994
+Somnath,Gujarat,2013,10,6,4,1,1,Cloudy,5851
+Somnath,Gujarat,2013,10,6,5,1,1,Light Rain,5888
+Somnath,Gujarat,2013,10,6,6,1,1,Heavy Rain,8050
+Somnath,Gujarat,2013,10,6,7,1,1,Sunny,5337
+Somnath,Gujarat,2013,10,6,8,1,1,Sunny,7354
+Somnath,Gujarat,2013,10,6,9,1,1,Humid,9466
+Somnath,Gujarat,2013,10,6,10,1,1,Heavy Rain,9315
+Somnath,Gujarat,2013,10,6,11,1,1,Sunny,6258
+Somnath,Gujarat,2013,10,6,12,1,1,Heavy Rain,11187
+Somnath,Gujarat,2013,10,6,13,1,1,Humid,14321
+Somnath,Gujarat,2013,10,6,14,1,1,Light Rain,17270
+Somnath,Gujarat,2013,10,6,15,1,1,Heavy Rain,20532
+Somnath,Gujarat,2013,10,6,16,1,1,Light Rain,19722
+Somnath,Gujarat,2013,10,6,17,1,1,Sunny,9375
+Somnath,Gujarat,2013,10,6,18,1,1,Heavy Rain,8879
+Somnath,Gujarat,2013,10,6,19,1,1,Sunny,15444
+Somnath,Gujarat,2013,10,6,20,1,1,Light Rain,11628
+Somnath,Gujarat,2013,10,6,21,1,1,Humid,23070
+Somnath,Gujarat,2013,10,6,22,1,1,Humid,31677
+Somnath,Gujarat,2013,10,6,23,1,1,Sunny,15610
+Somnath,Gujarat,2013,10,7,0,0,1,Humid,9537
+Somnath,Gujarat,2013,10,7,1,0,1,Cloudy,8728
+Somnath,Gujarat,2013,10,7,2,0,1,Humid,4496
+Somnath,Gujarat,2013,10,7,3,0,1,Heavy Rain,11533
+Somnath,Gujarat,2013,10,7,4,0,1,Cloudy,5214
+Somnath,Gujarat,2013,10,7,5,0,1,Light Rain,11922
+Somnath,Gujarat,2013,10,7,6,0,1,Heavy Rain,9765
+Somnath,Gujarat,2013,10,7,7,0,1,Light Rain,7363
+Somnath,Gujarat,2013,10,7,8,0,1,Cloudy,7009
+Somnath,Gujarat,2013,10,7,9,0,1,Cloudy,6583
+Somnath,Gujarat,2013,10,7,10,0,1,Humid,7973
+Somnath,Gujarat,2013,10,7,11,0,1,Heavy Rain,12018
+Somnath,Gujarat,2013,10,7,12,0,1,Sunny,13652
+Somnath,Gujarat,2013,10,7,13,0,1,Light Rain,17257
+Somnath,Gujarat,2013,10,7,14,0,1,Sunny,11809
+Somnath,Gujarat,2013,10,7,15,0,1,Humid,14014
+Somnath,Gujarat,2013,10,7,16,0,1,Cloudy,11810
+Somnath,Gujarat,2013,10,7,17,0,1,Heavy Rain,7902
+Somnath,Gujarat,2013,10,7,18,0,1,Heavy Rain,22675
+Somnath,Gujarat,2013,10,7,19,0,1,Cloudy,11084
+Somnath,Gujarat,2013,10,7,20,0,1,Light Rain,16794
+Somnath,Gujarat,2013,10,7,21,0,1,Sunny,12126
+Somnath,Gujarat,2013,10,7,22,0,1,Humid,14176
+Somnath,Gujarat,2013,10,7,23,0,1,Light Rain,18176
+Somnath,Gujarat,2013,10,8,0,0,1,Heavy Rain,10020
+Somnath,Gujarat,2013,10,8,1,0,1,Heavy Rain,6766
+Somnath,Gujarat,2013,10,8,2,0,1,Heavy Rain,8407
+Somnath,Gujarat,2013,10,8,3,0,1,Light Rain,7292
+Somnath,Gujarat,2013,10,8,4,0,1,Heavy Rain,10114
+Somnath,Gujarat,2013,10,8,5,0,1,Light Rain,6811
+Somnath,Gujarat,2013,10,8,6,0,1,Cloudy,8821
+Somnath,Gujarat,2013,10,8,7,0,1,Humid,8338
+Somnath,Gujarat,2013,10,8,8,0,1,Sunny,6907
+Somnath,Gujarat,2013,10,8,9,0,1,Light Rain,4565
+Somnath,Gujarat,2013,10,8,10,0,1,Heavy Rain,7470
+Somnath,Gujarat,2013,10,8,11,0,1,Cloudy,14151
+Somnath,Gujarat,2013,10,8,12,0,1,Heavy Rain,6794
+Somnath,Gujarat,2013,10,8,13,0,1,Humid,10635
+Somnath,Gujarat,2013,10,8,14,0,1,Sunny,10877
+Somnath,Gujarat,2013,10,8,15,0,1,Humid,12735
+Somnath,Gujarat,2013,10,8,16,0,1,Sunny,7249
+Somnath,Gujarat,2013,10,8,17,0,1,Sunny,5466
+Somnath,Gujarat,2013,10,8,18,0,1,Heavy Rain,20189
+Somnath,Gujarat,2013,10,8,19,0,1,Sunny,12086
+Somnath,Gujarat,2013,10,8,20,0,1,Humid,23836
+Somnath,Gujarat,2013,10,8,21,0,1,Cloudy,20602
+Somnath,Gujarat,2013,10,8,22,0,1,Cloudy,28211
+Somnath,Gujarat,2013,10,8,23,0,1,Cloudy,16595
+Somnath,Gujarat,2013,10,9,0,0,1,Heavy Rain,22106
+Somnath,Gujarat,2013,10,9,1,0,1,Heavy Rain,18817
+Somnath,Gujarat,2013,10,9,2,0,1,Light Rain,28921
+Somnath,Gujarat,2013,10,9,3,0,1,Heavy Rain,17841
+Somnath,Gujarat,2013,10,9,4,0,1,Cloudy,9312
+Somnath,Gujarat,2013,10,9,5,0,1,Cloudy,21946
+Somnath,Gujarat,2013,10,9,6,0,1,Humid,28720
+Somnath,Gujarat,2013,10,9,7,0,1,Light Rain,25745
+Somnath,Gujarat,2013,10,9,8,0,1,Heavy Rain,16273
+Somnath,Gujarat,2013,10,9,9,0,1,Heavy Rain,9715
+Somnath,Gujarat,2013,10,9,10,0,1,Heavy Rain,24013
+Somnath,Gujarat,2013,10,9,11,0,1,Light Rain,34623
+Somnath,Gujarat,2013,10,9,12,0,1,Sunny,26743
+Somnath,Gujarat,2013,10,9,13,0,1,Light Rain,19783
+Somnath,Gujarat,2013,10,9,14,0,1,Humid,47689
+Somnath,Gujarat,2013,10,9,15,0,1,Humid,21124
+Somnath,Gujarat,2013,10,9,16,0,1,Cloudy,36439
+Somnath,Gujarat,2013,10,9,17,0,1,Sunny,22793
+Somnath,Gujarat,2013,10,9,18,0,1,Sunny,21426
+Somnath,Gujarat,2013,10,9,19,0,1,Heavy Rain,45497
+Somnath,Gujarat,2013,10,9,20,0,1,Cloudy,77255
+Somnath,Gujarat,2013,10,9,21,0,1,Sunny,21339
+Somnath,Gujarat,2013,10,9,22,0,1,Light Rain,55132
+Somnath,Gujarat,2013,10,9,23,0,1,Sunny,52550
+Somnath,Gujarat,2014,10,1,0,0,1,Cloudy,10831
+Somnath,Gujarat,2014,10,1,1,0,1,Cloudy,13329
+Somnath,Gujarat,2014,10,1,2,0,1,Heavy Rain,19992
+Somnath,Gujarat,2014,10,1,3,0,1,Light Rain,17181
+Somnath,Gujarat,2014,10,1,4,0,1,Cloudy,15930
+Somnath,Gujarat,2014,10,1,5,0,1,Light Rain,22545
+Somnath,Gujarat,2014,10,1,6,0,1,Cloudy,23285
+Somnath,Gujarat,2014,10,1,7,0,1,Cloudy,14458
+Somnath,Gujarat,2014,10,1,8,0,1,Light Rain,21144
+Somnath,Gujarat,2014,10,1,9,0,1,Light Rain,18634
+Somnath,Gujarat,2014,10,1,10,0,1,Sunny,26082
+Somnath,Gujarat,2014,10,1,11,0,1,Cloudy,29222
+Somnath,Gujarat,2014,10,1,12,0,1,Cloudy,34247
+Somnath,Gujarat,2014,10,1,13,0,1,Light Rain,32980
+Somnath,Gujarat,2014,10,1,14,0,1,Sunny,39733
+Somnath,Gujarat,2014,10,1,15,0,1,Humid,19855
+Somnath,Gujarat,2014,10,1,16,0,1,Humid,22205
+Somnath,Gujarat,2014,10,1,17,0,1,Heavy Rain,19701
+Somnath,Gujarat,2014,10,1,18,0,1,Sunny,43535
+Somnath,Gujarat,2014,10,1,19,0,1,Cloudy,43808
+Somnath,Gujarat,2014,10,1,20,0,1,Sunny,24187
+Somnath,Gujarat,2014,10,1,21,0,1,Light Rain,46498
+Somnath,Gujarat,2014,10,1,22,0,1,Heavy Rain,35216
+Somnath,Gujarat,2014,10,1,23,0,1,Heavy Rain,52791
+Somnath,Gujarat,2014,10,2,0,0,1,Heavy Rain,5231
+Somnath,Gujarat,2014,10,2,1,0,1,Sunny,4157
+Somnath,Gujarat,2014,10,2,2,0,1,Sunny,5961
+Somnath,Gujarat,2014,10,2,3,0,1,Sunny,10870
+Somnath,Gujarat,2014,10,2,4,0,1,Humid,9316
+Somnath,Gujarat,2014,10,2,5,0,1,Heavy Rain,9812
+Somnath,Gujarat,2014,10,2,6,0,1,Cloudy,8073
+Somnath,Gujarat,2014,10,2,7,0,1,Sunny,4619
+Somnath,Gujarat,2014,10,2,8,0,1,Sunny,5930
+Somnath,Gujarat,2014,10,2,9,0,1,Humid,5738
+Somnath,Gujarat,2014,10,2,10,0,1,Sunny,6944
+Somnath,Gujarat,2014,10,2,11,0,1,Sunny,11177
+Somnath,Gujarat,2014,10,2,12,0,1,Cloudy,8917
+Somnath,Gujarat,2014,10,2,13,0,1,Cloudy,11094
+Somnath,Gujarat,2014,10,2,14,0,1,Sunny,12312
+Somnath,Gujarat,2014,10,2,15,0,1,Cloudy,16681
+Somnath,Gujarat,2014,10,2,16,0,1,Light Rain,10306
+Somnath,Gujarat,2014,10,2,17,0,1,Heavy Rain,8170
+Somnath,Gujarat,2014,10,2,18,0,1,Cloudy,8855
+Somnath,Gujarat,2014,10,2,19,0,1,Humid,20065
+Somnath,Gujarat,2014,10,2,20,0,1,Sunny,12524
+Somnath,Gujarat,2014,10,2,21,0,1,Heavy Rain,13570
+Somnath,Gujarat,2014,10,2,22,0,1,Sunny,23412
+Somnath,Gujarat,2014,10,2,23,0,1,Cloudy,13799
+Somnath,Gujarat,2014,10,3,0,0,1,Cloudy,7783
+Somnath,Gujarat,2014,10,3,1,0,1,Humid,11416
+Somnath,Gujarat,2014,10,3,2,0,1,Humid,4872
+Somnath,Gujarat,2014,10,3,3,0,1,Sunny,4176
+Somnath,Gujarat,2014,10,3,4,0,1,Cloudy,6398
+Somnath,Gujarat,2014,10,3,5,0,1,Heavy Rain,8647
+Somnath,Gujarat,2014,10,3,6,0,1,Sunny,9843
+Somnath,Gujarat,2014,10,3,7,0,1,Sunny,4105
+Somnath,Gujarat,2014,10,3,8,0,1,Heavy Rain,11231
+Somnath,Gujarat,2014,10,3,9,0,1,Sunny,10632
+Somnath,Gujarat,2014,10,3,10,0,1,Sunny,7773
+Somnath,Gujarat,2014,10,3,11,0,1,Heavy Rain,14007
+Somnath,Gujarat,2014,10,3,12,0,1,Cloudy,13936
+Somnath,Gujarat,2014,10,3,13,0,1,Sunny,19719
+Somnath,Gujarat,2014,10,3,14,0,1,Humid,12740
+Somnath,Gujarat,2014,10,3,15,0,1,Humid,14843
+Somnath,Gujarat,2014,10,3,16,0,1,Light Rain,7925
+Somnath,Gujarat,2014,10,3,17,0,1,Light Rain,11896
+Somnath,Gujarat,2014,10,3,18,0,1,Light Rain,30845
+Somnath,Gujarat,2014,10,3,19,0,1,Cloudy,21043
+Somnath,Gujarat,2014,10,3,20,0,1,Light Rain,23716
+Somnath,Gujarat,2014,10,3,21,0,1,Heavy Rain,19736
+Somnath,Gujarat,2014,10,3,22,0,1,Heavy Rain,16959
+Somnath,Gujarat,2014,10,3,23,0,1,Humid,24962
+Somnath,Gujarat,2014,10,4,0,1,1,Cloudy,10392
+Somnath,Gujarat,2014,10,4,1,1,1,Sunny,8579
+Somnath,Gujarat,2014,10,4,2,1,1,Sunny,5688
+Somnath,Gujarat,2014,10,4,3,1,1,Sunny,5323
+Somnath,Gujarat,2014,10,4,4,1,1,Light Rain,8802
+Somnath,Gujarat,2014,10,4,5,1,1,Light Rain,6781
+Somnath,Gujarat,2014,10,4,6,1,1,Heavy Rain,11919
+Somnath,Gujarat,2014,10,4,7,1,1,Heavy Rain,4734
+Somnath,Gujarat,2014,10,4,8,1,1,Heavy Rain,9132
+Somnath,Gujarat,2014,10,4,9,1,1,Light Rain,11025
+Somnath,Gujarat,2014,10,4,10,1,1,Light Rain,8525
+Somnath,Gujarat,2014,10,4,11,1,1,Heavy Rain,13300
+Somnath,Gujarat,2014,10,4,12,1,1,Cloudy,9440
+Somnath,Gujarat,2014,10,4,13,1,1,Humid,12200
+Somnath,Gujarat,2014,10,4,14,1,1,Cloudy,17926
+Somnath,Gujarat,2014,10,4,15,1,1,Cloudy,14699
+Somnath,Gujarat,2014,10,4,16,1,1,Humid,12715
+Somnath,Gujarat,2014,10,4,17,1,1,Heavy Rain,10653
+Somnath,Gujarat,2014,10,4,18,1,1,Sunny,24752
+Somnath,Gujarat,2014,10,4,19,1,1,Sunny,30238
+Somnath,Gujarat,2014,10,4,20,1,1,Cloudy,27972
+Somnath,Gujarat,2014,10,4,21,1,1,Sunny,11939
+Somnath,Gujarat,2014,10,4,22,1,1,Heavy Rain,28363
+Somnath,Gujarat,2014,10,4,23,1,1,Light Rain,19348
+Somnath,Gujarat,2014,10,5,0,1,1,Sunny,9688
+Somnath,Gujarat,2014,10,5,1,1,1,Humid,15086
+Somnath,Gujarat,2014,10,5,2,1,1,Humid,20598
+Somnath,Gujarat,2014,10,5,3,1,1,Light Rain,14276
+Somnath,Gujarat,2014,10,5,4,1,1,Cloudy,12359
+Somnath,Gujarat,2014,10,5,5,1,1,Cloudy,17215
+Somnath,Gujarat,2014,10,5,6,1,1,Humid,12045
+Somnath,Gujarat,2014,10,5,7,1,1,Light Rain,15842
+Somnath,Gujarat,2014,10,5,8,1,1,Heavy Rain,18453
+Somnath,Gujarat,2014,10,5,9,1,1,Light Rain,14629
+Somnath,Gujarat,2014,10,5,10,1,1,Cloudy,22340
+Somnath,Gujarat,2014,10,5,11,1,1,Cloudy,37217
+Somnath,Gujarat,2014,10,5,12,1,1,Sunny,46435
+Somnath,Gujarat,2014,10,5,13,1,1,Sunny,13966
+Somnath,Gujarat,2014,10,5,14,1,1,Sunny,37196
+Somnath,Gujarat,2014,10,5,15,1,1,Heavy Rain,31812
+Somnath,Gujarat,2014,10,5,16,1,1,Sunny,30655
+Somnath,Gujarat,2014,10,5,17,1,1,Light Rain,23385
+Somnath,Gujarat,2014,10,5,18,1,1,Cloudy,83960
+Somnath,Gujarat,2014,10,5,19,1,1,Heavy Rain,74058
+Somnath,Gujarat,2014,10,5,20,1,1,Heavy Rain,34482
+Somnath,Gujarat,2014,10,5,21,1,1,Humid,33679
+Somnath,Gujarat,2014,10,5,22,1,1,Heavy Rain,53625
+Somnath,Gujarat,2014,10,5,23,1,1,Sunny,68839
+Somnath,Gujarat,2014,10,6,0,0,1,Sunny,4209
+Somnath,Gujarat,2014,10,6,1,0,1,Light Rain,7855
+Somnath,Gujarat,2014,10,6,2,0,1,Heavy Rain,9090
+Somnath,Gujarat,2014,10,6,3,0,1,Sunny,9419
+Somnath,Gujarat,2014,10,6,4,0,1,Sunny,7310
+Somnath,Gujarat,2014,10,6,5,0,1,Light Rain,9690
+Somnath,Gujarat,2014,10,6,6,0,1,Humid,9242
+Somnath,Gujarat,2014,10,6,7,0,1,Cloudy,10513
+Somnath,Gujarat,2014,10,6,8,0,1,Humid,5995
+Somnath,Gujarat,2014,10,6,9,0,1,Heavy Rain,5147
+Somnath,Gujarat,2014,10,6,10,0,1,Humid,6573
+Somnath,Gujarat,2014,10,6,11,0,1,Humid,10776
+Somnath,Gujarat,2014,10,6,12,0,1,Light Rain,7573
+Somnath,Gujarat,2014,10,6,13,0,1,Cloudy,10322
+Somnath,Gujarat,2014,10,6,14,0,1,Sunny,10020
+Somnath,Gujarat,2014,10,6,15,0,1,Sunny,11976
+Somnath,Gujarat,2014,10,6,16,0,1,Heavy Rain,14621
+Somnath,Gujarat,2014,10,6,17,0,1,Sunny,7696
+Somnath,Gujarat,2014,10,6,18,0,1,Humid,12228
+Somnath,Gujarat,2014,10,6,19,0,1,Humid,20007
+Somnath,Gujarat,2014,10,6,20,0,1,Cloudy,15093
+Somnath,Gujarat,2014,10,6,21,0,1,Light Rain,12559
+Somnath,Gujarat,2014,10,6,22,0,1,Light Rain,23670
+Somnath,Gujarat,2014,10,6,23,0,1,Heavy Rain,20242
+Somnath,Gujarat,2014,10,7,0,0,1,Humid,8238
+Somnath,Gujarat,2014,10,7,1,0,1,Cloudy,6960
+Somnath,Gujarat,2014,10,7,2,0,1,Sunny,7360
+Somnath,Gujarat,2014,10,7,3,0,1,Sunny,5882
+Somnath,Gujarat,2014,10,7,4,0,1,Sunny,6924
+Somnath,Gujarat,2014,10,7,5,0,1,Sunny,11616
+Somnath,Gujarat,2014,10,7,6,0,1,Sunny,8453
+Somnath,Gujarat,2014,10,7,7,0,1,Humid,8180
+Somnath,Gujarat,2014,10,7,8,0,1,Heavy Rain,10840
+Somnath,Gujarat,2014,10,7,9,0,1,Light Rain,9700
+Somnath,Gujarat,2014,10,7,10,0,1,Light Rain,5549
+Somnath,Gujarat,2014,10,7,11,0,1,Cloudy,7019
+Somnath,Gujarat,2014,10,7,12,0,1,Heavy Rain,6767
+Somnath,Gujarat,2014,10,7,13,0,1,Heavy Rain,18397
+Somnath,Gujarat,2014,10,7,14,0,1,Heavy Rain,14337
+Somnath,Gujarat,2014,10,7,15,0,1,Sunny,16040
+Somnath,Gujarat,2014,10,7,16,0,1,Sunny,5677
+Somnath,Gujarat,2014,10,7,17,0,1,Heavy Rain,11609
+Somnath,Gujarat,2014,10,7,18,0,1,Humid,28429
+Somnath,Gujarat,2014,10,7,19,0,1,Light Rain,34558
+Somnath,Gujarat,2014,10,7,20,0,1,Humid,19903
+Somnath,Gujarat,2014,10,7,21,0,1,Heavy Rain,10911
+Somnath,Gujarat,2014,10,7,22,0,1,Humid,12926
+Somnath,Gujarat,2014,10,7,23,0,1,Humid,23856
+Somnath,Gujarat,2014,10,8,0,0,1,Heavy Rain,11752
+Somnath,Gujarat,2014,10,8,1,0,1,Light Rain,10256
+Somnath,Gujarat,2014,10,8,2,0,1,Sunny,5764
+Somnath,Gujarat,2014,10,8,3,0,1,Humid,10816
+Somnath,Gujarat,2014,10,8,4,0,1,Humid,4992
+Somnath,Gujarat,2014,10,8,5,0,1,Heavy Rain,8077
+Somnath,Gujarat,2014,10,8,6,0,1,Sunny,4121
+Somnath,Gujarat,2014,10,8,7,0,1,Heavy Rain,4001
+Somnath,Gujarat,2014,10,8,8,0,1,Heavy Rain,8170
+Somnath,Gujarat,2014,10,8,9,0,1,Heavy Rain,8039
+Somnath,Gujarat,2014,10,8,10,0,1,Light Rain,7421
+Somnath,Gujarat,2014,10,8,11,0,1,Humid,11134
+Somnath,Gujarat,2014,10,8,12,0,1,Cloudy,11068
+Somnath,Gujarat,2014,10,8,13,0,1,Cloudy,9595
+Somnath,Gujarat,2014,10,8,14,0,1,Heavy Rain,7433
+Somnath,Gujarat,2014,10,8,15,0,1,Cloudy,7797
+Somnath,Gujarat,2014,10,8,16,0,1,Light Rain,8186
+Somnath,Gujarat,2014,10,8,17,0,1,Heavy Rain,5578
+Somnath,Gujarat,2014,10,8,18,0,1,Cloudy,24663
+Somnath,Gujarat,2014,10,8,19,0,1,Light Rain,16609
+Somnath,Gujarat,2014,10,8,20,0,1,Heavy Rain,10504
+Somnath,Gujarat,2014,10,8,21,0,1,Cloudy,25671
+Somnath,Gujarat,2014,10,8,22,0,1,Humid,27399
+Somnath,Gujarat,2014,10,8,23,0,1,Sunny,18423
+Somnath,Gujarat,2014,10,9,0,0,1,Light Rain,19397
+Somnath,Gujarat,2014,10,9,1,0,1,Humid,17852
+Somnath,Gujarat,2014,10,9,2,0,1,Light Rain,17412
+Somnath,Gujarat,2014,10,9,3,0,1,Humid,20310
+Somnath,Gujarat,2014,10,9,4,0,1,Cloudy,24136
+Somnath,Gujarat,2014,10,9,5,0,1,Light Rain,24164
+Somnath,Gujarat,2014,10,9,6,0,1,Light Rain,12151
+Somnath,Gujarat,2014,10,9,7,0,1,Humid,21577
+Somnath,Gujarat,2014,10,9,8,0,1,Humid,18069
+Somnath,Gujarat,2014,10,9,9,0,1,Humid,29171
+Somnath,Gujarat,2014,10,9,10,0,1,Cloudy,18516
+Somnath,Gujarat,2014,10,9,11,0,1,Cloudy,38675
+Somnath,Gujarat,2014,10,9,12,0,1,Humid,32461
+Somnath,Gujarat,2014,10,9,13,0,1,Sunny,49486
+Somnath,Gujarat,2014,10,9,14,0,1,Cloudy,36851
+Somnath,Gujarat,2014,10,9,15,0,1,Heavy Rain,31222
+Somnath,Gujarat,2014,10,9,16,0,1,Heavy Rain,44413
+Somnath,Gujarat,2014,10,9,17,0,1,Sunny,31945
+Somnath,Gujarat,2014,10,9,18,0,1,Light Rain,71191
+Somnath,Gujarat,2014,10,9,19,0,1,Heavy Rain,40610
+Somnath,Gujarat,2014,10,9,20,0,1,Humid,63843
+Somnath,Gujarat,2014,10,9,21,0,1,Heavy Rain,37768
+Somnath,Gujarat,2014,10,9,22,0,1,Cloudy,56275
+Somnath,Gujarat,2014,10,9,23,0,1,Light Rain,25031
+Somnath,Gujarat,2015,10,1,0,0,1,Humid,13966
+Somnath,Gujarat,2015,10,1,1,0,1,Cloudy,23947
+Somnath,Gujarat,2015,10,1,2,0,1,Heavy Rain,26101
+Somnath,Gujarat,2015,10,1,3,0,1,Cloudy,20444
+Somnath,Gujarat,2015,10,1,4,0,1,Light Rain,25822
+Somnath,Gujarat,2015,10,1,5,0,1,Heavy Rain,31718
+Somnath,Gujarat,2015,10,1,6,0,1,Sunny,9666
+Somnath,Gujarat,2015,10,1,7,0,1,Humid,25741
+Somnath,Gujarat,2015,10,1,8,0,1,Heavy Rain,11364
+Somnath,Gujarat,2015,10,1,9,0,1,Cloudy,19755
+Somnath,Gujarat,2015,10,1,10,0,1,Sunny,14984
+Somnath,Gujarat,2015,10,1,11,0,1,Humid,20563
+Somnath,Gujarat,2015,10,1,12,0,1,Sunny,22660
+Somnath,Gujarat,2015,10,1,13,0,1,Sunny,13347
+Somnath,Gujarat,2015,10,1,14,0,1,Heavy Rain,26305
+Somnath,Gujarat,2015,10,1,15,0,1,Cloudy,28484
+Somnath,Gujarat,2015,10,1,16,0,1,Humid,39886
+Somnath,Gujarat,2015,10,1,17,0,1,Sunny,21874
+Somnath,Gujarat,2015,10,1,18,0,1,Light Rain,72095
+Somnath,Gujarat,2015,10,1,19,0,1,Sunny,50801
+Somnath,Gujarat,2015,10,1,20,0,1,Light Rain,58928
+Somnath,Gujarat,2015,10,1,21,0,1,Humid,35300
+Somnath,Gujarat,2015,10,1,22,0,1,Cloudy,32358
+Somnath,Gujarat,2015,10,1,23,0,1,Heavy Rain,78863
+Somnath,Gujarat,2015,10,2,0,0,1,Cloudy,9795
+Somnath,Gujarat,2015,10,2,1,0,1,Humid,8322
+Somnath,Gujarat,2015,10,2,2,0,1,Light Rain,4074
+Somnath,Gujarat,2015,10,2,3,0,1,Cloudy,9202
+Somnath,Gujarat,2015,10,2,4,0,1,Sunny,5212
+Somnath,Gujarat,2015,10,2,5,0,1,Humid,9427
+Somnath,Gujarat,2015,10,2,6,0,1,Cloudy,8929
+Somnath,Gujarat,2015,10,2,7,0,1,Humid,5248
+Somnath,Gujarat,2015,10,2,8,0,1,Humid,11885
+Somnath,Gujarat,2015,10,2,9,0,1,Light Rain,4083
+Somnath,Gujarat,2015,10,2,10,0,1,Heavy Rain,10272
+Somnath,Gujarat,2015,10,2,11,0,1,Heavy Rain,8159
+Somnath,Gujarat,2015,10,2,12,0,1,Cloudy,6733
+Somnath,Gujarat,2015,10,2,13,0,1,Light Rain,6915
+Somnath,Gujarat,2015,10,2,14,0,1,Heavy Rain,13547
+Somnath,Gujarat,2015,10,2,15,0,1,Light Rain,18837
+Somnath,Gujarat,2015,10,2,16,0,1,Sunny,16188
+Somnath,Gujarat,2015,10,2,17,0,1,Light Rain,10744
+Somnath,Gujarat,2015,10,2,18,0,1,Heavy Rain,25216
+Somnath,Gujarat,2015,10,2,19,0,1,Humid,23185
+Somnath,Gujarat,2015,10,2,20,0,1,Cloudy,16547
+Somnath,Gujarat,2015,10,2,21,0,1,Cloudy,19293
+Somnath,Gujarat,2015,10,2,22,0,1,Heavy Rain,23929
+Somnath,Gujarat,2015,10,2,23,0,1,Light Rain,26746
+Somnath,Gujarat,2015,10,3,0,1,1,Heavy Rain,4711
+Somnath,Gujarat,2015,10,3,1,1,1,Light Rain,5919
+Somnath,Gujarat,2015,10,3,2,1,1,Light Rain,9756
+Somnath,Gujarat,2015,10,3,3,1,1,Sunny,6661
+Somnath,Gujarat,2015,10,3,4,1,1,Cloudy,4538
+Somnath,Gujarat,2015,10,3,5,1,1,Humid,4260
+Somnath,Gujarat,2015,10,3,6,1,1,Cloudy,5517
+Somnath,Gujarat,2015,10,3,7,1,1,Sunny,9425
+Somnath,Gujarat,2015,10,3,8,1,1,Heavy Rain,8802
+Somnath,Gujarat,2015,10,3,9,1,1,Humid,9429
+Somnath,Gujarat,2015,10,3,10,1,1,Humid,10237
+Somnath,Gujarat,2015,10,3,11,1,1,Sunny,13280
+Somnath,Gujarat,2015,10,3,12,1,1,Light Rain,13457
+Somnath,Gujarat,2015,10,3,13,1,1,Humid,15658
+Somnath,Gujarat,2015,10,3,14,1,1,Sunny,12525
+Somnath,Gujarat,2015,10,3,15,1,1,Humid,9597
+Somnath,Gujarat,2015,10,3,16,1,1,Light Rain,5249
+Somnath,Gujarat,2015,10,3,17,1,1,Cloudy,10013
+Somnath,Gujarat,2015,10,3,18,1,1,Sunny,18994
+Somnath,Gujarat,2015,10,3,19,1,1,Heavy Rain,13922
+Somnath,Gujarat,2015,10,3,20,1,1,Heavy Rain,12852
+Somnath,Gujarat,2015,10,3,21,1,1,Light Rain,17927
+Somnath,Gujarat,2015,10,3,22,1,1,Light Rain,16525
+Somnath,Gujarat,2015,10,3,23,1,1,Sunny,28730
+Somnath,Gujarat,2015,10,4,0,1,1,Heavy Rain,4334
+Somnath,Gujarat,2015,10,4,1,1,1,Cloudy,11343
+Somnath,Gujarat,2015,10,4,2,1,1,Light Rain,4152
+Somnath,Gujarat,2015,10,4,3,1,1,Humid,6701
+Somnath,Gujarat,2015,10,4,4,1,1,Light Rain,6937
+Somnath,Gujarat,2015,10,4,5,1,1,Cloudy,8701
+Somnath,Gujarat,2015,10,4,6,1,1,Sunny,7883
+Somnath,Gujarat,2015,10,4,7,1,1,Cloudy,4829
+Somnath,Gujarat,2015,10,4,8,1,1,Sunny,10409
+Somnath,Gujarat,2015,10,4,9,1,1,Sunny,8234
+Somnath,Gujarat,2015,10,4,10,1,1,Light Rain,11013
+Somnath,Gujarat,2015,10,4,11,1,1,Light Rain,8401
+Somnath,Gujarat,2015,10,4,12,1,1,Cloudy,19468
+Somnath,Gujarat,2015,10,4,13,1,1,Light Rain,6402
+Somnath,Gujarat,2015,10,4,14,1,1,Light Rain,15571
+Somnath,Gujarat,2015,10,4,15,1,1,Humid,13341
+Somnath,Gujarat,2015,10,4,16,1,1,Sunny,5850
+Somnath,Gujarat,2015,10,4,17,1,1,Light Rain,6241
+Somnath,Gujarat,2015,10,4,18,1,1,Humid,28083
+Somnath,Gujarat,2015,10,4,19,1,1,Sunny,10095
+Somnath,Gujarat,2015,10,4,20,1,1,Sunny,16953
+Somnath,Gujarat,2015,10,4,21,1,1,Humid,11931
+Somnath,Gujarat,2015,10,4,22,1,1,Light Rain,15336
+Somnath,Gujarat,2015,10,4,23,1,1,Sunny,16317
+Somnath,Gujarat,2015,10,5,0,0,1,Sunny,20427
+Somnath,Gujarat,2015,10,5,1,0,1,Cloudy,10505
+Somnath,Gujarat,2015,10,5,2,0,1,Light Rain,17309
+Somnath,Gujarat,2015,10,5,3,0,1,Light Rain,24960
+Somnath,Gujarat,2015,10,5,4,0,1,Light Rain,12958
+Somnath,Gujarat,2015,10,5,5,0,1,Light Rain,26506
+Somnath,Gujarat,2015,10,5,6,0,1,Heavy Rain,13837
+Somnath,Gujarat,2015,10,5,7,0,1,Cloudy,14369
+Somnath,Gujarat,2015,10,5,8,0,1,Heavy Rain,17878
+Somnath,Gujarat,2015,10,5,9,0,1,Cloudy,24690
+Somnath,Gujarat,2015,10,5,10,0,1,Humid,14646
+Somnath,Gujarat,2015,10,5,11,0,1,Sunny,37825
+Somnath,Gujarat,2015,10,5,12,0,1,Cloudy,36567
+Somnath,Gujarat,2015,10,5,13,0,1,Humid,22874
+Somnath,Gujarat,2015,10,5,14,0,1,Humid,36901
+Somnath,Gujarat,2015,10,5,15,0,1,Sunny,30952
+Somnath,Gujarat,2015,10,5,16,0,1,Sunny,17698
+Somnath,Gujarat,2015,10,5,17,0,1,Humid,26181
+Somnath,Gujarat,2015,10,5,18,0,1,Sunny,43456
+Somnath,Gujarat,2015,10,5,19,0,1,Sunny,32260
+Somnath,Gujarat,2015,10,5,20,0,1,Sunny,73833
+Somnath,Gujarat,2015,10,5,21,0,1,Heavy Rain,51488
+Somnath,Gujarat,2015,10,5,22,0,1,Humid,29102
+Somnath,Gujarat,2015,10,5,23,0,1,Heavy Rain,25770
+Somnath,Gujarat,2015,10,6,0,0,1,Sunny,10469
+Somnath,Gujarat,2015,10,6,1,0,1,Heavy Rain,6823
+Somnath,Gujarat,2015,10,6,2,0,1,Cloudy,6714
+Somnath,Gujarat,2015,10,6,3,0,1,Cloudy,9552
+Somnath,Gujarat,2015,10,6,4,0,1,Sunny,6981
+Somnath,Gujarat,2015,10,6,5,0,1,Humid,7680
+Somnath,Gujarat,2015,10,6,6,0,1,Humid,6733
+Somnath,Gujarat,2015,10,6,7,0,1,Heavy Rain,10369
+Somnath,Gujarat,2015,10,6,8,0,1,Heavy Rain,10046
+Somnath,Gujarat,2015,10,6,9,0,1,Heavy Rain,10653
+Somnath,Gujarat,2015,10,6,10,0,1,Heavy Rain,7757
+Somnath,Gujarat,2015,10,6,11,0,1,Cloudy,5786
+Somnath,Gujarat,2015,10,6,12,0,1,Heavy Rain,9490
+Somnath,Gujarat,2015,10,6,13,0,1,Light Rain,12561
+Somnath,Gujarat,2015,10,6,14,0,1,Light Rain,11649
+Somnath,Gujarat,2015,10,6,15,0,1,Humid,12264
+Somnath,Gujarat,2015,10,6,16,0,1,Cloudy,12632
+Somnath,Gujarat,2015,10,6,17,0,1,Humid,9080
+Somnath,Gujarat,2015,10,6,18,0,1,Humid,20588
+Somnath,Gujarat,2015,10,6,19,0,1,Light Rain,29302
+Somnath,Gujarat,2015,10,6,20,0,1,Light Rain,22820
+Somnath,Gujarat,2015,10,6,21,0,1,Humid,15970
+Somnath,Gujarat,2015,10,6,22,0,1,Light Rain,20141
+Somnath,Gujarat,2015,10,6,23,0,1,Heavy Rain,28683
+Somnath,Gujarat,2015,10,7,0,0,1,Heavy Rain,6064
+Somnath,Gujarat,2015,10,7,1,0,1,Humid,4672
+Somnath,Gujarat,2015,10,7,2,0,1,Humid,9764
+Somnath,Gujarat,2015,10,7,3,0,1,Humid,10403
+Somnath,Gujarat,2015,10,7,4,0,1,Heavy Rain,9694
+Somnath,Gujarat,2015,10,7,5,0,1,Heavy Rain,6389
+Somnath,Gujarat,2015,10,7,6,0,1,Light Rain,9958
+Somnath,Gujarat,2015,10,7,7,0,1,Humid,8059
+Somnath,Gujarat,2015,10,7,8,0,1,Heavy Rain,5606
+Somnath,Gujarat,2015,10,7,9,0,1,Cloudy,6172
+Somnath,Gujarat,2015,10,7,10,0,1,Light Rain,11734
+Somnath,Gujarat,2015,10,7,11,0,1,Cloudy,6549
+Somnath,Gujarat,2015,10,7,12,0,1,Heavy Rain,8772
+Somnath,Gujarat,2015,10,7,13,0,1,Cloudy,17215
+Somnath,Gujarat,2015,10,7,14,0,1,Sunny,9680
+Somnath,Gujarat,2015,10,7,15,0,1,Humid,13700
+Somnath,Gujarat,2015,10,7,16,0,1,Sunny,7323
+Somnath,Gujarat,2015,10,7,17,0,1,Sunny,11074
+Somnath,Gujarat,2015,10,7,18,0,1,Cloudy,24359
+Somnath,Gujarat,2015,10,7,19,0,1,Cloudy,28697
+Somnath,Gujarat,2015,10,7,20,0,1,Cloudy,26216
+Somnath,Gujarat,2015,10,7,21,0,1,Heavy Rain,21185
+Somnath,Gujarat,2015,10,7,22,0,1,Sunny,27903
+Somnath,Gujarat,2015,10,7,23,0,1,Cloudy,19748
+Somnath,Gujarat,2015,10,8,0,0,1,Light Rain,6720
+Somnath,Gujarat,2015,10,8,1,0,1,Light Rain,4405
+Somnath,Gujarat,2015,10,8,2,0,1,Sunny,9096
+Somnath,Gujarat,2015,10,8,3,0,1,Humid,4432
+Somnath,Gujarat,2015,10,8,4,0,1,Humid,7631
+Somnath,Gujarat,2015,10,8,5,0,1,Sunny,11987
+Somnath,Gujarat,2015,10,8,6,0,1,Humid,11076
+Somnath,Gujarat,2015,10,8,7,0,1,Heavy Rain,8854
+Somnath,Gujarat,2015,10,8,8,0,1,Heavy Rain,7308
+Somnath,Gujarat,2015,10,8,9,0,1,Light Rain,8444
+Somnath,Gujarat,2015,10,8,10,0,1,Heavy Rain,5513
+Somnath,Gujarat,2015,10,8,11,0,1,Humid,17118
+Somnath,Gujarat,2015,10,8,12,0,1,Sunny,11956
+Somnath,Gujarat,2015,10,8,13,0,1,Cloudy,6272
+Somnath,Gujarat,2015,10,8,14,0,1,Sunny,8223
+Somnath,Gujarat,2015,10,8,15,0,1,Cloudy,13150
+Somnath,Gujarat,2015,10,8,16,0,1,Sunny,13126
+Somnath,Gujarat,2015,10,8,17,0,1,Sunny,4616
+Somnath,Gujarat,2015,10,8,18,0,1,Sunny,24822
+Somnath,Gujarat,2015,10,8,19,0,1,Light Rain,28315
+Somnath,Gujarat,2015,10,8,20,0,1,Humid,14399
+Somnath,Gujarat,2015,10,8,21,0,1,Cloudy,27012
+Somnath,Gujarat,2015,10,8,22,0,1,Sunny,17783
+Somnath,Gujarat,2015,10,8,23,0,1,Humid,14205
+Somnath,Gujarat,2015,10,9,0,0,1,Light Rain,28968
+Somnath,Gujarat,2015,10,9,1,0,1,Cloudy,25114
+Somnath,Gujarat,2015,10,9,2,0,1,Humid,29462
+Somnath,Gujarat,2015,10,9,3,0,1,Sunny,9096
+Somnath,Gujarat,2015,10,9,4,0,1,Cloudy,28614
+Somnath,Gujarat,2015,10,9,5,0,1,Humid,27955
+Somnath,Gujarat,2015,10,9,6,0,1,Light Rain,12435
+Somnath,Gujarat,2015,10,9,7,0,1,Humid,12429
+Somnath,Gujarat,2015,10,9,8,0,1,Cloudy,17959
+Somnath,Gujarat,2015,10,9,9,0,1,Humid,31101
+Somnath,Gujarat,2015,10,9,10,0,1,Humid,17860
+Somnath,Gujarat,2015,10,9,11,0,1,Heavy Rain,33353
+Somnath,Gujarat,2015,10,9,12,0,1,Cloudy,25640
+Somnath,Gujarat,2015,10,9,13,0,1,Humid,24850
+Somnath,Gujarat,2015,10,9,14,0,1,Humid,18111
+Somnath,Gujarat,2015,10,9,15,0,1,Sunny,29891
+Somnath,Gujarat,2015,10,9,16,0,1,Heavy Rain,17946
+Somnath,Gujarat,2015,10,9,17,0,1,Light Rain,19851
+Somnath,Gujarat,2015,10,9,18,0,1,Sunny,45682
+Somnath,Gujarat,2015,10,9,19,0,1,Light Rain,64309
+Somnath,Gujarat,2015,10,9,20,0,1,Sunny,44155
+Somnath,Gujarat,2015,10,9,21,0,1,Cloudy,44757
+Somnath,Gujarat,2015,10,9,22,0,1,Humid,51735
+Somnath,Gujarat,2015,10,9,23,0,1,Heavy Rain,35732
+Somnath,Gujarat,2016,10,1,0,1,1,Heavy Rain,22712
+Somnath,Gujarat,2016,10,1,1,1,1,Humid,20798
+Somnath,Gujarat,2016,10,1,2,1,1,Humid,15541
+Somnath,Gujarat,2016,10,1,3,1,1,Heavy Rain,25662
+Somnath,Gujarat,2016,10,1,4,1,1,Humid,10842
+Somnath,Gujarat,2016,10,1,5,1,1,Cloudy,15230
+Somnath,Gujarat,2016,10,1,6,1,1,Sunny,27699
+Somnath,Gujarat,2016,10,1,7,1,1,Cloudy,23842
+Somnath,Gujarat,2016,10,1,8,1,1,Light Rain,20025
+Somnath,Gujarat,2016,10,1,9,1,1,Light Rain,25081
+Somnath,Gujarat,2016,10,1,10,1,1,Cloudy,16708
+Somnath,Gujarat,2016,10,1,11,1,1,Light Rain,44800
+Somnath,Gujarat,2016,10,1,12,1,1,Sunny,37507
+Somnath,Gujarat,2016,10,1,13,1,1,Humid,20342
+Somnath,Gujarat,2016,10,1,14,1,1,Light Rain,24937
+Somnath,Gujarat,2016,10,1,15,1,1,Cloudy,28795
+Somnath,Gujarat,2016,10,1,16,1,1,Heavy Rain,38271
+Somnath,Gujarat,2016,10,1,17,1,1,Heavy Rain,13855
+Somnath,Gujarat,2016,10,1,18,1,1,Cloudy,24346
+Somnath,Gujarat,2016,10,1,19,1,1,Heavy Rain,75344
+Somnath,Gujarat,2016,10,1,20,1,1,Heavy Rain,79436
+Somnath,Gujarat,2016,10,1,21,1,1,Heavy Rain,53025
+Somnath,Gujarat,2016,10,1,22,1,1,Sunny,43206
+Somnath,Gujarat,2016,10,1,23,1,1,Cloudy,71766
+Somnath,Gujarat,2016,10,2,0,1,1,Sunny,7266
+Somnath,Gujarat,2016,10,2,1,1,1,Cloudy,4974
+Somnath,Gujarat,2016,10,2,2,1,1,Humid,4512
+Somnath,Gujarat,2016,10,2,3,1,1,Light Rain,4841
+Somnath,Gujarat,2016,10,2,4,1,1,Humid,4292
+Somnath,Gujarat,2016,10,2,5,1,1,Light Rain,10751
+Somnath,Gujarat,2016,10,2,6,1,1,Cloudy,6048
+Somnath,Gujarat,2016,10,2,7,1,1,Heavy Rain,9229
+Somnath,Gujarat,2016,10,2,8,1,1,Cloudy,4249
+Somnath,Gujarat,2016,10,2,9,1,1,Light Rain,5841
+Somnath,Gujarat,2016,10,2,10,1,1,Heavy Rain,10917
+Somnath,Gujarat,2016,10,2,11,1,1,Sunny,8659
+Somnath,Gujarat,2016,10,2,12,1,1,Humid,9354
+Somnath,Gujarat,2016,10,2,13,1,1,Light Rain,8992
+Somnath,Gujarat,2016,10,2,14,1,1,Humid,14483
+Somnath,Gujarat,2016,10,2,15,1,1,Humid,6088
+Somnath,Gujarat,2016,10,2,16,1,1,Sunny,9211
+Somnath,Gujarat,2016,10,2,17,1,1,Light Rain,10143
+Somnath,Gujarat,2016,10,2,18,1,1,Humid,9292
+Somnath,Gujarat,2016,10,2,19,1,1,Light Rain,22095
+Somnath,Gujarat,2016,10,2,20,1,1,Cloudy,9562
+Somnath,Gujarat,2016,10,2,21,1,1,Light Rain,14078
+Somnath,Gujarat,2016,10,2,22,1,1,Cloudy,14776
+Somnath,Gujarat,2016,10,2,23,1,1,Cloudy,14166
+Somnath,Gujarat,2016,10,3,0,0,1,Light Rain,9373
+Somnath,Gujarat,2016,10,3,1,0,1,Heavy Rain,7920
+Somnath,Gujarat,2016,10,3,2,0,1,Heavy Rain,5009
+Somnath,Gujarat,2016,10,3,3,0,1,Humid,7479
+Somnath,Gujarat,2016,10,3,4,0,1,Light Rain,4863
+Somnath,Gujarat,2016,10,3,5,0,1,Sunny,4070
+Somnath,Gujarat,2016,10,3,6,0,1,Humid,7533
+Somnath,Gujarat,2016,10,3,7,0,1,Heavy Rain,6678
+Somnath,Gujarat,2016,10,3,8,0,1,Humid,8759
+Somnath,Gujarat,2016,10,3,9,0,1,Sunny,10893
+Somnath,Gujarat,2016,10,3,10,0,1,Heavy Rain,4329
+Somnath,Gujarat,2016,10,3,11,0,1,Light Rain,12485
+Somnath,Gujarat,2016,10,3,12,0,1,Cloudy,17426
+Somnath,Gujarat,2016,10,3,13,0,1,Cloudy,9767
+Somnath,Gujarat,2016,10,3,14,0,1,Humid,19512
+Somnath,Gujarat,2016,10,3,15,0,1,Sunny,14602
+Somnath,Gujarat,2016,10,3,16,0,1,Humid,9409
+Somnath,Gujarat,2016,10,3,17,0,1,Light Rain,9765
+Somnath,Gujarat,2016,10,3,18,0,1,Humid,17377
+Somnath,Gujarat,2016,10,3,19,0,1,Sunny,28670
+Somnath,Gujarat,2016,10,3,20,0,1,Humid,26275
+Somnath,Gujarat,2016,10,3,21,0,1,Sunny,8509
+Somnath,Gujarat,2016,10,3,22,0,1,Cloudy,17494
+Somnath,Gujarat,2016,10,3,23,0,1,Light Rain,12141
+Somnath,Gujarat,2016,10,4,0,0,1,Sunny,8378
+Somnath,Gujarat,2016,10,4,1,0,1,Sunny,6878
+Somnath,Gujarat,2016,10,4,2,0,1,Cloudy,6207
+Somnath,Gujarat,2016,10,4,3,0,1,Humid,5030
+Somnath,Gujarat,2016,10,4,4,0,1,Humid,9992
+Somnath,Gujarat,2016,10,4,5,0,1,Cloudy,10331
+Somnath,Gujarat,2016,10,4,6,0,1,Humid,8478
+Somnath,Gujarat,2016,10,4,7,0,1,Humid,10440
+Somnath,Gujarat,2016,10,4,8,0,1,Cloudy,6994
+Somnath,Gujarat,2016,10,4,9,0,1,Cloudy,4690
+Somnath,Gujarat,2016,10,4,10,0,1,Light Rain,11934
+Somnath,Gujarat,2016,10,4,11,0,1,Humid,10225
+Somnath,Gujarat,2016,10,4,12,0,1,Cloudy,12832
+Somnath,Gujarat,2016,10,4,13,0,1,Cloudy,9628
+Somnath,Gujarat,2016,10,4,14,0,1,Sunny,6539
+Somnath,Gujarat,2016,10,4,15,0,1,Heavy Rain,8817
+Somnath,Gujarat,2016,10,4,16,0,1,Cloudy,13938
+Somnath,Gujarat,2016,10,4,17,0,1,Cloudy,9488
+Somnath,Gujarat,2016,10,4,18,0,1,Humid,17926
+Somnath,Gujarat,2016,10,4,19,0,1,Light Rain,30237
+Somnath,Gujarat,2016,10,4,20,0,1,Sunny,22410
+Somnath,Gujarat,2016,10,4,21,0,1,Cloudy,18042
+Somnath,Gujarat,2016,10,4,22,0,1,Humid,14245
+Somnath,Gujarat,2016,10,4,23,0,1,Cloudy,32887
+Somnath,Gujarat,2016,10,5,0,0,1,Sunny,23601
+Somnath,Gujarat,2016,10,5,1,0,1,Heavy Rain,23269
+Somnath,Gujarat,2016,10,5,2,0,1,Light Rain,8666
+Somnath,Gujarat,2016,10,5,3,0,1,Cloudy,12591
+Somnath,Gujarat,2016,10,5,4,0,1,Sunny,18762
+Somnath,Gujarat,2016,10,5,5,0,1,Humid,20334
+Somnath,Gujarat,2016,10,5,6,0,1,Light Rain,10715
+Somnath,Gujarat,2016,10,5,7,0,1,Light Rain,26244
+Somnath,Gujarat,2016,10,5,8,0,1,Humid,9107
+Somnath,Gujarat,2016,10,5,9,0,1,Heavy Rain,23619
+Somnath,Gujarat,2016,10,5,10,0,1,Cloudy,23921
+Somnath,Gujarat,2016,10,5,11,0,1,Sunny,24815
+Somnath,Gujarat,2016,10,5,12,0,1,Sunny,32853
+Somnath,Gujarat,2016,10,5,13,0,1,Light Rain,28408
+Somnath,Gujarat,2016,10,5,14,0,1,Heavy Rain,21701
+Somnath,Gujarat,2016,10,5,15,0,1,Heavy Rain,20483
+Somnath,Gujarat,2016,10,5,16,0,1,Humid,36460
+Somnath,Gujarat,2016,10,5,17,0,1,Heavy Rain,18383
+Somnath,Gujarat,2016,10,5,18,0,1,Cloudy,74630
+Somnath,Gujarat,2016,10,5,19,0,1,Sunny,37916
+Somnath,Gujarat,2016,10,5,20,0,1,Cloudy,64806
+Somnath,Gujarat,2016,10,5,21,0,1,Heavy Rain,23713
+Somnath,Gujarat,2016,10,5,22,0,1,Cloudy,37614
+Somnath,Gujarat,2016,10,5,23,0,1,Humid,49795
+Somnath,Gujarat,2016,10,6,0,0,1,Cloudy,10970
+Somnath,Gujarat,2016,10,6,1,0,1,Cloudy,11813
+Somnath,Gujarat,2016,10,6,2,0,1,Heavy Rain,10132
+Somnath,Gujarat,2016,10,6,3,0,1,Light Rain,11415
+Somnath,Gujarat,2016,10,6,4,0,1,Heavy Rain,10104
+Somnath,Gujarat,2016,10,6,5,0,1,Heavy Rain,6985
+Somnath,Gujarat,2016,10,6,6,0,1,Heavy Rain,11576
+Somnath,Gujarat,2016,10,6,7,0,1,Humid,6772
+Somnath,Gujarat,2016,10,6,8,0,1,Cloudy,6518
+Somnath,Gujarat,2016,10,6,9,0,1,Cloudy,5797
+Somnath,Gujarat,2016,10,6,10,0,1,Cloudy,8986
+Somnath,Gujarat,2016,10,6,11,0,1,Humid,5577
+Somnath,Gujarat,2016,10,6,12,0,1,Humid,7096
+Somnath,Gujarat,2016,10,6,13,0,1,Cloudy,13116
+Somnath,Gujarat,2016,10,6,14,0,1,Cloudy,12231
+Somnath,Gujarat,2016,10,6,15,0,1,Light Rain,15880
+Somnath,Gujarat,2016,10,6,16,0,1,Sunny,8354
+Somnath,Gujarat,2016,10,6,17,0,1,Sunny,8951
+Somnath,Gujarat,2016,10,6,18,0,1,Humid,15255
+Somnath,Gujarat,2016,10,6,19,0,1,Heavy Rain,13179
+Somnath,Gujarat,2016,10,6,20,0,1,Sunny,17209
+Somnath,Gujarat,2016,10,6,21,0,1,Sunny,34973
+Somnath,Gujarat,2016,10,6,22,0,1,Heavy Rain,22166
+Somnath,Gujarat,2016,10,6,23,0,1,Humid,25461
+Somnath,Gujarat,2016,10,7,0,0,1,Light Rain,10181
+Somnath,Gujarat,2016,10,7,1,0,1,Humid,7755
+Somnath,Gujarat,2016,10,7,2,0,1,Heavy Rain,8521
+Somnath,Gujarat,2016,10,7,3,0,1,Light Rain,8451
+Somnath,Gujarat,2016,10,7,4,0,1,Light Rain,4876
+Somnath,Gujarat,2016,10,7,5,0,1,Light Rain,10463
+Somnath,Gujarat,2016,10,7,6,0,1,Sunny,11775
+Somnath,Gujarat,2016,10,7,7,0,1,Sunny,10810
+Somnath,Gujarat,2016,10,7,8,0,1,Light Rain,4685
+Somnath,Gujarat,2016,10,7,9,0,1,Heavy Rain,7460
+Somnath,Gujarat,2016,10,7,10,0,1,Heavy Rain,8500
+Somnath,Gujarat,2016,10,7,11,0,1,Humid,11543
+Somnath,Gujarat,2016,10,7,12,0,1,Humid,14973
+Somnath,Gujarat,2016,10,7,13,0,1,Cloudy,16940
+Somnath,Gujarat,2016,10,7,14,0,1,Humid,6780
+Somnath,Gujarat,2016,10,7,15,0,1,Cloudy,9453
+Somnath,Gujarat,2016,10,7,16,0,1,Light Rain,8419
+Somnath,Gujarat,2016,10,7,17,0,1,Cloudy,4241
+Somnath,Gujarat,2016,10,7,18,0,1,Light Rain,13667
+Somnath,Gujarat,2016,10,7,19,0,1,Heavy Rain,19413
+Somnath,Gujarat,2016,10,7,20,0,1,Cloudy,24617
+Somnath,Gujarat,2016,10,7,21,0,1,Sunny,21008
+Somnath,Gujarat,2016,10,7,22,0,1,Cloudy,14687
+Somnath,Gujarat,2016,10,7,23,0,1,Sunny,21336
+Somnath,Gujarat,2016,10,8,0,1,1,Humid,11463
+Somnath,Gujarat,2016,10,8,1,1,1,Cloudy,8698
+Somnath,Gujarat,2016,10,8,2,1,1,Heavy Rain,8673
+Somnath,Gujarat,2016,10,8,3,1,1,Light Rain,4544
+Somnath,Gujarat,2016,10,8,4,1,1,Humid,11024
+Somnath,Gujarat,2016,10,8,5,1,1,Heavy Rain,9003
+Somnath,Gujarat,2016,10,8,6,1,1,Heavy Rain,5963
+Somnath,Gujarat,2016,10,8,7,1,1,Sunny,9186
+Somnath,Gujarat,2016,10,8,8,1,1,Cloudy,9481
+Somnath,Gujarat,2016,10,8,9,1,1,Heavy Rain,10485
+Somnath,Gujarat,2016,10,8,10,1,1,Heavy Rain,8514
+Somnath,Gujarat,2016,10,8,11,1,1,Sunny,9273
+Somnath,Gujarat,2016,10,8,12,1,1,Cloudy,8295
+Somnath,Gujarat,2016,10,8,13,1,1,Heavy Rain,14409
+Somnath,Gujarat,2016,10,8,14,1,1,Heavy Rain,8509
+Somnath,Gujarat,2016,10,8,15,1,1,Humid,6935
+Somnath,Gujarat,2016,10,8,16,1,1,Heavy Rain,9928
+Somnath,Gujarat,2016,10,8,17,1,1,Sunny,11527
+Somnath,Gujarat,2016,10,8,18,1,1,Heavy Rain,24544
+Somnath,Gujarat,2016,10,8,19,1,1,Heavy Rain,19327
+Somnath,Gujarat,2016,10,8,20,1,1,Humid,19435
+Somnath,Gujarat,2016,10,8,21,1,1,Humid,19918
+Somnath,Gujarat,2016,10,8,22,1,1,Cloudy,24495
+Somnath,Gujarat,2016,10,8,23,1,1,Cloudy,26611
+Somnath,Gujarat,2016,10,9,0,1,1,Light Rain,29520
+Somnath,Gujarat,2016,10,9,1,1,1,Cloudy,22665
+Somnath,Gujarat,2016,10,9,2,1,1,Humid,22333
+Somnath,Gujarat,2016,10,9,3,1,1,Cloudy,14331
+Somnath,Gujarat,2016,10,9,4,1,1,Cloudy,9177
+Somnath,Gujarat,2016,10,9,5,1,1,Cloudy,21128
+Somnath,Gujarat,2016,10,9,6,1,1,Cloudy,24918
+Somnath,Gujarat,2016,10,9,7,1,1,Light Rain,18819
+Somnath,Gujarat,2016,10,9,8,1,1,Heavy Rain,25350
+Somnath,Gujarat,2016,10,9,9,1,1,Heavy Rain,13000
+Somnath,Gujarat,2016,10,9,10,1,1,Cloudy,16453
+Somnath,Gujarat,2016,10,9,11,1,1,Light Rain,49980
+Somnath,Gujarat,2016,10,9,12,1,1,Cloudy,23386
+Somnath,Gujarat,2016,10,9,13,1,1,Sunny,25354
+Somnath,Gujarat,2016,10,9,14,1,1,Sunny,40713
+Somnath,Gujarat,2016,10,9,15,1,1,Humid,29022
+Somnath,Gujarat,2016,10,9,16,1,1,Cloudy,14874
+Somnath,Gujarat,2016,10,9,17,1,1,Light Rain,15242
+Somnath,Gujarat,2016,10,9,18,1,1,Light Rain,44860
+Somnath,Gujarat,2016,10,9,19,1,1,Light Rain,51101
+Somnath,Gujarat,2016,10,9,20,1,1,Cloudy,56146
+Somnath,Gujarat,2016,10,9,21,1,1,Humid,42249
+Somnath,Gujarat,2016,10,9,22,1,1,Heavy Rain,50251
+Somnath,Gujarat,2016,10,9,23,1,1,Cloudy,35299
+Somnath,Gujarat,2017,10,1,0,1,1,Light Rain,15822
+Somnath,Gujarat,2017,10,1,1,1,1,Humid,23587
+Somnath,Gujarat,2017,10,1,2,1,1,Sunny,25547
+Somnath,Gujarat,2017,10,1,3,1,1,Heavy Rain,12881
+Somnath,Gujarat,2017,10,1,4,1,1,Humid,25478
+Somnath,Gujarat,2017,10,1,5,1,1,Sunny,11955
+Somnath,Gujarat,2017,10,1,6,1,1,Cloudy,19799
+Somnath,Gujarat,2017,10,1,7,1,1,Light Rain,13195
+Somnath,Gujarat,2017,10,1,8,1,1,Sunny,11326
+Somnath,Gujarat,2017,10,1,9,1,1,Sunny,11884
+Somnath,Gujarat,2017,10,1,10,1,1,Cloudy,11387
+Somnath,Gujarat,2017,10,1,11,1,1,Sunny,23558
+Somnath,Gujarat,2017,10,1,12,1,1,Humid,33110
+Somnath,Gujarat,2017,10,1,13,1,1,Light Rain,25317
+Somnath,Gujarat,2017,10,1,14,1,1,Heavy Rain,18193
+Somnath,Gujarat,2017,10,1,15,1,1,Light Rain,28700
+Somnath,Gujarat,2017,10,1,16,1,1,Sunny,21871
+Somnath,Gujarat,2017,10,1,17,1,1,Heavy Rain,13715
+Somnath,Gujarat,2017,10,1,18,1,1,Cloudy,50962
+Somnath,Gujarat,2017,10,1,19,1,1,Light Rain,44433
+Somnath,Gujarat,2017,10,1,20,1,1,Cloudy,58325
+Somnath,Gujarat,2017,10,1,21,1,1,Light Rain,44962
+Somnath,Gujarat,2017,10,1,22,1,1,Sunny,51346
+Somnath,Gujarat,2017,10,1,23,1,1,Humid,42269
+Somnath,Gujarat,2017,10,2,0,0,1,Humid,6260
+Somnath,Gujarat,2017,10,2,1,0,1,Heavy Rain,8825
+Somnath,Gujarat,2017,10,2,2,0,1,Sunny,8301
+Somnath,Gujarat,2017,10,2,3,0,1,Light Rain,9356
+Somnath,Gujarat,2017,10,2,4,0,1,Cloudy,11292
+Somnath,Gujarat,2017,10,2,5,0,1,Humid,5624
+Somnath,Gujarat,2017,10,2,6,0,1,Light Rain,4995
+Somnath,Gujarat,2017,10,2,7,0,1,Humid,8232
+Somnath,Gujarat,2017,10,2,8,0,1,Humid,8916
+Somnath,Gujarat,2017,10,2,9,0,1,Cloudy,5702
+Somnath,Gujarat,2017,10,2,10,0,1,Light Rain,5934
+Somnath,Gujarat,2017,10,2,11,0,1,Cloudy,7378
+Somnath,Gujarat,2017,10,2,12,0,1,Light Rain,12972
+Somnath,Gujarat,2017,10,2,13,0,1,Sunny,7092
+Somnath,Gujarat,2017,10,2,14,0,1,Humid,19188
+Somnath,Gujarat,2017,10,2,15,0,1,Sunny,17519
+Somnath,Gujarat,2017,10,2,16,0,1,Sunny,14299
+Somnath,Gujarat,2017,10,2,17,0,1,Humid,11464
+Somnath,Gujarat,2017,10,2,18,0,1,Cloudy,14320
+Somnath,Gujarat,2017,10,2,19,0,1,Heavy Rain,15010
+Somnath,Gujarat,2017,10,2,20,0,1,Heavy Rain,17462
+Somnath,Gujarat,2017,10,2,21,0,1,Sunny,14329
+Somnath,Gujarat,2017,10,2,22,0,1,Cloudy,30277
+Somnath,Gujarat,2017,10,2,23,0,1,Cloudy,34313
+Somnath,Gujarat,2017,10,3,0,0,1,Heavy Rain,4640
+Somnath,Gujarat,2017,10,3,1,0,1,Humid,8887
+Somnath,Gujarat,2017,10,3,2,0,1,Light Rain,5473
+Somnath,Gujarat,2017,10,3,3,0,1,Humid,8324
+Somnath,Gujarat,2017,10,3,4,0,1,Cloudy,7965
+Somnath,Gujarat,2017,10,3,5,0,1,Sunny,6513
+Somnath,Gujarat,2017,10,3,6,0,1,Humid,6686
+Somnath,Gujarat,2017,10,3,7,0,1,Light Rain,8584
+Somnath,Gujarat,2017,10,3,8,0,1,Cloudy,9265
+Somnath,Gujarat,2017,10,3,9,0,1,Sunny,8074
+Somnath,Gujarat,2017,10,3,10,0,1,Heavy Rain,7721
+Somnath,Gujarat,2017,10,3,11,0,1,Heavy Rain,7659
+Somnath,Gujarat,2017,10,3,12,0,1,Light Rain,6906
+Somnath,Gujarat,2017,10,3,13,0,1,Heavy Rain,5413
+Somnath,Gujarat,2017,10,3,14,0,1,Heavy Rain,15828
+Somnath,Gujarat,2017,10,3,15,0,1,Cloudy,12352
+Somnath,Gujarat,2017,10,3,16,0,1,Sunny,14485
+Somnath,Gujarat,2017,10,3,17,0,1,Heavy Rain,5994
+Somnath,Gujarat,2017,10,3,18,0,1,Sunny,24203
+Somnath,Gujarat,2017,10,3,19,0,1,Sunny,22112
+Somnath,Gujarat,2017,10,3,20,0,1,Humid,17497
+Somnath,Gujarat,2017,10,3,21,0,1,Sunny,18045
+Somnath,Gujarat,2017,10,3,22,0,1,Cloudy,20696
+Somnath,Gujarat,2017,10,3,23,0,1,Heavy Rain,26748
+Somnath,Gujarat,2017,10,4,0,0,1,Cloudy,11753
+Somnath,Gujarat,2017,10,4,1,0,1,Humid,7674
+Somnath,Gujarat,2017,10,4,2,0,1,Sunny,9047
+Somnath,Gujarat,2017,10,4,3,0,1,Light Rain,6938
+Somnath,Gujarat,2017,10,4,4,0,1,Cloudy,11459
+Somnath,Gujarat,2017,10,4,5,0,1,Sunny,8144
+Somnath,Gujarat,2017,10,4,6,0,1,Heavy Rain,10705
+Somnath,Gujarat,2017,10,4,7,0,1,Heavy Rain,10992
+Somnath,Gujarat,2017,10,4,8,0,1,Cloudy,4255
+Somnath,Gujarat,2017,10,4,9,0,1,Humid,8390
+Somnath,Gujarat,2017,10,4,10,0,1,Cloudy,5065
+Somnath,Gujarat,2017,10,4,11,0,1,Heavy Rain,14798
+Somnath,Gujarat,2017,10,4,12,0,1,Cloudy,12641
+Somnath,Gujarat,2017,10,4,13,0,1,Cloudy,8949
+Somnath,Gujarat,2017,10,4,14,0,1,Humid,9446
+Somnath,Gujarat,2017,10,4,15,0,1,Sunny,5583
+Somnath,Gujarat,2017,10,4,16,0,1,Cloudy,8112
+Somnath,Gujarat,2017,10,4,17,0,1,Cloudy,11815
+Somnath,Gujarat,2017,10,4,18,0,1,Light Rain,26154
+Somnath,Gujarat,2017,10,4,19,0,1,Light Rain,25758
+Somnath,Gujarat,2017,10,4,20,0,1,Humid,14420
+Somnath,Gujarat,2017,10,4,21,0,1,Sunny,19659
+Somnath,Gujarat,2017,10,4,22,0,1,Cloudy,30855
+Somnath,Gujarat,2017,10,4,23,0,1,Humid,18009
+Somnath,Gujarat,2017,10,5,0,0,1,Heavy Rain,24518
+Somnath,Gujarat,2017,10,5,1,0,1,Humid,16719
+Somnath,Gujarat,2017,10,5,2,0,1,Humid,20877
+Somnath,Gujarat,2017,10,5,3,0,1,Humid,10885
+Somnath,Gujarat,2017,10,5,4,0,1,Light Rain,22625
+Somnath,Gujarat,2017,10,5,5,0,1,Heavy Rain,23859
+Somnath,Gujarat,2017,10,5,6,0,1,Humid,26350
+Somnath,Gujarat,2017,10,5,7,0,1,Cloudy,18276
+Somnath,Gujarat,2017,10,5,8,0,1,Light Rain,20024
+Somnath,Gujarat,2017,10,5,9,0,1,Cloudy,16922
+Somnath,Gujarat,2017,10,5,10,0,1,Humid,25751
+Somnath,Gujarat,2017,10,5,11,0,1,Cloudy,23282
+Somnath,Gujarat,2017,10,5,12,0,1,Sunny,27474
+Somnath,Gujarat,2017,10,5,13,0,1,Light Rain,28216
+Somnath,Gujarat,2017,10,5,14,0,1,Sunny,12063
+Somnath,Gujarat,2017,10,5,15,0,1,Heavy Rain,16656
+Somnath,Gujarat,2017,10,5,16,0,1,Cloudy,29655
+Somnath,Gujarat,2017,10,5,17,0,1,Light Rain,22314
+Somnath,Gujarat,2017,10,5,18,0,1,Light Rain,78603
+Somnath,Gujarat,2017,10,5,19,0,1,Light Rain,32563
+Somnath,Gujarat,2017,10,5,20,0,1,Heavy Rain,47217
+Somnath,Gujarat,2017,10,5,21,0,1,Light Rain,35094
+Somnath,Gujarat,2017,10,5,22,0,1,Light Rain,52825
+Somnath,Gujarat,2017,10,5,23,0,1,Humid,61662
+Somnath,Gujarat,2017,10,6,0,0,1,Humid,7331
+Somnath,Gujarat,2017,10,6,1,0,1,Humid,11834
+Somnath,Gujarat,2017,10,6,2,0,1,Light Rain,9171
+Somnath,Gujarat,2017,10,6,3,0,1,Humid,11628
+Somnath,Gujarat,2017,10,6,4,0,1,Heavy Rain,9209
+Somnath,Gujarat,2017,10,6,5,0,1,Heavy Rain,6609
+Somnath,Gujarat,2017,10,6,6,0,1,Cloudy,8882
+Somnath,Gujarat,2017,10,6,7,0,1,Sunny,9711
+Somnath,Gujarat,2017,10,6,8,0,1,Heavy Rain,6881
+Somnath,Gujarat,2017,10,6,9,0,1,Humid,10884
+Somnath,Gujarat,2017,10,6,10,0,1,Cloudy,11784
+Somnath,Gujarat,2017,10,6,11,0,1,Heavy Rain,14573
+Somnath,Gujarat,2017,10,6,12,0,1,Light Rain,17150
+Somnath,Gujarat,2017,10,6,13,0,1,Sunny,14822
+Somnath,Gujarat,2017,10,6,14,0,1,Sunny,15859
+Somnath,Gujarat,2017,10,6,15,0,1,Cloudy,13669
+Somnath,Gujarat,2017,10,6,16,0,1,Sunny,15826
+Somnath,Gujarat,2017,10,6,17,0,1,Heavy Rain,9175
+Somnath,Gujarat,2017,10,6,18,0,1,Heavy Rain,12334
+Somnath,Gujarat,2017,10,6,19,0,1,Light Rain,29007
+Somnath,Gujarat,2017,10,6,20,0,1,Heavy Rain,10648
+Somnath,Gujarat,2017,10,6,21,0,1,Light Rain,12744
+Somnath,Gujarat,2017,10,6,22,0,1,Heavy Rain,32366
+Somnath,Gujarat,2017,10,6,23,0,1,Light Rain,13210
+Somnath,Gujarat,2017,10,7,0,1,1,Sunny,9001
+Somnath,Gujarat,2017,10,7,1,1,1,Sunny,8272
+Somnath,Gujarat,2017,10,7,2,1,1,Light Rain,10052
+Somnath,Gujarat,2017,10,7,3,1,1,Sunny,6273
+Somnath,Gujarat,2017,10,7,4,1,1,Sunny,6783
+Somnath,Gujarat,2017,10,7,5,1,1,Light Rain,6837
+Somnath,Gujarat,2017,10,7,6,1,1,Humid,11049
+Somnath,Gujarat,2017,10,7,7,1,1,Heavy Rain,5631
+Somnath,Gujarat,2017,10,7,8,1,1,Cloudy,4803
+Somnath,Gujarat,2017,10,7,9,1,1,Humid,10935
+Somnath,Gujarat,2017,10,7,10,1,1,Humid,4879
+Somnath,Gujarat,2017,10,7,11,1,1,Cloudy,8957
+Somnath,Gujarat,2017,10,7,12,1,1,Humid,7256
+Somnath,Gujarat,2017,10,7,13,1,1,Light Rain,9203
+Somnath,Gujarat,2017,10,7,14,1,1,Humid,15272
+Somnath,Gujarat,2017,10,7,15,1,1,Sunny,7390
+Somnath,Gujarat,2017,10,7,16,1,1,Humid,17159
+Somnath,Gujarat,2017,10,7,17,1,1,Heavy Rain,10518
+Somnath,Gujarat,2017,10,7,18,1,1,Light Rain,13161
+Somnath,Gujarat,2017,10,7,19,1,1,Sunny,16297
+Somnath,Gujarat,2017,10,7,20,1,1,Cloudy,17683
+Somnath,Gujarat,2017,10,7,21,1,1,Light Rain,31794
+Somnath,Gujarat,2017,10,7,22,1,1,Humid,23007
+Somnath,Gujarat,2017,10,7,23,1,1,Heavy Rain,19157
+Somnath,Gujarat,2017,10,8,0,1,1,Humid,10790
+Somnath,Gujarat,2017,10,8,1,1,1,Humid,5643
+Somnath,Gujarat,2017,10,8,2,1,1,Cloudy,5966
+Somnath,Gujarat,2017,10,8,3,1,1,Light Rain,10866
+Somnath,Gujarat,2017,10,8,4,1,1,Humid,11883
+Somnath,Gujarat,2017,10,8,5,1,1,Humid,9203
+Somnath,Gujarat,2017,10,8,6,1,1,Light Rain,8437
+Somnath,Gujarat,2017,10,8,7,1,1,Cloudy,6469
+Somnath,Gujarat,2017,10,8,8,1,1,Humid,7558
+Somnath,Gujarat,2017,10,8,9,1,1,Sunny,6491
+Somnath,Gujarat,2017,10,8,10,1,1,Sunny,6266
+Somnath,Gujarat,2017,10,8,11,1,1,Light Rain,13231
+Somnath,Gujarat,2017,10,8,12,1,1,Heavy Rain,12385
+Somnath,Gujarat,2017,10,8,13,1,1,Heavy Rain,16286
+Somnath,Gujarat,2017,10,8,14,1,1,Sunny,7507
+Somnath,Gujarat,2017,10,8,15,1,1,Cloudy,10424
+Somnath,Gujarat,2017,10,8,16,1,1,Humid,7024
+Somnath,Gujarat,2017,10,8,17,1,1,Cloudy,7395
+Somnath,Gujarat,2017,10,8,18,1,1,Sunny,20886
+Somnath,Gujarat,2017,10,8,19,1,1,Sunny,14131
+Somnath,Gujarat,2017,10,8,20,1,1,Sunny,29944
+Somnath,Gujarat,2017,10,8,21,1,1,Heavy Rain,28407
+Somnath,Gujarat,2017,10,8,22,1,1,Sunny,19444
+Somnath,Gujarat,2017,10,8,23,1,1,Cloudy,22751
+Somnath,Gujarat,2017,10,9,0,0,1,Humid,12132
+Somnath,Gujarat,2017,10,9,1,0,1,Light Rain,16418
+Somnath,Gujarat,2017,10,9,2,0,1,Sunny,18475
+Somnath,Gujarat,2017,10,9,3,0,1,Cloudy,17398
+Somnath,Gujarat,2017,10,9,4,0,1,Heavy Rain,10167
+Somnath,Gujarat,2017,10,9,5,0,1,Cloudy,11897
+Somnath,Gujarat,2017,10,9,6,0,1,Cloudy,14035
+Somnath,Gujarat,2017,10,9,7,0,1,Light Rain,20357
+Somnath,Gujarat,2017,10,9,8,0,1,Cloudy,22005
+Somnath,Gujarat,2017,10,9,9,0,1,Cloudy,17849
+Somnath,Gujarat,2017,10,9,10,0,1,Humid,24816
+Somnath,Gujarat,2017,10,9,11,0,1,Humid,43167
+Somnath,Gujarat,2017,10,9,12,0,1,Sunny,33992
+Somnath,Gujarat,2017,10,9,13,0,1,Light Rain,17383
+Somnath,Gujarat,2017,10,9,14,0,1,Sunny,21531
+Somnath,Gujarat,2017,10,9,15,0,1,Humid,36738
+Somnath,Gujarat,2017,10,9,16,0,1,Light Rain,21491
+Somnath,Gujarat,2017,10,9,17,0,1,Humid,20192
+Somnath,Gujarat,2017,10,9,18,0,1,Heavy Rain,33222
+Somnath,Gujarat,2017,10,9,19,0,1,Sunny,67264
+Somnath,Gujarat,2017,10,9,20,0,1,Humid,48133
+Somnath,Gujarat,2017,10,9,21,0,1,Humid,37597
+Somnath,Gujarat,2017,10,9,22,0,1,Heavy Rain,65776
+Somnath,Gujarat,2017,10,9,23,0,1,Cloudy,34672
+Somnath,Gujarat,2018,10,1,0,0,1,Cloudy,15516
+Somnath,Gujarat,2018,10,1,1,0,1,Heavy Rain,19482
+Somnath,Gujarat,2018,10,1,2,0,1,Cloudy,14938
+Somnath,Gujarat,2018,10,1,3,0,1,Cloudy,20799
+Somnath,Gujarat,2018,10,1,4,0,1,Sunny,19437
+Somnath,Gujarat,2018,10,1,5,0,1,Light Rain,28229
+Somnath,Gujarat,2018,10,1,6,0,1,Cloudy,18978
+Somnath,Gujarat,2018,10,1,7,0,1,Humid,20092
+Somnath,Gujarat,2018,10,1,8,0,1,Sunny,15934
+Somnath,Gujarat,2018,10,1,9,0,1,Heavy Rain,11311
+Somnath,Gujarat,2018,10,1,10,0,1,Light Rain,15342
+Somnath,Gujarat,2018,10,1,11,0,1,Humid,49343
+Somnath,Gujarat,2018,10,1,12,0,1,Heavy Rain,35005
+Somnath,Gujarat,2018,10,1,13,0,1,Humid,26117
+Somnath,Gujarat,2018,10,1,14,0,1,Humid,33625
+Somnath,Gujarat,2018,10,1,15,0,1,Humid,21315
+Somnath,Gujarat,2018,10,1,16,0,1,Heavy Rain,14931
+Somnath,Gujarat,2018,10,1,17,0,1,Heavy Rain,15082
+Somnath,Gujarat,2018,10,1,18,0,1,Cloudy,24743
+Somnath,Gujarat,2018,10,1,19,0,1,Sunny,36544
+Somnath,Gujarat,2018,10,1,20,0,1,Heavy Rain,31957
+Somnath,Gujarat,2018,10,1,21,0,1,Sunny,42002
+Somnath,Gujarat,2018,10,1,22,0,1,Sunny,39255
+Somnath,Gujarat,2018,10,1,23,0,1,Cloudy,43092
+Somnath,Gujarat,2018,10,2,0,0,1,Sunny,5260
+Somnath,Gujarat,2018,10,2,1,0,1,Humid,4225
+Somnath,Gujarat,2018,10,2,2,0,1,Sunny,7373
+Somnath,Gujarat,2018,10,2,3,0,1,Heavy Rain,6250
+Somnath,Gujarat,2018,10,2,4,0,1,Cloudy,10285
+Somnath,Gujarat,2018,10,2,5,0,1,Sunny,8727
+Somnath,Gujarat,2018,10,2,6,0,1,Heavy Rain,11225
+Somnath,Gujarat,2018,10,2,7,0,1,Sunny,9639
+Somnath,Gujarat,2018,10,2,8,0,1,Heavy Rain,7996
+Somnath,Gujarat,2018,10,2,9,0,1,Light Rain,9685
+Somnath,Gujarat,2018,10,2,10,0,1,Heavy Rain,10129
+Somnath,Gujarat,2018,10,2,11,0,1,Humid,12706
+Somnath,Gujarat,2018,10,2,12,0,1,Sunny,11652
+Somnath,Gujarat,2018,10,2,13,0,1,Sunny,14317
+Somnath,Gujarat,2018,10,2,14,0,1,Sunny,5811
+Somnath,Gujarat,2018,10,2,15,0,1,Cloudy,15177
+Somnath,Gujarat,2018,10,2,16,0,1,Sunny,5904
+Somnath,Gujarat,2018,10,2,17,0,1,Sunny,7837
+Somnath,Gujarat,2018,10,2,18,0,1,Sunny,20468
+Somnath,Gujarat,2018,10,2,19,0,1,Heavy Rain,15530
+Somnath,Gujarat,2018,10,2,20,0,1,Humid,18849
+Somnath,Gujarat,2018,10,2,21,0,1,Sunny,18152
+Somnath,Gujarat,2018,10,2,22,0,1,Sunny,20929
+Somnath,Gujarat,2018,10,2,23,0,1,Humid,32971
+Somnath,Gujarat,2018,10,3,0,0,1,Heavy Rain,6300
+Somnath,Gujarat,2018,10,3,1,0,1,Humid,9569
+Somnath,Gujarat,2018,10,3,2,0,1,Heavy Rain,5743
+Somnath,Gujarat,2018,10,3,3,0,1,Humid,6930
+Somnath,Gujarat,2018,10,3,4,0,1,Humid,4197
+Somnath,Gujarat,2018,10,3,5,0,1,Cloudy,8046
+Somnath,Gujarat,2018,10,3,6,0,1,Humid,6750
+Somnath,Gujarat,2018,10,3,7,0,1,Humid,4289
+Somnath,Gujarat,2018,10,3,8,0,1,Humid,5260
+Somnath,Gujarat,2018,10,3,9,0,1,Heavy Rain,11400
+Somnath,Gujarat,2018,10,3,10,0,1,Heavy Rain,8647
+Somnath,Gujarat,2018,10,3,11,0,1,Heavy Rain,9602
+Somnath,Gujarat,2018,10,3,12,0,1,Heavy Rain,6706
+Somnath,Gujarat,2018,10,3,13,0,1,Sunny,5541
+Somnath,Gujarat,2018,10,3,14,0,1,Heavy Rain,12132
+Somnath,Gujarat,2018,10,3,15,0,1,Sunny,14340
+Somnath,Gujarat,2018,10,3,16,0,1,Heavy Rain,12942
+Somnath,Gujarat,2018,10,3,17,0,1,Light Rain,4173
+Somnath,Gujarat,2018,10,3,18,0,1,Humid,16696
+Somnath,Gujarat,2018,10,3,19,0,1,Humid,18574
+Somnath,Gujarat,2018,10,3,20,0,1,Light Rain,29030
+Somnath,Gujarat,2018,10,3,21,0,1,Humid,11728
+Somnath,Gujarat,2018,10,3,22,0,1,Humid,18252
+Somnath,Gujarat,2018,10,3,23,0,1,Heavy Rain,19841
+Somnath,Gujarat,2018,10,4,0,0,1,Cloudy,5320
+Somnath,Gujarat,2018,10,4,1,0,1,Sunny,8723
+Somnath,Gujarat,2018,10,4,2,0,1,Light Rain,4927
+Somnath,Gujarat,2018,10,4,3,0,1,Cloudy,6260
+Somnath,Gujarat,2018,10,4,4,0,1,Heavy Rain,5954
+Somnath,Gujarat,2018,10,4,5,0,1,Cloudy,6703
+Somnath,Gujarat,2018,10,4,6,0,1,Humid,4164
+Somnath,Gujarat,2018,10,4,7,0,1,Heavy Rain,10733
+Somnath,Gujarat,2018,10,4,8,0,1,Cloudy,11330
+Somnath,Gujarat,2018,10,4,9,0,1,Light Rain,7079
+Somnath,Gujarat,2018,10,4,10,0,1,Heavy Rain,4327
+Somnath,Gujarat,2018,10,4,11,0,1,Sunny,15273
+Somnath,Gujarat,2018,10,4,12,0,1,Light Rain,14509
+Somnath,Gujarat,2018,10,4,13,0,1,Heavy Rain,8392
+Somnath,Gujarat,2018,10,4,14,0,1,Humid,11979
+Somnath,Gujarat,2018,10,4,15,0,1,Sunny,8212
+Somnath,Gujarat,2018,10,4,16,0,1,Cloudy,10842
+Somnath,Gujarat,2018,10,4,17,0,1,Light Rain,5729
+Somnath,Gujarat,2018,10,4,18,0,1,Heavy Rain,12735
+Somnath,Gujarat,2018,10,4,19,0,1,Light Rain,18260
+Somnath,Gujarat,2018,10,4,20,0,1,Light Rain,26626
+Somnath,Gujarat,2018,10,4,21,0,1,Cloudy,31879
+Somnath,Gujarat,2018,10,4,22,0,1,Humid,19531
+Somnath,Gujarat,2018,10,4,23,0,1,Sunny,21165
+Somnath,Gujarat,2018,10,5,0,0,1,Sunny,10432
+Somnath,Gujarat,2018,10,5,1,0,1,Cloudy,18894
+Somnath,Gujarat,2018,10,5,2,0,1,Cloudy,12250
+Somnath,Gujarat,2018,10,5,3,0,1,Heavy Rain,27379
+Somnath,Gujarat,2018,10,5,4,0,1,Humid,30904
+Somnath,Gujarat,2018,10,5,5,0,1,Light Rain,25060
+Somnath,Gujarat,2018,10,5,6,0,1,Heavy Rain,20968
+Somnath,Gujarat,2018,10,5,7,0,1,Cloudy,25085
+Somnath,Gujarat,2018,10,5,8,0,1,Sunny,20283
+Somnath,Gujarat,2018,10,5,9,0,1,Heavy Rain,11268
+Somnath,Gujarat,2018,10,5,10,0,1,Cloudy,22696
+Somnath,Gujarat,2018,10,5,11,0,1,Sunny,21972
+Somnath,Gujarat,2018,10,5,12,0,1,Cloudy,48800
+Somnath,Gujarat,2018,10,5,13,0,1,Humid,27946
+Somnath,Gujarat,2018,10,5,14,0,1,Sunny,27941
+Somnath,Gujarat,2018,10,5,15,0,1,Cloudy,41468
+Somnath,Gujarat,2018,10,5,16,0,1,Sunny,29790
+Somnath,Gujarat,2018,10,5,17,0,1,Light Rain,12760
+Somnath,Gujarat,2018,10,5,18,0,1,Humid,79829
+Somnath,Gujarat,2018,10,5,19,0,1,Cloudy,91365
+Somnath,Gujarat,2018,10,5,20,0,1,Humid,34342
+Somnath,Gujarat,2018,10,5,21,0,1,Light Rain,60013
+Somnath,Gujarat,2018,10,5,22,0,1,Light Rain,86358
+Somnath,Gujarat,2018,10,5,23,0,1,Heavy Rain,63374
+Somnath,Gujarat,2018,10,6,0,1,1,Cloudy,5178
+Somnath,Gujarat,2018,10,6,1,1,1,Humid,6430
+Somnath,Gujarat,2018,10,6,2,1,1,Cloudy,11782
+Somnath,Gujarat,2018,10,6,3,1,1,Sunny,8565
+Somnath,Gujarat,2018,10,6,4,1,1,Cloudy,4582
+Somnath,Gujarat,2018,10,6,5,1,1,Heavy Rain,6848
+Somnath,Gujarat,2018,10,6,6,1,1,Cloudy,8798
+Somnath,Gujarat,2018,10,6,7,1,1,Heavy Rain,9649
+Somnath,Gujarat,2018,10,6,8,1,1,Humid,9122
+Somnath,Gujarat,2018,10,6,9,1,1,Humid,4016
+Somnath,Gujarat,2018,10,6,10,1,1,Humid,9527
+Somnath,Gujarat,2018,10,6,11,1,1,Humid,13114
+Somnath,Gujarat,2018,10,6,12,1,1,Humid,16224
+Somnath,Gujarat,2018,10,6,13,1,1,Cloudy,20124
+Somnath,Gujarat,2018,10,6,14,1,1,Humid,13082
+Somnath,Gujarat,2018,10,6,15,1,1,Cloudy,9384
+Somnath,Gujarat,2018,10,6,16,1,1,Sunny,8414
+Somnath,Gujarat,2018,10,6,17,1,1,Sunny,10998
+Somnath,Gujarat,2018,10,6,18,1,1,Cloudy,19734
+Somnath,Gujarat,2018,10,6,19,1,1,Cloudy,15544
+Somnath,Gujarat,2018,10,6,20,1,1,Heavy Rain,13092
+Somnath,Gujarat,2018,10,6,21,1,1,Heavy Rain,23939
+Somnath,Gujarat,2018,10,6,22,1,1,Heavy Rain,12962
+Somnath,Gujarat,2018,10,6,23,1,1,Heavy Rain,24722
+Somnath,Gujarat,2018,10,7,0,1,1,Sunny,9514
+Somnath,Gujarat,2018,10,7,1,1,1,Light Rain,11503
+Somnath,Gujarat,2018,10,7,2,1,1,Sunny,7154
+Somnath,Gujarat,2018,10,7,3,1,1,Cloudy,8016
+Somnath,Gujarat,2018,10,7,4,1,1,Sunny,9851
+Somnath,Gujarat,2018,10,7,5,1,1,Humid,8851
+Somnath,Gujarat,2018,10,7,6,1,1,Light Rain,10666
+Somnath,Gujarat,2018,10,7,7,1,1,Cloudy,11666
+Somnath,Gujarat,2018,10,7,8,1,1,Cloudy,11918
+Somnath,Gujarat,2018,10,7,9,1,1,Light Rain,5876
+Somnath,Gujarat,2018,10,7,10,1,1,Cloudy,6172
+Somnath,Gujarat,2018,10,7,11,1,1,Light Rain,9859
+Somnath,Gujarat,2018,10,7,12,1,1,Cloudy,7968
+Somnath,Gujarat,2018,10,7,13,1,1,Heavy Rain,15245
+Somnath,Gujarat,2018,10,7,14,1,1,Cloudy,7307
+Somnath,Gujarat,2018,10,7,15,1,1,Humid,18040
+Somnath,Gujarat,2018,10,7,16,1,1,Light Rain,12882
+Somnath,Gujarat,2018,10,7,17,1,1,Sunny,7062
+Somnath,Gujarat,2018,10,7,18,1,1,Cloudy,28858
+Somnath,Gujarat,2018,10,7,19,1,1,Light Rain,11572
+Somnath,Gujarat,2018,10,7,20,1,1,Heavy Rain,9466
+Somnath,Gujarat,2018,10,7,21,1,1,Heavy Rain,20230
+Somnath,Gujarat,2018,10,7,22,1,1,Light Rain,21229
+Somnath,Gujarat,2018,10,7,23,1,1,Sunny,27994
+Somnath,Gujarat,2018,10,8,0,0,1,Heavy Rain,9608
+Somnath,Gujarat,2018,10,8,1,0,1,Heavy Rain,5447
+Somnath,Gujarat,2018,10,8,2,0,1,Heavy Rain,10946
+Somnath,Gujarat,2018,10,8,3,0,1,Sunny,9243
+Somnath,Gujarat,2018,10,8,4,0,1,Heavy Rain,6030
+Somnath,Gujarat,2018,10,8,5,0,1,Humid,6192
+Somnath,Gujarat,2018,10,8,6,0,1,Light Rain,4225
+Somnath,Gujarat,2018,10,8,7,0,1,Sunny,8344
+Somnath,Gujarat,2018,10,8,8,0,1,Humid,5650
+Somnath,Gujarat,2018,10,8,9,0,1,Humid,9202
+Somnath,Gujarat,2018,10,8,10,0,1,Heavy Rain,8576
+Somnath,Gujarat,2018,10,8,11,0,1,Sunny,15578
+Somnath,Gujarat,2018,10,8,12,0,1,Light Rain,17836
+Somnath,Gujarat,2018,10,8,13,0,1,Cloudy,12550
+Somnath,Gujarat,2018,10,8,14,0,1,Sunny,6702
+Somnath,Gujarat,2018,10,8,15,0,1,Light Rain,13806
+Somnath,Gujarat,2018,10,8,16,0,1,Cloudy,18101
+Somnath,Gujarat,2018,10,8,17,0,1,Humid,8209
+Somnath,Gujarat,2018,10,8,18,0,1,Humid,25462
+Somnath,Gujarat,2018,10,8,19,0,1,Cloudy,24511
+Somnath,Gujarat,2018,10,8,20,0,1,Cloudy,17003
+Somnath,Gujarat,2018,10,8,21,0,1,Light Rain,14331
+Somnath,Gujarat,2018,10,8,22,0,1,Sunny,16420
+Somnath,Gujarat,2018,10,8,23,0,1,Humid,18923
+Somnath,Gujarat,2018,10,9,0,0,1,Heavy Rain,17537
+Somnath,Gujarat,2018,10,9,1,0,1,Humid,18228
+Somnath,Gujarat,2018,10,9,2,0,1,Heavy Rain,26311
+Somnath,Gujarat,2018,10,9,3,0,1,Humid,25432
+Somnath,Gujarat,2018,10,9,4,0,1,Heavy Rain,16438
+Somnath,Gujarat,2018,10,9,5,0,1,Heavy Rain,24754
+Somnath,Gujarat,2018,10,9,6,0,1,Sunny,18722
+Somnath,Gujarat,2018,10,9,7,0,1,Humid,18726
+Somnath,Gujarat,2018,10,9,8,0,1,Light Rain,15611
+Somnath,Gujarat,2018,10,9,9,0,1,Sunny,14488
+Somnath,Gujarat,2018,10,9,10,0,1,Cloudy,14279
+Somnath,Gujarat,2018,10,9,11,0,1,Sunny,34846
+Somnath,Gujarat,2018,10,9,12,0,1,Cloudy,28505
+Somnath,Gujarat,2018,10,9,13,0,1,Humid,18320
+Somnath,Gujarat,2018,10,9,14,0,1,Humid,39199
+Somnath,Gujarat,2018,10,9,15,0,1,Heavy Rain,24716
+Somnath,Gujarat,2018,10,9,16,0,1,Cloudy,21304
+Somnath,Gujarat,2018,10,9,17,0,1,Heavy Rain,8337
+Somnath,Gujarat,2018,10,9,18,0,1,Humid,50123
+Somnath,Gujarat,2018,10,9,19,0,1,Sunny,54236
+Somnath,Gujarat,2018,10,9,20,0,1,Cloudy,77880
+Somnath,Gujarat,2018,10,9,21,0,1,Cloudy,37742
+Somnath,Gujarat,2018,10,9,22,0,1,Cloudy,27170
+Somnath,Gujarat,2018,10,9,23,0,1,Sunny,52884
+Somnath,Gujarat,2019,10,1,0,0,1,Cloudy,11420
+Somnath,Gujarat,2019,10,1,1,0,1,Light Rain,15963
+Somnath,Gujarat,2019,10,1,2,0,1,Heavy Rain,31784
+Somnath,Gujarat,2019,10,1,3,0,1,Humid,22499
+Somnath,Gujarat,2019,10,1,4,0,1,Cloudy,11553
+Somnath,Gujarat,2019,10,1,5,0,1,Heavy Rain,22814
+Somnath,Gujarat,2019,10,1,6,0,1,Humid,26788
+Somnath,Gujarat,2019,10,1,7,0,1,Sunny,16785
+Somnath,Gujarat,2019,10,1,8,0,1,Heavy Rain,28366
+Somnath,Gujarat,2019,10,1,9,0,1,Cloudy,10373
+Somnath,Gujarat,2019,10,1,10,0,1,Cloudy,21098
+Somnath,Gujarat,2019,10,1,11,0,1,Sunny,29363
+Somnath,Gujarat,2019,10,1,12,0,1,Sunny,22912
+Somnath,Gujarat,2019,10,1,13,0,1,Light Rain,25604
+Somnath,Gujarat,2019,10,1,14,0,1,Humid,19807
+Somnath,Gujarat,2019,10,1,15,0,1,Cloudy,19269
+Somnath,Gujarat,2019,10,1,16,0,1,Cloudy,40637
+Somnath,Gujarat,2019,10,1,17,0,1,Light Rain,12936
+Somnath,Gujarat,2019,10,1,18,0,1,Humid,30696
+Somnath,Gujarat,2019,10,1,19,0,1,Heavy Rain,73677
+Somnath,Gujarat,2019,10,1,20,0,1,Sunny,60767
+Somnath,Gujarat,2019,10,1,21,0,1,Heavy Rain,47297
+Somnath,Gujarat,2019,10,1,22,0,1,Humid,66754
+Somnath,Gujarat,2019,10,1,23,0,1,Cloudy,46987
+Somnath,Gujarat,2019,10,2,0,0,1,Sunny,4388
+Somnath,Gujarat,2019,10,2,1,0,1,Light Rain,9323
+Somnath,Gujarat,2019,10,2,2,0,1,Light Rain,6047
+Somnath,Gujarat,2019,10,2,3,0,1,Sunny,11624
+Somnath,Gujarat,2019,10,2,4,0,1,Heavy Rain,9161
+Somnath,Gujarat,2019,10,2,5,0,1,Light Rain,6354
+Somnath,Gujarat,2019,10,2,6,0,1,Sunny,9696
+Somnath,Gujarat,2019,10,2,7,0,1,Heavy Rain,7357
+Somnath,Gujarat,2019,10,2,8,0,1,Cloudy,10149
+Somnath,Gujarat,2019,10,2,9,0,1,Cloudy,10099
+Somnath,Gujarat,2019,10,2,10,0,1,Sunny,11144
+Somnath,Gujarat,2019,10,2,11,0,1,Sunny,19401
+Somnath,Gujarat,2019,10,2,12,0,1,Light Rain,14450
+Somnath,Gujarat,2019,10,2,13,0,1,Heavy Rain,5969
+Somnath,Gujarat,2019,10,2,14,0,1,Light Rain,7920
+Somnath,Gujarat,2019,10,2,15,0,1,Sunny,12786
+Somnath,Gujarat,2019,10,2,16,0,1,Light Rain,16243
+Somnath,Gujarat,2019,10,2,17,0,1,Heavy Rain,7428
+Somnath,Gujarat,2019,10,2,18,0,1,Light Rain,13964
+Somnath,Gujarat,2019,10,2,19,0,1,Humid,13637
+Somnath,Gujarat,2019,10,2,20,0,1,Sunny,18048
+Somnath,Gujarat,2019,10,2,21,0,1,Sunny,13122
+Somnath,Gujarat,2019,10,2,22,0,1,Humid,12921
+Somnath,Gujarat,2019,10,2,23,0,1,Humid,27771
+Somnath,Gujarat,2019,10,3,0,0,1,Sunny,6956
+Somnath,Gujarat,2019,10,3,1,0,1,Heavy Rain,7317
+Somnath,Gujarat,2019,10,3,2,0,1,Cloudy,10334
+Somnath,Gujarat,2019,10,3,3,0,1,Light Rain,9454
+Somnath,Gujarat,2019,10,3,4,0,1,Light Rain,4020
+Somnath,Gujarat,2019,10,3,5,0,1,Light Rain,7701
+Somnath,Gujarat,2019,10,3,6,0,1,Cloudy,11987
+Somnath,Gujarat,2019,10,3,7,0,1,Heavy Rain,10336
+Somnath,Gujarat,2019,10,3,8,0,1,Humid,7237
+Somnath,Gujarat,2019,10,3,9,0,1,Light Rain,5530
+Somnath,Gujarat,2019,10,3,10,0,1,Humid,9320
+Somnath,Gujarat,2019,10,3,11,0,1,Light Rain,8204
+Somnath,Gujarat,2019,10,3,12,0,1,Light Rain,17774
+Somnath,Gujarat,2019,10,3,13,0,1,Light Rain,6978
+Somnath,Gujarat,2019,10,3,14,0,1,Sunny,7605
+Somnath,Gujarat,2019,10,3,15,0,1,Heavy Rain,12628
+Somnath,Gujarat,2019,10,3,16,0,1,Heavy Rain,17286
+Somnath,Gujarat,2019,10,3,17,0,1,Sunny,9705
+Somnath,Gujarat,2019,10,3,18,0,1,Humid,29704
+Somnath,Gujarat,2019,10,3,19,0,1,Cloudy,29366
+Somnath,Gujarat,2019,10,3,20,0,1,Cloudy,10221
+Somnath,Gujarat,2019,10,3,21,0,1,Sunny,29556
+Somnath,Gujarat,2019,10,3,22,0,1,Heavy Rain,18603
+Somnath,Gujarat,2019,10,3,23,0,1,Heavy Rain,25652
+Somnath,Gujarat,2019,10,4,0,0,1,Sunny,6943
+Somnath,Gujarat,2019,10,4,1,0,1,Humid,9664
+Somnath,Gujarat,2019,10,4,2,0,1,Humid,8151
+Somnath,Gujarat,2019,10,4,3,0,1,Humid,7453
+Somnath,Gujarat,2019,10,4,4,0,1,Sunny,7312
+Somnath,Gujarat,2019,10,4,5,0,1,Heavy Rain,4215
+Somnath,Gujarat,2019,10,4,6,0,1,Humid,11835
+Somnath,Gujarat,2019,10,4,7,0,1,Heavy Rain,7909
+Somnath,Gujarat,2019,10,4,8,0,1,Sunny,7744
+Somnath,Gujarat,2019,10,4,9,0,1,Sunny,8958
+Somnath,Gujarat,2019,10,4,10,0,1,Light Rain,4303
+Somnath,Gujarat,2019,10,4,11,0,1,Humid,7163
+Somnath,Gujarat,2019,10,4,12,0,1,Cloudy,9868
+Somnath,Gujarat,2019,10,4,13,0,1,Humid,13367
+Somnath,Gujarat,2019,10,4,14,0,1,Sunny,15532
+Somnath,Gujarat,2019,10,4,15,0,1,Cloudy,7423
+Somnath,Gujarat,2019,10,4,16,0,1,Cloudy,17894
+Somnath,Gujarat,2019,10,4,17,0,1,Sunny,6795
+Somnath,Gujarat,2019,10,4,18,0,1,Humid,11109
+Somnath,Gujarat,2019,10,4,19,0,1,Cloudy,18729
+Somnath,Gujarat,2019,10,4,20,0,1,Humid,13539
+Somnath,Gujarat,2019,10,4,21,0,1,Humid,11636
+Somnath,Gujarat,2019,10,4,22,0,1,Light Rain,26909
+Somnath,Gujarat,2019,10,4,23,0,1,Heavy Rain,30637
+Somnath,Gujarat,2019,10,5,0,1,1,Light Rain,24650
+Somnath,Gujarat,2019,10,5,1,1,1,Humid,19803
+Somnath,Gujarat,2019,10,5,2,1,1,Heavy Rain,26703
+Somnath,Gujarat,2019,10,5,3,1,1,Heavy Rain,20812
+Somnath,Gujarat,2019,10,5,4,1,1,Sunny,30433
+Somnath,Gujarat,2019,10,5,5,1,1,Heavy Rain,11647
+Somnath,Gujarat,2019,10,5,6,1,1,Heavy Rain,22716
+Somnath,Gujarat,2019,10,5,7,1,1,Cloudy,23675
+Somnath,Gujarat,2019,10,5,8,1,1,Cloudy,11469
+Somnath,Gujarat,2019,10,5,9,1,1,Sunny,27976
+Somnath,Gujarat,2019,10,5,10,1,1,Heavy Rain,11412
+Somnath,Gujarat,2019,10,5,11,1,1,Sunny,21172
+Somnath,Gujarat,2019,10,5,12,1,1,Heavy Rain,25588
+Somnath,Gujarat,2019,10,5,13,1,1,Heavy Rain,24978
+Somnath,Gujarat,2019,10,5,14,1,1,Sunny,14719
+Somnath,Gujarat,2019,10,5,15,1,1,Light Rain,39471
+Somnath,Gujarat,2019,10,5,16,1,1,Humid,40601
+Somnath,Gujarat,2019,10,5,17,1,1,Sunny,12367
+Somnath,Gujarat,2019,10,5,18,1,1,Humid,54298
+Somnath,Gujarat,2019,10,5,19,1,1,Sunny,42840
+Somnath,Gujarat,2019,10,5,20,1,1,Light Rain,30722
+Somnath,Gujarat,2019,10,5,21,1,1,Light Rain,50222
+Somnath,Gujarat,2019,10,5,22,1,1,Humid,52570
+Somnath,Gujarat,2019,10,5,23,1,1,Sunny,31217
+Somnath,Gujarat,2019,10,6,0,1,1,Cloudy,11838
+Somnath,Gujarat,2019,10,6,1,1,1,Sunny,6979
+Somnath,Gujarat,2019,10,6,2,1,1,Sunny,10365
+Somnath,Gujarat,2019,10,6,3,1,1,Heavy Rain,8825
+Somnath,Gujarat,2019,10,6,4,1,1,Sunny,6898
+Somnath,Gujarat,2019,10,6,5,1,1,Cloudy,4301
+Somnath,Gujarat,2019,10,6,6,1,1,Humid,7867
+Somnath,Gujarat,2019,10,6,7,1,1,Cloudy,6891
+Somnath,Gujarat,2019,10,6,8,1,1,Heavy Rain,9711
+Somnath,Gujarat,2019,10,6,9,1,1,Sunny,5352
+Somnath,Gujarat,2019,10,6,10,1,1,Humid,8573
+Somnath,Gujarat,2019,10,6,11,1,1,Sunny,13871
+Somnath,Gujarat,2019,10,6,12,1,1,Cloudy,12894
+Somnath,Gujarat,2019,10,6,13,1,1,Sunny,16134
+Somnath,Gujarat,2019,10,6,14,1,1,Sunny,8652
+Somnath,Gujarat,2019,10,6,15,1,1,Sunny,9914
+Somnath,Gujarat,2019,10,6,16,1,1,Heavy Rain,13604
+Somnath,Gujarat,2019,10,6,17,1,1,Cloudy,6263
+Somnath,Gujarat,2019,10,6,18,1,1,Heavy Rain,13657
+Somnath,Gujarat,2019,10,6,19,1,1,Cloudy,31530
+Somnath,Gujarat,2019,10,6,20,1,1,Humid,13091
+Somnath,Gujarat,2019,10,6,21,1,1,Heavy Rain,13949
+Somnath,Gujarat,2019,10,6,22,1,1,Humid,31494
+Somnath,Gujarat,2019,10,6,23,1,1,Humid,14658
+Somnath,Gujarat,2019,10,7,0,0,1,Cloudy,8189
+Somnath,Gujarat,2019,10,7,1,0,1,Light Rain,4572
+Somnath,Gujarat,2019,10,7,2,0,1,Sunny,5371
+Somnath,Gujarat,2019,10,7,3,0,1,Sunny,8674
+Somnath,Gujarat,2019,10,7,4,0,1,Cloudy,6364
+Somnath,Gujarat,2019,10,7,5,0,1,Cloudy,7329
+Somnath,Gujarat,2019,10,7,6,0,1,Cloudy,4182
+Somnath,Gujarat,2019,10,7,7,0,1,Humid,6780
+Somnath,Gujarat,2019,10,7,8,0,1,Heavy Rain,5687
+Somnath,Gujarat,2019,10,7,9,0,1,Heavy Rain,8097
+Somnath,Gujarat,2019,10,7,10,0,1,Sunny,6648
+Somnath,Gujarat,2019,10,7,11,0,1,Heavy Rain,8756
+Somnath,Gujarat,2019,10,7,12,0,1,Sunny,10586
+Somnath,Gujarat,2019,10,7,13,0,1,Sunny,12544
+Somnath,Gujarat,2019,10,7,14,0,1,Sunny,20374
+Somnath,Gujarat,2019,10,7,15,0,1,Light Rain,19977
+Somnath,Gujarat,2019,10,7,16,0,1,Light Rain,7632
+Somnath,Gujarat,2019,10,7,17,0,1,Cloudy,9025
+Somnath,Gujarat,2019,10,7,18,0,1,Cloudy,19034
+Somnath,Gujarat,2019,10,7,19,0,1,Humid,9511
+Somnath,Gujarat,2019,10,7,20,0,1,Humid,20681
+Somnath,Gujarat,2019,10,7,21,0,1,Heavy Rain,15280
+Somnath,Gujarat,2019,10,7,22,0,1,Humid,14873
+Somnath,Gujarat,2019,10,7,23,0,1,Heavy Rain,31731
+Somnath,Gujarat,2019,10,8,0,0,1,Light Rain,6064
+Somnath,Gujarat,2019,10,8,1,0,1,Cloudy,11475
+Somnath,Gujarat,2019,10,8,2,0,1,Humid,6175
+Somnath,Gujarat,2019,10,8,3,0,1,Heavy Rain,5082
+Somnath,Gujarat,2019,10,8,4,0,1,Cloudy,9278
+Somnath,Gujarat,2019,10,8,5,0,1,Humid,7518
+Somnath,Gujarat,2019,10,8,6,0,1,Heavy Rain,4056
+Somnath,Gujarat,2019,10,8,7,0,1,Cloudy,11850
+Somnath,Gujarat,2019,10,8,8,0,1,Cloudy,4560
+Somnath,Gujarat,2019,10,8,9,0,1,Light Rain,9494
+Somnath,Gujarat,2019,10,8,10,0,1,Humid,5163
+Somnath,Gujarat,2019,10,8,11,0,1,Light Rain,10203
+Somnath,Gujarat,2019,10,8,12,0,1,Sunny,11226
+Somnath,Gujarat,2019,10,8,13,0,1,Sunny,7822
+Somnath,Gujarat,2019,10,8,14,0,1,Humid,12826
+Somnath,Gujarat,2019,10,8,15,0,1,Sunny,7519
+Somnath,Gujarat,2019,10,8,16,0,1,Heavy Rain,12389
+Somnath,Gujarat,2019,10,8,17,0,1,Heavy Rain,10683
+Somnath,Gujarat,2019,10,8,18,0,1,Heavy Rain,15005
+Somnath,Gujarat,2019,10,8,19,0,1,Light Rain,26379
+Somnath,Gujarat,2019,10,8,20,0,1,Cloudy,23579
+Somnath,Gujarat,2019,10,8,21,0,1,Light Rain,18408
+Somnath,Gujarat,2019,10,8,22,0,1,Heavy Rain,32060
+Somnath,Gujarat,2019,10,8,23,0,1,Humid,25713
+Somnath,Gujarat,2019,10,9,0,0,1,Cloudy,27342
+Somnath,Gujarat,2019,10,9,1,0,1,Heavy Rain,16039
+Somnath,Gujarat,2019,10,9,2,0,1,Humid,12486
+Somnath,Gujarat,2019,10,9,3,0,1,Humid,9855
+Somnath,Gujarat,2019,10,9,4,0,1,Sunny,11913
+Somnath,Gujarat,2019,10,9,5,0,1,Cloudy,12461
+Somnath,Gujarat,2019,10,9,6,0,1,Humid,17296
+Somnath,Gujarat,2019,10,9,7,0,1,Light Rain,13772
+Somnath,Gujarat,2019,10,9,8,0,1,Cloudy,16397
+Somnath,Gujarat,2019,10,9,9,0,1,Humid,19449
+Somnath,Gujarat,2019,10,9,10,0,1,Light Rain,20378
+Somnath,Gujarat,2019,10,9,11,0,1,Sunny,33964
+Somnath,Gujarat,2019,10,9,12,0,1,Humid,27826
+Somnath,Gujarat,2019,10,9,13,0,1,Heavy Rain,17918
+Somnath,Gujarat,2019,10,9,14,0,1,Cloudy,28556
+Somnath,Gujarat,2019,10,9,15,0,1,Heavy Rain,20808
+Somnath,Gujarat,2019,10,9,16,0,1,Sunny,14395
+Somnath,Gujarat,2019,10,9,17,0,1,Cloudy,20038
+Somnath,Gujarat,2019,10,9,18,0,1,Sunny,43898
+Somnath,Gujarat,2019,10,9,19,0,1,Cloudy,84222
+Somnath,Gujarat,2019,10,9,20,0,1,Sunny,21907
+Somnath,Gujarat,2019,10,9,21,0,1,Sunny,45261
+Somnath,Gujarat,2019,10,9,22,0,1,Light Rain,29332
+Somnath,Gujarat,2019,10,9,23,0,1,Sunny,60512
