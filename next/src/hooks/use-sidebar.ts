@@ -8,7 +8,7 @@ export function useSidebar() {
   const toggle = () => setIsOpen(!isOpen)
   const close = () => setIsOpen(false)
 
-  // Close sidebar on larger screens
+  
   useEffect(() => {
     const handleResize = () => {
       if (window.innerWidth >= 1024) {
