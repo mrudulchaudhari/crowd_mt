@@ -1,23 +1,23 @@
 # Core
 Django==5.2.6
 djangorestframework==3.16.1
-sqlparse==0.5.3
-typing_extensions==4.15.0
-tzdata==2025.2
-
-# ASGI / Channels
-asgiref==3.9.1
 channels==4.3.1
+django-cors-headers==4.8.0
+sqlparse==0.5.3
+asgiref==3.9.1
 
-# ML (explicit NumPy & SciPy to avoid build from source)
+# QR / Utilities
+qrcode==8.2
+requests==2.32.3
+
+# Data / ML
 numpy==2.3.2
-scipy==1.14.1
-scikit-learn==1.4.2
-joblib==1.3.2
+pandas==2.3.2
+joblib==1.5.2
 
-# Deployment helpers (optional)
+# Deployment helpers
 gunicorn==21.2.0
 whitenoise==6.6.0
 
-requests==2.32.3
-
+# Timezone
+tzdata==2025.2

@@ -1,6 +1,6 @@
 from django.urls import path, include
 from rest_framework.routers import DefaultRouter
-from .views import EventViewSet, ManagerEventViewSet, CustomAuthToken ,heatmap,PublicEventViewSet
+from .views import EventViewSet, ManagerEventViewSet, CustomAuthToken ,heatmap,PublicEventViewSet, AlertViewSet, HeadcountSnapshotViewSet
 
 
 # The router handles the ViewSet-based endpoints for public and manager access
