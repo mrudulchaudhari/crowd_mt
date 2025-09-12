@@ -14,12 +14,22 @@ Including another URLconf
     1. Import the include() function: from django.urls import include, path
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
-
 from django.contrib import admin
 from django.urls import path, include
+from rest_framework.routers import DefaultRouter
+from core.views import AlertViewSet, SnapshotCreateView
+
+# Router for ViewSets (like Alert)
+router = DefaultRouter()
+router.register(r"alerts", AlertViewSet, basename="alert")
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    # Add this line to include your core app's URLs
     path('api/', include('core.urls')),
+
+    # Alerts API
+    path("api/", include(router.urls)),
+
+    # Snapshot creation endpoint
+    path("api/events/<int:event_id>/snapshot/", SnapshotCreateView.as_view(), name="snapshot-create"),
 ]
