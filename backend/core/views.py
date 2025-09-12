@@ -209,3 +209,27 @@ def qr_for_event(request, event_id):
     scan_url = f"{FRONTEND_BASE}/scan/{event.qr_token}"
     datauri = generate_qr_datauri(scan_url)
     return Response({"qr_datauri": datauri, "token": event.qr_token, "scan_url": scan_url})
+
+
+@api_view(['GET'])
+def heatmap(request):
+    """
+    GET /api/heatmap/?event_id=<id>&minutes=60&interval=10
+    Returns aggregated headcount snapshots in time buckets.
+    """
+    event_id = request.query_params.get("event_id")
+    if not event_id:
+        return Response({"error": "event_id required"}, status=400)
+
+    try:
+        event = Event.objects.get(pk=event_id)
+    except Event.DoesNotExist:
+        return Response({"error": "event not found"}, status=404)
+
+    minutes = int(request.query_params.get("minutes", 60))
+    interval = int(request.query_params.get("interval", 10))
+
+    from .services import heatmap_for_event
+    data = heatmap_for_event(event, minutes=minutes, interval=interval)
+
+    return Response(data)
