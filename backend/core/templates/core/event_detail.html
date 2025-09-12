@@ -1,0 +1,37 @@
+{% extends "core/base.html" %}
+{% block title %}Event — {{ event.name }}{% endblock %}
+
+{% block content %}
+  <section>
+    <h2 id="event-title">{{ event.name }}</h2>
+
+    <div>
+      <h3>Current Headcount</h3>
+      <p id="headcount">Loading…</p>
+    </div>
+  </section>
+{% endblock %}
+
+{% block scripts %}
+<script>
+const EVENT_ID = {{ event.id }};
+
+// Fetch event details (name + current_headcount) from API
+async function loadEvent() {
+  try {
+    const res = await fetch(`/api/events/${EVENT_ID}/`);
+    if (!res.ok) {
+      throw new Error(`${res.status} ${res.statusText}`);
+    }
+    const data = await res.json();
+    document.getElementById("event-title").innerText = data.name;
+    document.getElementById("headcount").innerText = data.current_headcount ?? "N/A";
+  } catch (err) {
+    document.getElementById("headcount").innerHTML =
+      `<span style="color:red">Error: ${err.message}</span>`;
+  }
+}
+
+document.addEventListener("DOMContentLoaded", loadEvent);
+</script>
+{% endblock %}

@@ -30,10 +30,13 @@ class EventAdmin(admin.ModelAdmin):
     def get_current_headcount(self, obj):
         """
         Calculates and displays the latest headcount in the admin list view.
+        Uses an explicit query instead of relying on reverse relation name.
         """
-        latest_snapshot = obj.headcountsnapshot_set.order_by("-timestamp").first()
+        latest_snapshot = (
+            HeadcountSnapshot.objects.filter(event=obj).order_by("-timestamp").first()
+        )
         return latest_snapshot.headcount if latest_snapshot else 0
-    get_current_headcount.short_description = 'Current Headcount' # Column header
+    get_current_headcount.short_description = 'Current Headcount'  # Column header
 
     def get_status(self, obj):
         """

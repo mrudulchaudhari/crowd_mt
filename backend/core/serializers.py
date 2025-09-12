@@ -1,6 +1,10 @@
+# backend/core/serializers.py
 from rest_framework import serializers
-from .models import Event, HeadcountSnapshot
-from .models import Alert, Event, HeadcountSnapshot
+import logging
+
+from .models import Event, HeadcountSnapshot, Alert
+
+logger = logging.getLogger(__name__)
 
 
 class HeadcountSnapshotSerializer(serializers.ModelSerializer):
@@ -8,7 +12,6 @@ class HeadcountSnapshotSerializer(serializers.ModelSerializer):
     Serializer for individual headcount snapshots.
     Displays event name for readability.
     """
-
     event = serializers.StringRelatedField()  # Shows event name instead of ID
 
     class Meta:
@@ -23,7 +26,6 @@ class EventSerializer(serializers.ModelSerializer):
         - current_headcount: latest snapshot count
         - status: Green / Yellow / Red based on thresholds
     """
-
     current_headcount = serializers.SerializerMethodField()
     status = serializers.SerializerMethodField()
 
@@ -43,21 +45,45 @@ class EventSerializer(serializers.ModelSerializer):
     def get_current_headcount(self, obj):
         """
         Returns the latest headcount for the event.
+        Uses related_name 'snapshots' (HeadcountSnapshot.event.related_name).
+        Falls back to querying HeadcountSnapshot if the reverse relation doesn't exist.
         """
-        latest_snapshot = obj.headcountsnapshot_set.order_by("-timestamp").first()
-        return latest_snapshot.headcount if latest_snapshot else 0
+        try:
+            # Preferred: use the related_name on the model
+            snapshots_manager = getattr(obj, "snapshots", None)
+            if snapshots_manager is not None:
+                latest = snapshots_manager.order_by("-timestamp").first()
+                return latest.headcount if latest else 0
+
+            # Fallback: try default reverse name or direct query
+            alt = getattr(obj, "headcountsnapshot_set", None)
+            if alt is not None:
+                latest = alt.order_by("-timestamp").first()
+                return latest.headcount if latest else 0
+
+            qs = HeadcountSnapshot.objects.filter(event=obj).order_by("-timestamp")
+            latest = qs.first()
+            return latest.headcount if latest else 0
+
+        except Exception as exc:
+            logger.exception("Error getting current headcount for Event id=%s: %s", getattr(obj, "id", "?"), exc)
+            return 0
+
 
     def get_status(self, obj):
         """
         Determines crowd status based on thresholds.
         """
         headcount = self.get_current_headcount(obj)
-        if headcount >= obj.crowded_threshold:
-            return "Red"
-        elif headcount >= obj.safe_threshold:
-            return "Yellow"
-        return "Green"
-
+        try:
+            if headcount >= obj.crowded_threshold:
+                return "Red"
+            elif headcount >= obj.safe_threshold:
+                return "Yellow"
+            return "Green"
+        except Exception:
+            # If thresholds are missing or invalid, return Unknown
+            return "Unknown"
 
 
 class EventDetailSerializer(EventSerializer):
@@ -65,13 +91,11 @@ class EventDetailSerializer(EventSerializer):
     Detailed serializer for Event.
     Includes all snapshots for admin verification.
     """
-
-    snapshots = HeadcountSnapshotSerializer(
-        source="headcountsnapshot_set", many=True, read_only=True
-    )
+    snapshots = HeadcountSnapshotSerializer(source="snapshots", many=True, read_only=True)
 
     class Meta(EventSerializer.Meta):
         fields = EventSerializer.Meta.fields + ["snapshots"]
+
 
 class AlertSerializer(serializers.ModelSerializer):
     event_name = serializers.CharField(source="event.name", read_only=True)
