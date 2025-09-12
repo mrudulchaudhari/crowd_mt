@@ -369,7 +369,7 @@ def qr_for_event(request, event_id):
     return Response({"qr_data_uri": data_uri, "scan_url": scan_url})
 
   
- class SnapshotCreateView(APIView):
+class SnapshotCreateView(APIView):
     """
     POST /api/snapshots/<event_id>/
     Body JSON: {"headcount": int, "source": "sensor" (optional)}
@@ -424,3 +424,28 @@ def heatmap(request):
     data = heatmap_for_event(event, minutes=minutes, interval=interval)
 
     return Response(data)
+
+
+class AlertViewSet(viewsets.ReadOnlyModelViewSet):
+    queryset = Alert.objects.all().order_by('-created_at')  # or '-id'
+    serializer_class = AlertSerializer
+
+
+# -----------------------
+# HeadcountSnapshot ViewSet
+# -----------------------
+class HeadcountSnapshotViewSet(viewsets.ReadOnlyModelViewSet):
+    """
+    Read-only ViewSet for HeadcountSnapshot.
+    Supports optional ?event_id=<id> filter.
+    """
+    queryset = HeadcountSnapshot.objects.all().order_by("-timestamp")
+    serializer_class = HeadcountSnapshotSerializer
+    permission_classes = [AllowAny]
+
+    def get_queryset(self):
+        qs = super().get_queryset()
+        event_id = self.request.query_params.get("event_id")
+        if event_id:
+            qs = qs.filter(event_id=event_id)
+        return qs
