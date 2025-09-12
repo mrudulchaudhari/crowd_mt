@@ -36,3 +36,15 @@ class HeadcountSnapshot(models.Model):
 
     def __str__(self):
         return f"{self.event.name} - {self.headcount} ({self.source})"
+
+
+    
+class Alert(models.Model):
+    event = models.ForeignKey("Event", on_delete=models.CASCADE)  
+    alert_type = models.CharField(max_length=50)
+    message = models.TextField()
+    created_at = models.DateTimeField(auto_now_add=True)
+    resolved = models.BooleanField(default=False)
+
+    def __str__(self):
+        return f"[{self.alert_type}] {self.message[:50]}"
