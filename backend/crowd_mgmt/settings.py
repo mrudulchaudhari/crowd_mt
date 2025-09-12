@@ -46,6 +46,7 @@ INSTALLED_APPS = [
 
     # Local apps
     'core',
+    "django_extensions",
 ]
 
 MIDDLEWARE = [
@@ -64,8 +65,9 @@ ROOT_URLCONF = "crowd_mgmt.urls"
 TEMPLATES = [
     {
         "BACKEND": "django.template.backends.django.DjangoTemplates",
-        "DIRS": [],
+        "DIRS": [ BASE_DIR / "templates", BASE_DIR / "backend" / "templates" ],
         "APP_DIRS": True,
+
         "OPTIONS": {
             "context_processors": [
                 "django.template.context_processors.request",
@@ -139,3 +141,4 @@ CORS_ALLOWED_ORIGINS = [
     "http://127.0.0.1:3000",
 ]
 
+APPEND_SLASH = True
