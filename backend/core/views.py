@@ -1,74 +1,80 @@
-# backend/core/views.py
-from rest_framework import viewsets, mixins, status
-from rest_framework.decorators import api_view
-from rest_framework.response import Response
-from rest_framework.permissions import AllowAny
-from rest_framework.views import APIView
-
 from django.utils import timezone
 from django.conf import settings
+from django.db.models import Avg
+from django.db.models.functions import TruncSecond
+
+from rest_framework import viewsets, mixins, status
+from rest_framework.decorators import api_view, permission_classes
+from rest_framework.response import Response
+from rest_framework.permissions import AllowAny, IsAuthenticated
+from rest_framework.views import APIView
+from rest_framework.authtoken.views import ObtainAuthToken
+from rest_framework.authtoken.models import Token
 
 from asgiref.sync import async_to_sync
 from channels.layers import get_channel_layer
 
+# Local imports
 from .models import Event, HeadcountSnapshot, Alert
 from .serializers import (
     EventSerializer,
     EventDetailSerializer,
     HeadcountSnapshotSerializer,
+    StatusSerializer,
     AlertSerializer,
+    HeatmapBucketSerializer,
 )
+from .permissions import IsEventManager
 from .utils import generate_qr_datauri
+from .ml import run_ml_predict
 
 
 # -----------------------
-# Broadcast helper
+# Broadcast helpers
 # -----------------------
+def broadcast_update(event):
+    """Broadcast event summary update to its group."""
+    channel_layer = get_channel_layer()
+    serializer = EventSerializer(event)
+    async_to_sync(channel_layer.group_send)(
+        f"event_{event.id}",
+        {
+            "type": "event_update",
+            "headcount": serializer.data.get("current_headcount"),
+            "status": serializer.data.get("status"),
+        },
+    )
+
+
 def broadcast_snapshot(snap):
-    """
-    Broadcast a headcount update to the event group.
-    Group name: event_{id}
-    Message type: headcount_update
-    Payload: { headcount, timestamp, source, event_id }
-    """
-    layer = get_channel_layer()
-    group = f"event_{snap.event.id}"
+    """Broadcast a headcount snapshot to the group."""
     data = {
         "headcount": snap.headcount,
         "timestamp": snap.timestamp.isoformat() if hasattr(snap, "timestamp") else None,
         "source": snap.source,
         "event_id": snap.event.id,
     }
-    async_to_sync(layer.group_send)(group, {"type": "headcount_update", "data": data})
+    async_to_sync(get_channel_layer().group_send)(
+        f"event_{snap.event.id}", {"type": "headcount_update", "data": data}
+    )
 
 
-# -----------------------
-# Alert checks & broadcast
-# -----------------------
 def check_alerts_for_snapshot(snap):
-    """
-    Creates an Alert if conditions match, returns Alert instance or None.
-    Logic:
-      - capacity: headcount >= safety_threshold (if present)
-      - spike: >30% increase vs previous snapshot
-      - stale: if event.last_validated_at exists and is older than 30m and headcount > safety_threshold
-    """
+    """Check thresholds and create Alert if needed."""
     event = snap.event
-    # standardize on safety_threshold field (ensure your Event model matches)
     safety_thr = getattr(event, "safety_threshold", None) or 0
     crowded_thr = getattr(event, "crowded_threshold", None)
 
-    # 1) Capacity breach (prefer crowded_threshold if set)
-    cap_thr = crowded_thr if (crowded_thr is not None) else safety_thr
+    # Capacity breach
+    cap_thr = crowded_thr if crowded_thr else safety_thr
     if cap_thr and snap.headcount >= cap_thr:
-        alert = Alert.objects.create(
+        return Alert.objects.create(
             event=event,
             alert_type="capacity",
             message=f"Headcount {snap.headcount} >= threshold {cap_thr}",
         )
-        return alert
 
-    # 2) Rising rate (compare to previous snapshot)
+    # Spike
     prev = (
         HeadcountSnapshot.objects.filter(event=event, timestamp__lt=snap.timestamp)
         .order_by("-timestamp")
@@ -78,45 +84,75 @@ def check_alerts_for_snapshot(snap):
         denom = prev.headcount if prev.headcount > 0 else 1
         growth_rate = (snap.headcount - prev.headcount) / denom
         if growth_rate > 0.3:
-            alert = Alert.objects.create(
+            return Alert.objects.create(
                 event=event,
                 alert_type="spike",
-                message=f"Sharp spike: {growth_rate:.0%} increase in headcount",
+                message=f"Sharp spike: {growth_rate:.0%} increase",
             )
-            return alert
 
-    # 3) Staleness
-    if hasattr(event, "last_validated_at") and event.last_validated_at:
-        if (snap.timestamp - event.last_validated_at).total_seconds() > 1800 and snap.headcount > safety_thr:
-            alert = Alert.objects.create(
+    # Staleness
+    if getattr(event, "last_validated_at", None):
+        if (
+            (snap.timestamp - event.last_validated_at).total_seconds() > 1800
+            and snap.headcount > safety_thr
+        ):
+            return Alert.objects.create(
                 event=event,
                 alert_type="stale",
                 message="No admin validation recently, but crowd is above safe threshold!",
             )
-            return alert
 
     return None
 
 
 # -----------------------
-# Public Event listing
+# Event ViewSets
 # -----------------------
+class PublicEventViewSet(viewsets.ReadOnlyModelViewSet):
+    queryset = Event.objects.all().order_by("-date")
+    serializer_class = EventSerializer
+
+
 class EventViewSet(mixins.ListModelMixin, mixins.RetrieveModelMixin, viewsets.GenericViewSet):
     queryset = Event.objects.all().order_by("-date")
     serializer_class = EventSerializer
     permission_classes = [AllowAny]
 
+    def get_serializer_class(self):
+        return EventDetailSerializer if self.action == "retrieve" else EventSerializer
+
+
+class ManagerEventViewSet(viewsets.ModelViewSet):
+    serializer_class = EventDetailSerializer
+    permission_classes = [IsAuthenticated, IsEventManager]
+
+    def get_queryset(self):
+        return Event.objects.filter(manager=self.request.user)
+
+    def perform_create(self, serializer):
+        serializer.save(manager=self.request.user)
+
 
 # -----------------------
-# Scan by event_id (compat)
+# Authentication
+# -----------------------
+class CustomAuthToken(ObtainAuthToken):
+    permission_classes = [AllowAny]
+
+    def post(self, request, *args, **kwargs):
+        serializer = self.serializer_class(data=request.data, context={"request": request})
+        serializer.is_valid(raise_exception=True)
+        user = serializer.validated_data["user"]
+        token, _ = Token.objects.get_or_create(user=user)
+        return Response({"token": token.key, "user_id": user.pk, "email": user.email})
+
+
+# -----------------------
+# Scanning endpoints
 # -----------------------
 @api_view(["POST"])
+@permission_classes([AllowAny])
 def scan(request):
-    """
-    POST /api/scan/
-    Body: {"event_id": <int>, "increment": <int>}
-    Public endpoint for QR scanners mapped to event_id.
-    """
     event_id = request.data.get("event_id")
     if not event_id:
         return Response({"error": "event_id required"}, status=400)
@@ -135,31 +171,19 @@ def scan(request):
     snap = HeadcountSnapshot.objects.create(
         event=event, headcount=new_count, source="qr", timestamp=timezone.now()
     )
-
-    # broadcast headcount update
     broadcast_snapshot(snap)
-
-    # check alerts and broadcast if any (uses alert_message type)
     alert = check_alerts_for_snapshot(snap)
     if alert:
         async_to_sync(get_channel_layer().group_send)(
             f"event_{event_id}", {"type": "alert_message", "data": AlertSerializer(alert).data}
         )
-
     return Response({"headcount": new_count, "event_id": event.id})
 
 
-# -----------------------
-# Scan by token (QR)
-# -----------------------
 @api_view(["POST"])
+@permission_classes([AllowAny])
 def scan_by_token(request):
-    """
-    POST /api/scan_by_token/
-    Body JSON: {"token":"<qr_token>", "increment":1}
-    Public endpoint — people scanning QR should be allowed to hit this.
-    """
-    token = request.data.get("token") or request.query_params.get("token")
+    token = request.data.get("token")
     if not token:
         return Response({"error": "token required"}, status=400)
 
@@ -178,59 +202,48 @@ def scan_by_token(request):
     snap = HeadcountSnapshot.objects.create(
         event=event, headcount=new_count, source="qr", timestamp=timezone.now()
     )
-
-    # broadcast headcount update
     broadcast_snapshot(snap)
-
-    # check alerts and broadcast if any
     alert = check_alerts_for_snapshot(snap)
     if alert:
         async_to_sync(get_channel_layer().group_send)(
             f"event_{event.id}", {"type": "alert_message", "data": AlertSerializer(alert).data}
         )
-
     return Response({"headcount": new_count, "event_id": event.id, "token": token})
 
 
 # -----------------------
-# Admin update (protected)
+# Admin manual update
 # -----------------------
 @api_view(["POST"])
+@permission_classes([IsAuthenticated])
 def admin_update(request):
-    """
-    POST /api/admin_update/
-    Body JSON: {"event_id": <int>, "headcount": <int>}
-    """
-    if not request.user or not request.user.is_authenticated:
-        return Response({"error": "authentication required"}, status=401)
-
     event_id = request.data.get("event_id")
-    if not event_id:
-        return Response({"error": "event_id required"}, status=400)
+    headcount = request.data.get("headcount")
+    if not all([event_id, headcount]):
+        return Response({"error": "event_id and headcount required"}, status=400)
+
     try:
         event = Event.objects.get(pk=event_id)
     except Event.DoesNotExist:
         return Response({"error": "event not found"}, status=404)
 
+    if event.manager != request.user:
+        return Response({"error": "permission denied"}, status=403)
+
     try:
-        new_count = int(request.data.get("headcount", 0))
+        new_count = int(headcount)
     except (TypeError, ValueError):
-        return Response({"error": "Invalid headcount"}, status=400)
+        return Response({"error": "invalid headcount"}, status=400)
 
     snap = HeadcountSnapshot.objects.create(
         event=event, headcount=new_count, source="admin", timestamp=timezone.now()
     )
-
-    # broadcast headcount update
     broadcast_snapshot(snap)
-
-    # check alerts and broadcast if any
     alert = check_alerts_for_snapshot(snap)
     if alert:
         async_to_sync(get_channel_layer().group_send)(
             f"event_{event.id}", {"type": "alert_message", "data": AlertSerializer(alert).data}
         )
-
     return Response({"headcount": new_count, "event_id": event.id})
 
 
@@ -238,65 +251,37 @@ def admin_update(request):
 # Status & history
 # -----------------------
 @api_view(["GET"])
-def status(request):
-    """
-    GET /api/status/?event_id=<id>
-    """
+@permission_classes([AllowAny])
+def status_view(request):
     event_id = request.query_params.get("event_id")
     if not event_id:
-        return Response({"error": "event_id required"}, status=400)
+        return Response({"status": "ok"})  # health check fallback
+
     try:
         event = Event.objects.get(pk=event_id)
     except Event.DoesNotExist:
         return Response({"error": "event not found"}, status=404)
 
     last = HeadcountSnapshot.objects.filter(event=event).order_by("-timestamp").first()
-    use_ml = False
     if not last:
-        use_ml = True
-    else:
-        elapsed = (timezone.now() - last.timestamp).total_seconds()
-        if elapsed > 5 * 60:
-            use_ml = True
+        return Response({"error": "no snapshots"}, status=404)
 
-    if use_ml:
-        # minimal heuristic fallback (replace with ML model later)
-        hour = timezone.now().hour
-        base = 50
-        if 17 <= hour <= 21:
-            headcount = base * 8
-        elif 11 <= hour <= 14:
-            headcount = base * 5
-        else:
-            headcount = base * 2
-        source = "ml"
-    else:
-        headcount = last.headcount
-        source = last.source
-
-    thr = getattr(event, "safety_threshold", 1) or 1
-    ratio = headcount / thr
-    if ratio < 0.6:
-        color = "green"
-    elif ratio < 0.9:
-        color = "yellow"
-    else:
-        color = "red"
-
-    return Response({"headcount": headcount, "color": color, "source": source, "event_id": event.id})
+    predicted = run_ml_predict(event, timezone.now() + timezone.timedelta(hours=1))
+    status_data = {
+        "headcount": last.headcount,
+        "status": EventSerializer(event).get_status(event),
+        "source": last.source,
+        "predicted_next_hour": predicted,
+        "timestamp": last.timestamp,
+    }
+    return Response(StatusSerializer(status_data).data)
 
 
 @api_view(["GET"])
-def history(request):
-    """
-    GET /api/history/?event_id=<id>&limit=20
-    """
+@permission_classes([AllowAny])
+def history_view(request):
     event_id = request.query_params.get("event_id")
-    try:
-        limit = int(request.query_params.get("limit", 20))
-    except (TypeError, ValueError):
-        limit = 20
-
+    limit = int(request.query_params.get("limit", 50))
     if not event_id:
         return Response({"error": "event_id required"}, status=400)
     try:
@@ -304,36 +289,87 @@ def history(request):
     except Event.DoesNotExist:
         return Response({"error": "event not found"}, status=404)
 
-    snaps = HeadcountSnapshot.objects.filter(event=event).order_by("-timestamp")[:limit]
-    data = HeadcountSnapshotSerializer(snaps, many=True).data
-    return Response(data)
+    snaps = (
+        HeadcountSnapshot.objects.filter(event=event)
+        .order_by("-timestamp")[:limit]
+        .values("timestamp", "headcount", "source")
+    )
+    return Response({"event_id": event.id, "history": list(snaps)})
 
 
-# -----------------------
-# QR generation endpoint
-# -----------------------
 @api_view(["GET"])
-def qr_for_event(request, event_id):
-    """
-    GET /api/qr/<event_id>/
-    Returns data-uri PNG for a QR that points to frontend scan route.
-    """
+@permission_classes([AllowAny])
+def heatmap_view(request):
+    event_id = request.query_params.get("event_id")
+    interval = int(request.query_params.get("interval", 300))
+    if not event_id:
+        return Response({"error": "event_id required"}, status=400)
+
+    heatmap_data = (
+        HeadcountSnapshot.objects.filter(event_id=event_id)
+        .annotate(ts=TruncSecond("timestamp"))
+        .values("ts")
+        .annotate(avg_headcount=Avg("headcount"))
+        .order_by("ts")
+    )
+    return Response(HeatmapBucketSerializer(heatmap_data, many=True).data)
+
+
+@api_view(["GET"])
+@permission_classes([AllowAny])
+def alerts_view(request):
+    event_id = request.query_params.get("event_id")
+    if not event_id:
+        return Response({"error": "event_id required"}, status=400)
+
     try:
         event = Event.objects.get(pk=event_id)
     except Event.DoesNotExist:
         return Response({"error": "event not found"}, status=404)
 
-    FRONTEND_BASE = getattr(settings, "FRONTEND_BASE_URL", "http://localhost:5173")
-    scan_url = f"{FRONTEND_BASE}/scan/{event.qr_token}"
-    datauri = generate_qr_datauri(scan_url)
-    return Response({"qr_datauri": datauri, "token": event.qr_token, "scan_url": scan_url})
-
+    latest = event.snapshots.order_by("-timestamp").first()
+    alerts = []
+    if latest:
+        if latest.headcount > getattr(event, "crowded_threshold", 0):
+            alerts.append(
+                {
+                    "level": "critical",
+                    "message": f"Crowd exceeded {event.crowded_threshold}",
+                    "timestamp": latest.timestamp,
+                }
+            )
+        elif latest.headcount > getattr(event, "safety_threshold", 0):
+            alerts.append(
+                {
+                    "level": "warning",
+                    "message": f"Crowd nearing threshold ({latest.headcount}/{event.crowded_threshold})",
+                    "timestamp": latest.timestamp,
+                }
+            )
+    return Response(alerts)
 
 
 # -----------------------
-# SnapshotCreateView (for sensor / external snapshots)
+# QR code generation
 # -----------------------
-class SnapshotCreateView(APIView):
+@api_view(["GET"])
+@permission_classes([IsAuthenticated])
+def qr_for_event(request, event_id):
+    try:
+        event = Event.objects.get(pk=event_id)
+    except Event.DoesNotExist:
+        return Response({"error": "event not found"}, status=404)
+
+    if event.manager != request.user:
+        return Response({"error": "permission denied"}, status=403)
+
+    frontend_url = getattr(settings, "FRONTEND_BASE_URL", "http://localhost:3000")
+    scan_url = f"{frontend_url}/scan/{event.qr_token}"
+    data_uri = generate_qr_datauri(scan_url)
+    return Response({"qr_data_uri": data_uri, "scan_url": scan_url})
+
+  
+ class SnapshotCreateView(APIView):
     """
     POST /api/snapshots/<event_id>/
     Body JSON: {"headcount": int, "source": "sensor" (optional)}

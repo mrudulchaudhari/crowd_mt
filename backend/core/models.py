@@ -3,10 +3,9 @@ from django.utils import timezone
 from django.contrib.auth.models import User
 import uuid
 
-
 def default_qr_token():
+    """Generates a unique, short token for QR codes."""
     return uuid.uuid4().hex[:10]
-
 
 class Event(models.Model):
     name = models.CharField(max_length=200)
@@ -29,9 +28,12 @@ class Event(models.Model):
     def __str__(self):
         return f"{self.name} ({self.date})"
 
-
 class HeadcountSnapshot(models.Model):
-    event = models.ForeignKey(Event, on_delete=models.CASCADE)
+    event = models.ForeignKey(
+        Event,
+        on_delete=models.CASCADE,
+        related_name='snapshots'  # ADDED: For cleaner queries (e.g., event.snapshots.all())
+    )
     headcount = models.IntegerField()
     source = models.CharField(
         max_length=10,
@@ -40,11 +42,14 @@ class HeadcountSnapshot(models.Model):
     timestamp = models.DateTimeField(default=timezone.now)
 
     def __str__(self):
-        return f"{self.event.name} - {self.headcount} ({self.source})"
-
+        return f"{self.event.name} - {self.headcount} ({self.get_source_display()})"
 
 class Alert(models.Model):
-    event = models.ForeignKey("Event", on_delete=models.CASCADE)
+    event = models.ForeignKey(
+        "Event",
+        on_delete=models.CASCADE,
+        related_name='alerts'  # ADDED: For cleaner queries (e.g., event.alerts.all())
+    )
     alert_type = models.CharField(max_length=50)
     message = models.TextField()
     created_at = models.DateTimeField(auto_now_add=True)
@@ -52,3 +57,4 @@ class Alert(models.Model):
 
     def __str__(self):
         return f"[{self.alert_type}] {self.message[:50]}"
+
