@@ -111,7 +111,7 @@ def check_alerts_for_snapshot(snap):
 class PublicEventViewSet(viewsets.ReadOnlyModelViewSet):
     queryset = Event.objects.all().order_by("-date")
     serializer_class = EventSerializer
-
+    permission_classes = [AllowAny]
 
 class EventViewSet(mixins.ListModelMixin, mixins.RetrieveModelMixin, viewsets.GenericViewSet):
     queryset = Event.objects.all().order_by("-date")

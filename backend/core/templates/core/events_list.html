@@ -1,0 +1,40 @@
+{% extends "core/base.html" %}
+{% block title %}Events — CrowdMgmt Test UI{% endblock %}
+
+{% block content %}
+  <section>
+    <h2>Events</h2>
+    <div id="events-container">Loading events…</div>
+  </section>
+{% endblock %}
+
+{% block scripts %}
+<script>
+  async function loadEvents() {
+    const listEl = document.getElementById('events-container');
+    try {
+      // CHANGE if your API endpoint differs
+      const events = await apiFetch('/api/events/');
+      if (!events || events.length === 0) {
+        listEl.innerHTML = '<p>No events returned.</p>';
+        return;
+      }
+      const ul = document.createElement('ul');
+      events.forEach(ev => {
+        const li = document.createElement('li');
+        const a = document.createElement('a');
+        a.textContent = `${ev.name || 'Event #' + ev.id} — ${ev.location || ''}`;
+        a.href = `/test/events/${ev.id}/`; // our template detail page
+        li.appendChild(a);
+        ul.appendChild(li);
+      });
+      listEl.innerHTML = '';
+      listEl.appendChild(ul);
+    } catch (err) {
+      listEl.innerHTML = `<pre style="color:red">${err.message}</pre>`;
+    }
+  }
+
+  document.addEventListener('DOMContentLoaded', loadEvents);
+</script>
+{% endblock %}

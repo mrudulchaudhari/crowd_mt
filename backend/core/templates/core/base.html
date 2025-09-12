@@ -1,0 +1,57 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <title>{% block title %}CrowdMgmt Test UI{% endblock %}</title>
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  {% load static %}
+  {% comment %} <link rel="stylesheet" href="{% static 'core/style.css' %}"> {% endcomment %}
+</head>
+<body>
+  <header>
+    <h1><a href="{% url 'core_templates:events_list' %}">CrowdMgmt — Test UI</a></h1>
+  </header>
+
+  <main id="main">
+    {% block content %}{% endblock %}
+  </main>
+
+  <script>
+    // CSRF helper for fetch (Django default cookie name)
+    function getCookie(name) {
+      let cookieValue = null;
+      if (document.cookie && document.cookie !== '') {
+        const cookies = document.cookie.split(';');
+        for (let i = 0; i < cookies.length; i++) {
+          const cookie = cookies[i].trim();
+          if (cookie.substring(0, name.length + 1) === (name + '=')) {
+            cookieValue = decodeURIComponent(cookie.substring(name.length + 1));
+            break;
+          }
+        }
+      }
+      return cookieValue;
+    }
+    const CSRF_TOKEN = getCookie('csrftoken');
+
+    // simple fetch wrapper
+    async function apiFetch(url, opts = {}) {
+      opts.headers = opts.headers || {};
+      if (!opts.method || opts.method.toUpperCase() === 'GET') {
+        // no csrf required
+      } else {
+        opts.headers['X-CSRFToken'] = CSRF_TOKEN;
+        opts.headers['Content-Type'] = opts.headers['Content-Type'] || 'application/json';
+      }
+      const res = await fetch(url, opts);
+      if (!res.ok) {
+        const text = await res.text();
+        throw new Error(`${res.status} ${res.statusText}: ${text}`);
+      }
+      return res.json().catch(() => null);
+    }
+  </script>
+
+  {% block scripts %}{% endblock %}
+</body>
+</html>
