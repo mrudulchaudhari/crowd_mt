@@ -1,5 +1,6 @@
 from rest_framework import serializers
 from .models import Event, HeadcountSnapshot
+from .models import Alert
 
 
 class HeadcountSnapshotSerializer(serializers.ModelSerializer):
@@ -70,3 +71,8 @@ class EventDetailSerializer(EventSerializer):
 
     class Meta(EventSerializer.Meta):
         fields = EventSerializer.Meta.fields + ["snapshots"]
+
+class AlertSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Alert
+        fields = "__all__"
