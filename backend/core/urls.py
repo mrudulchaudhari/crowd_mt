@@ -1,6 +1,6 @@
 from django.urls import path, include
 from rest_framework.routers import DefaultRouter
-from .views import EventViewSet, ManagerEventViewSet, CustomAuthToken # Import the new view
+from .views import EventViewSet, ManagerEventViewSet, CustomAuthToken ,heatmap
 
 router = DefaultRouter()
 # Public endpoint for visitors
@@ -12,5 +12,6 @@ urlpatterns = [
     path('', include(router.urls)),
     # ADD THIS NEW LINE FOR THE LOGIN ENDPOINT
     path('api-token-auth/', CustomAuthToken.as_view(), name='api_token_auth'),
+    path("api/heatmap/", heatmap, name="heatmap"),
 ]
 
