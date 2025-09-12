@@ -24,3 +24,10 @@ class EventConsumer(AsyncWebsocketConsumer):
             'headcount': event.get('headcount'),
             'status': event.get('status')
         }))
+
+    async def alert_message(self, event):
+        # New alerts from backend
+        await self.send(text_data=json.dumps({
+            "type": "alert",
+            "alert": event.get("alert"),
+        }))
