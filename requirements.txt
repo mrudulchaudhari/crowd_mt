@@ -18,6 +18,8 @@ joblib==1.5.2
 # Deployment helpers
 gunicorn==21.2.0
 whitenoise==6.6.0
+**dj-database-url==0.5.0**
+**psycopg2-binary==2.9.9**
 
 # Timezone
 tzdata==2025.2
