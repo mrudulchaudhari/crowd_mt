@@ -1,0 +1,336 @@
+{% extends "core/base.html" %}
+{% block title %}Alerts — CrowdMgmt{% endblock %}
+
+{% block content %}
+<div class="card">
+  <div style="display:flex;align-items:center;justify-content:space-between;gap:12px;">
+    <div>
+      <div class="kicker">Alerts</div>
+      <h2 style="margin-top:6px">Real-time alerts & notifications</h2>
+      <p class="muted" style="margin-top:6px">Shows recent alerts for selected event. New alerts arriving via WebSocket will appear here.</p>
+    </div>
+
+    <div style="display:flex;gap:8px;align-items:center">
+      <select id="event-select" style="padding:8px;border-radius:8px;border:1px solid rgba(2,6,23,0.06)">
+        <option value="">All events</option>
+      </select>
+      <button id="refresh-all" class="btn btn-secondary">Refresh</button>
+    </div>
+  </div>
+</div>
+
+<div style="height:14px"></div>
+
+<div class="content" style="grid-template-columns:1fr 320px; align-items:start;">
+  <div>
+    <div id="alerts-list" class="card" style="min-height:200px;">
+      <div id="alerts-spinner" class="muted">Loading alerts…</div>
+      <div id="alerts-empty" style="display:none" class="muted">No alerts found.</div>
+      <div id="alerts-container" style="display:flex;flex-direction:column;gap:12px;margin-top:8px"></div>
+    </div>
+  </div>
+
+  <aside style="display:flex;flex-direction:column;gap:18px">
+    <div class="card">
+      <div class="kicker">Filter</div>
+      <div style="margin-top:10px">
+        <label class="small">Severity</label>
+        <select id="severity-filter" style="margin-top:6px;padding:8px;border-radius:8px;width:100%">
+          <option value="">All</option>
+          <option value="critical">Critical</option>
+          <option value="warning">Warning</option>
+          <option value="info">Info</option>
+        </select>
+
+        <div style="height:12px"></div>
+
+        <label class="small">Only unacknowledged</label>
+        <div style="margin-top:6px">
+          <input id="unack-filter" type="checkbox" /> <label for="unack-filter" class="muted">Hide acknowledged</label>
+        </div>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="kicker">Legend</div>
+      <div style="display:flex;flex-direction:column;gap:8px;margin-top:8px">
+        <div class="legend"><span class="dot" style="background:var(--ok)"></span> Info</div>
+        <div class="legend"><span class="dot" style="background:var(--warn)"></span> Warning</div>
+        <div class="legend"><span class="dot" style="background:var(--danger)"></span> Critical</div>
+      </div>
+    </div>
+  </aside>
+</div>
+{% endblock %}
+
+
+{% block scripts %}
+<script>
+/*
+ Alerts page logic:
+ - Loads events into the select
+ - Loads alerts from /api/alerts/?event_id=<id> if selected OR /api/alerts/ for all
+ - Listens on WebSocket for alert_message on the selected event group (ws /ws/event/<id>/)
+ - Provides "Acknowledge" button that calls /api/alerts/<id>/ack/ if available, otherwise dismisses locally
+*/
+
+const ALERTS_API_BASE = '/api/alerts/';   // existing AlertViewSet (readonly)
+const EVENTS_API = '/api/events/';        // used to populate event select
+const eventSelect = document.getElementById('event-select');
+const alertsContainer = document.getElementById('alerts-container');
+const alertsSpinner = document.getElementById('alerts-spinner');
+const alertsEmpty = document.getElementById('alerts-empty');
+const severityFilter = document.getElementById('severity-filter');
+const unackFilter = document.getElementById('unack-filter');
+const refreshBtn = document.getElementById('refresh-all');
+
+let ws = null;
+let currentEventId = null;
+let alertsState = []; // local copy
+
+// small helper: format ISO timestamp nicely
+function fmtTs(ts) {
+  try { return new Date(ts).toLocaleString(); } catch(e) { return ts; }
+}
+
+function badgeForSeverity(level) {
+  const l = (level || '').toString().toLowerCase();
+  if (l.includes('crit') || l === 'critical') return '<span class="status-badge status-crit">Critical</span>';
+  if (l.includes('warn') || l === 'warning') return '<span class="status-badge status-warn">Warning</span>';
+  return '<span class="status-badge status-ok">Info</span>';
+}
+
+function renderAlertsList() {
+  alertsContainer.innerHTML = '';
+  const sev = severityFilter.value;
+  const onlyUnack = unackFilter.checked;
+
+  const filtered = alertsState.filter(a => {
+    if (sev && (a.alert_type || '').toLowerCase() !== sev) return false;
+    if (onlyUnack && a.acknowledged) return false;
+    return true;
+  });
+
+  if (filtered.length === 0) {
+    alertsEmpty.style.display = 'block';
+  } else {
+    alertsEmpty.style.display = 'none';
+  }
+
+  filtered.forEach(a => {
+    // alert card
+    const wrap = document.createElement('div');
+    wrap.style.display = 'flex';
+    wrap.style.justifyContent = 'space-between';
+    wrap.style.alignItems = 'flex-start';
+    wrap.style.padding = '12px';
+    wrap.style.borderRadius = '10px';
+    wrap.style.background = 'white';
+    wrap.style.boxShadow = '0 6px 18px rgba(2,6,23,0.04)';
+
+    const left = document.createElement('div');
+    left.style.flex = '1';
+
+    const titleRow = document.createElement('div');
+    titleRow.style.display = 'flex';
+    titleRow.style.gap = '8px';
+    titleRow.style.alignItems = 'center';
+
+    // severity badge
+    const badgeWrap = document.createElement('span');
+    badgeWrap.innerHTML = badgeForSeverity(a.alert_type || a.level || 'info');
+    badgeWrap.style.marginRight = '8px';
+    titleRow.appendChild(badgeWrap);
+
+    const msg = document.createElement('div');
+    msg.innerHTML = `<strong>${a.message || 'Alert'}</strong>`;
+    titleRow.appendChild(msg);
+
+    left.appendChild(titleRow);
+
+    // metadata
+    const meta = document.createElement('div');
+    meta.className = 'muted';
+    meta.style.marginTop = '8px';
+    meta.innerHTML = `Event: ${a.event?.id ?? a.event_id ?? '—'} • ${fmtTs(a.timestamp || a.created_at || a.time || '')}`;
+    left.appendChild(meta);
+
+    // optional details
+    if (a.data) {
+      const detail = document.createElement('div');
+      detail.style.marginTop = '8px';
+      detail.className = 'small';
+      detail.textContent = JSON.stringify(a.data);
+      left.appendChild(detail);
+    }
+
+    // right controls
+    const right = document.createElement('div');
+    right.style.display = 'flex';
+    right.style.flexDirection = 'column';
+    right.style.alignItems = 'flex-end';
+    right.style.gap = '8px';
+
+    const ackBtn = document.createElement('button');
+    ackBtn.textContent = a.acknowledged ? 'Acknowledged' : 'Acknowledge';
+    ackBtn.className = a.acknowledged ? 'btn btn-secondary' : 'btn btn-primary';
+    ackBtn.style.borderRadius = '8px';
+    ackBtn.disabled = a.acknowledged;
+    ackBtn.addEventListener('click', async () => {
+      // try server-side ack if endpoint available
+      try {
+        const res = await fetch(`${ALERTS_API_BASE}${a.id}/ack/`, {
+          method: 'POST',
+          credentials: 'same-origin',
+          headers: {'Content-Type':'application/json','X-CSRFToken':getCookie('csrftoken')}
+        });
+        if (res.ok) {
+          // update local state
+          a.acknowledged = true;
+          renderAlertsList();
+          return;
+        }
+        // if 404 or not supported, fall through to local ack
+      } catch (e) { /* ignore and ack locally */ }
+
+      a.acknowledged = true;
+      renderAlertsList();
+    });
+
+    right.appendChild(ackBtn);
+
+    const dismiss = document.createElement('button');
+    dismiss.textContent = 'Dismiss';
+    dismiss.className = 'btn btn-secondary';
+    dismiss.style.borderRadius = '8px';
+    dismiss.addEventListener('click', () => {
+      // local remove (non-persistent)
+      alertsState = alertsState.filter(x => x.id !== a.id);
+      renderAlertsList();
+    });
+    right.appendChild(dismiss);
+
+    wrap.appendChild(left);
+    wrap.appendChild(right);
+    alertsContainer.appendChild(wrap);
+  });
+}
+
+async function loadEventsList() {
+  try {
+    const res = await fetch(EVENTS_API);
+    if (!res.ok) throw new Error('Failed to load events');
+    const evs = await res.json();
+    // support both list or paged response
+    const list = Array.isArray(evs) ? evs : (evs.results || evs);
+    list.forEach(e => {
+      const opt = document.createElement('option');
+      opt.value = e.id;
+      opt.textContent = `${e.name || 'Event #' + e.id} ${e.location ? '— ' + e.location : ''}`;
+      eventSelect.appendChild(opt);
+    });
+  } catch (err) {
+    console.warn('loadEventsList error', err);
+  }
+}
+
+async function loadAlertsForEvent(eventId=null) {
+  alertsSpinner.style.display = 'block';
+  alertsContainer.innerHTML = '';
+  alertsEmpty.style.display = 'none';
+  try {
+    const url = eventId ? `${ALERTS_API_BASE}?event_id=${eventId}` : ALERTS_API_BASE;
+    const res = await fetch(url);
+    if (!res.ok) throw new Error(`${res.status}`);
+    const data = await res.json();
+    // data could be list or {results: []}
+    const list = Array.isArray(data) ? data : (data.results || data);
+    // normalize fields we expect
+    alertsState = list.map(it => ({
+      id: it.id ?? it.pk,
+      message: it.message ?? it.alert_type ?? (it.detail || "Alert"),
+      alert_type: (it.alert_type || it.level || it.alert_type_name || '').toString(),
+      timestamp: it.timestamp ?? it.created_at ?? it.time,
+      event: it.event ? (typeof it.event === 'object' ? it.event : {id: it.event}) : (it.event_id ? {id: it.event_id} : null),
+      data: it,
+      acknowledged: !!it.acknowledged
+    }));
+    renderAlertsList();
+  } catch (err) {
+    alertsContainer.innerHTML = `<div style="color:#ef4444">Error loading alerts: ${err.message}</div>`;
+    console.error(err);
+  } finally {
+    alertsSpinner.style.display = 'none';
+  }
+}
+
+// WebSocket for live alerts on a selected event:
+// connect to /ws/event/<id>/ and listen for payload.type === 'alert_message'
+function openWsForEvent(eventId) {
+  if (!eventId) return;
+  closeWs();
+  try {
+    const scheme = location.protocol === 'https:' ? 'wss:' : 'ws:';
+    ws = new WebSocket(`${scheme}//${location.host}/ws/event/${eventId}/`);
+    ws.addEventListener('open', () => console.log('WS open for event', eventId));
+    ws.addEventListener('message', ev => {
+      try {
+        const payload = JSON.parse(ev.data);
+        if (payload.type === 'alert_message' && payload.data) {
+          // push to state and render
+          const a = payload.data;
+          // normalize
+          const newAlert = {
+            id: a.id ?? Math.floor(Math.random()*1000000),
+            message: a.message || a.alert_type || JSON.stringify(a),
+            alert_type: a.alert_type || a.alert_type_name || 'critical',
+            timestamp: a.timestamp ?? new Date().toISOString(),
+            event: { id: a.event_id ?? eventId },
+            data: a,
+            acknowledged: !!a.acknowledged
+          };
+          alertsState.unshift(newAlert);
+          renderAlertsList();
+        } else if (payload.type === 'headcount_update' && payload.data) {
+          // optionally add a small informational alert when headcount crosses thresholds
+          // (left as an exercise)
+          console.debug('headcount_update', payload.data);
+        } else {
+          // fallback: if server sends full alert object
+          if (payload.id && payload.message) {
+            alertsState.unshift({
+              id: payload.id, message: payload.message, alert_type: payload.alert_type || 'info',
+              timestamp: payload.timestamp || new Date().toISOString(), event: {id: eventId}, data: payload, acknowledged: false
+            });
+            renderAlertsList();
+          }
+        }
+      } catch(e) { console.warn('ws msg parse failed', e) }
+    });
+    ws.addEventListener('close', () => console.log('WS closed'));
+    ws.addEventListener('error', e => console.warn('WS error', e));
+  } catch (e) {
+    console.warn('openWs error', e);
+  }
+}
+function closeWs() { if (ws) { try { ws.close(); } catch(e){} ws = null; } }
+
+// event handlers
+eventSelect.addEventListener('change', () => {
+  currentEventId = eventSelect.value || null;
+  loadAlertsForEvent(currentEventId);
+  closeWs();
+  if (currentEventId) openWsForEvent(currentEventId);
+});
+
+severityFilter.addEventListener('change', renderAlertsList);
+unackFilter.addEventListener('change', renderAlertsList);
+refreshBtn.addEventListener('click', () => loadAlertsForEvent(currentEventId));
+
+// init
+document.addEventListener('DOMContentLoaded', async () => {
+  await loadEventsList();
+  await loadAlertsForEvent(null); // load all initially
+});
+</script>
+{% endblock %}

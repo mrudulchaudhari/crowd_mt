@@ -2,6 +2,7 @@ from django.utils import timezone
 from django.conf import settings
 from django.db.models import Avg
 from django.db.models.functions import TruncSecond
+from django.shortcuts import render, get_object_or_404
 
 from rest_framework import viewsets, mixins, status
 from rest_framework.decorators import api_view, permission_classes
@@ -449,3 +450,22 @@ class HeadcountSnapshotViewSet(viewsets.ReadOnlyModelViewSet):
         if event_id:
             qs = qs.filter(event_id=event_id)
         return qs
+
+
+@api_view(['POST'])
+@permission_classes([IsAuthenticated])
+def acknowledge_alert(request, alert_id):
+    try:
+        alert = Alert.objects.get(pk=alert_id)
+    except Alert.DoesNotExist:
+        return Response({"error": "not found"}, status=404)
+
+    # You might want to check permissions here (e.g. event manager only)
+    alert.acknowledged = True
+    alert.acknowledged_by = request.user if hasattr(alert, 'acknowledged_by') else None
+    alert.save(update_fields=['acknowledged', 'acknowledged_by'] if hasattr(alert, 'acknowledged_by') else ['acknowledged'])
+    return Response({'ok': True, 'alert_id': alert.id}, status=200)
+
+
+def code_entry_page(request):
+    return render(request, 'core/code_entry.html')

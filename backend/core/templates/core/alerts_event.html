@@ -1,0 +1,230 @@
+{% extends "core/base.html" %}
+{% block title %}Alerts — {{ event.name|default:"Event" }}{% endblock %}
+
+{% block content %}
+<div class="card">
+  <div style="display:flex;align-items:center;justify-content:space-between;gap:12px;">
+    <div>
+      <div class="kicker">Alerts for</div>
+
+      {# show event name if available, otherwise "Event #<id>" #}
+      {% if event and event.name %}
+        <h2 style="margin-top:6px">{{ event.name }}</h2>
+      {% else %}
+        <h2 style="margin-top:6px">Event #{{ event_id }}</h2>
+      {% endif %}
+
+      <p class="muted" style="margin-top:6px">Recent alerts for this event (live updates shown below).</p>
+    </div>
+
+    <div style="display:flex;gap:8px;align-items:center">
+      <div class="muted">Event ID: <strong>{{ event_id }}</strong></div>
+      <button id="refresh-all" class="btn btn-secondary">Refresh</button>
+    </div>
+  </div>
+</div>
+
+<div style="height:14px"></div>
+
+<div class="content" style="grid-template-columns:1fr 320px; align-items:start;">
+  <div>
+    <div id="alerts-list" class="card" style="min-height:220px;">
+      <div id="alerts-spinner" class="muted">Loading alerts…</div>
+      <div id="alerts-empty" style="display:none" class="muted">No alerts found.</div>
+      <div id="alerts-container" style="display:flex;flex-direction:column;gap:12px;margin-top:8px"></div>
+    </div>
+  </div>
+
+  <aside style="display:flex;flex-direction:column;gap:18px">
+    <div class="card">
+      <div class="kicker">Controls</div>
+      <div style="margin-top:10px">
+        <label class="small">Only unacknowledged</label>
+        <div style="margin-top:6px">
+          <input id="unack-filter" type="checkbox" /> <label for="unack-filter" class="muted">Hide acknowledged</label>
+        </div>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="kicker">Legend</div>
+      <div style="display:flex;flex-direction:column;gap:8px;margin-top:8px">
+        <div class="legend"><span class="dot" style="background:var(--ok)"></span> Info</div>
+        <div class="legend"><span class="dot" style="background:var(--warn)"></span> Warning</div>
+        <div class="legend"><span class="dot" style="background:var(--danger)"></span> Critical</div>
+      </div>
+    </div>
+  </aside>
+</div>
+{% endblock %}
+
+{% block scripts %}
+<script>
+const EVENT_ID = {{ event_id }};
+const ALERTS_API_BASE = '/api/alerts/';
+const alertsContainer = document.getElementById('alerts-container');
+const alertsSpinner = document.getElementById('alerts-spinner');
+const alertsEmpty = document.getElementById('alerts-empty');
+const unackFilter = document.getElementById('unack-filter');
+const refreshBtn = document.getElementById('refresh-all');
+
+let ws = null;
+let alertsState = [];
+
+// helpers
+function getCookie(name) {
+  let cookieValue = null;
+  if (document.cookie && document.cookie !== '') {
+    const cookies = document.cookie.split(';');
+    for (let i = 0; i < cookies.length; i++) {
+      const cookie = cookies[i].trim();
+      if (cookie.substring(0, name.length + 1) === (name + '=')) {
+        cookieValue = decodeURIComponent(cookie.substring(name.length + 1));
+        break;
+      }
+    }
+  }
+  return cookieValue;
+}
+function fmtTs(ts){ try{ return new Date(ts).toLocaleString(); }catch(e){ return ts; } }
+function badgeForSeverity(level){
+  const l=(level||'').toString().toLowerCase();
+  if(l.includes('crit')||l==='critical') return '<span class="status-badge status-crit">Critical</span>';
+  if(l.includes('warn')||l==='warning') return '<span class="status-badge status-warn">Warning</span>';
+  return '<span class="status-badge status-ok">Info</span>';
+}
+
+function renderAlertsList(){
+  alertsContainer.innerHTML='';
+  const onlyUnack = unackFilter.checked;
+  const filtered = alertsState.filter(a=> { if(onlyUnack && a.acknowledged) return false; return true; });
+  if(filtered.length===0){ alertsEmpty.style.display='block'; } else { alertsEmpty.style.display='none'; }
+  filtered.forEach(a=>{
+    const wrap = document.createElement('div');
+    wrap.style.display='flex'; wrap.style.justifyContent='space-between'; wrap.style.alignItems='flex-start';
+    wrap.style.padding='12px'; wrap.style.borderRadius='10px'; wrap.style.background='white';
+    wrap.style.boxShadow='0 6px 18px rgba(2,6,23,0.04)';
+
+    const left = document.createElement('div'); left.style.flex='1';
+    const titleRow = document.createElement('div'); titleRow.style.display='flex'; titleRow.style.gap='8px'; titleRow.style.alignItems='center';
+    const badgeWrap = document.createElement('span'); badgeWrap.innerHTML = badgeForSeverity(a.alert_type || a.level || 'info'); badgeWrap.style.marginRight='8px';
+    titleRow.appendChild(badgeWrap);
+    const msg = document.createElement('div'); msg.innerHTML = `<strong>${a.message || 'Alert'}</strong>`;
+    titleRow.appendChild(msg);
+    left.appendChild(titleRow);
+
+    const meta = document.createElement('div'); meta.className='muted'; meta.style.marginTop='8px';
+    meta.innerHTML = `Event: ${a.event?.id ?? EVENT_ID} • ${fmtTs(a.timestamp || a.created_at || a.time || '')}`;
+    left.appendChild(meta);
+
+    if(a.data){
+      const detail = document.createElement('div'); detail.style.marginTop='8px'; detail.className='small';
+      detail.textContent = JSON.stringify(a.data);
+      left.appendChild(detail);
+    }
+
+    const right = document.createElement('div'); right.style.display='flex'; right.style.flexDirection='column'; right.style.alignItems='flex-end'; right.style.gap='8px';
+
+    const ackBtn = document.createElement('button');
+    ackBtn.textContent = a.acknowledged ? 'Acknowledged' : 'Acknowledge';
+    ackBtn.className = a.acknowledged ? 'btn btn-secondary' : 'btn btn-primary';
+    ackBtn.style.borderRadius='8px';
+    ackBtn.disabled = a.acknowledged;
+    ackBtn.addEventListener('click', async ()=>{
+      try {
+        const res = await fetch(`${ALERTS_API_BASE}${a.id}/ack/`, {
+          method: 'POST',
+          credentials: 'same-origin',
+          headers: {'Content-Type':'application/json','X-CSRFToken': getCookie('csrftoken')}
+        });
+        if(res.ok){
+          a.acknowledged = true;
+          renderAlertsList();
+          return;
+        }
+      } catch(e){}
+      // fallback local ack
+      a.acknowledged = true;
+      renderAlertsList();
+    });
+    right.appendChild(ackBtn);
+
+    const dismiss = document.createElement('button');
+    dismiss.textContent = 'Dismiss'; dismiss.className='btn btn-secondary'; dismiss.style.borderRadius='8px';
+    dismiss.addEventListener('click', ()=>{ alertsState = alertsState.filter(x=>x.id!==a.id); renderAlertsList(); });
+    right.appendChild(dismiss);
+
+    wrap.appendChild(left); wrap.appendChild(right);
+    alertsContainer.appendChild(wrap);
+  });
+}
+
+async function loadAlertsForEvent(eventId){
+  alertsSpinner.style.display='block';
+  alertsContainer.innerHTML='';
+  alertsEmpty.style.display='none';
+  try {
+    const url = `${ALERTS_API_BASE}?event_id=${eventId}`;
+    const res = await fetch(url);
+    if(!res.ok) throw new Error(`${res.status}`);
+    const data = await res.json();
+    const list = Array.isArray(data)?data:(data.results||data);
+    alertsState = list.map(it=>({
+      id: it.id ?? it.pk,
+      message: it.message ?? it.alert_type ?? it.detail ?? 'Alert',
+      alert_type: it.alert_type ?? it.level ?? '',
+      timestamp: it.timestamp ?? it.created_at ?? it.time,
+      event: it.event ? (typeof it.event==='object'?it.event:{id:it.event}) : {id: eventId},
+      data: it,
+      acknowledged: !!it.acknowledged
+    }));
+    renderAlertsList();
+  } catch(err){
+    alertsContainer.innerHTML = `<div style="color:#ef4444">Error loading alerts: ${err.message}</div>`;
+    console.error(err);
+  } finally {
+    alertsSpinner.style.display = 'none';
+  }
+}
+
+function openWsForEvent(eventId){
+  if(!eventId) return;
+  closeWs();
+  try {
+    const scheme = location.protocol === 'https:' ? 'wss:' : 'ws:';
+    ws = new WebSocket(`${scheme}//${location.host}/ws/event/${eventId}/`);
+    ws.addEventListener('message', ev=>{
+      try {
+        const payload = JSON.parse(ev.data);
+        if(payload.type === 'alert_message' && payload.data){
+          const a = payload.data;
+          const newAlert = {
+            id: a.id ?? Math.floor(Math.random()*1000000),
+            message: a.message || a.alert_type || JSON.stringify(a),
+            alert_type: a.alert_type || a.level || 'critical',
+            timestamp: a.timestamp ?? new Date().toISOString(),
+            event: { id: a.event_id ?? eventId },
+            data: a,
+            acknowledged: !!a.acknowledged
+          };
+          alertsState.unshift(newAlert);
+          renderAlertsList();
+        }
+      } catch(e){ console.warn('ws parse', e); }
+    });
+    ws.addEventListener('open', ()=>console.log('WS open event', eventId));
+    ws.addEventListener('close', ()=>console.log('WS closed'));
+    ws.addEventListener('error', e=>console.warn('WS err', e));
+  } catch(e){ console.warn('openWs error', e); }
+}
+function closeWs(){ if(ws){ try{ ws.close(); } catch(e){} ws=null; } }
+
+document.getElementById('unack-filter').addEventListener('change', renderAlertsList);
+refreshBtn.addEventListener('click', ()=> loadAlertsForEvent(EVENT_ID));
+
+document.addEventListener('DOMContentLoaded', ()=>{
+  loadAlertsForEvent(EVENT_ID);
+  openWsForEvent(EVENT_ID);
+});
+</script>
+{% endblock %}

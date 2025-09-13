@@ -17,7 +17,7 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path, include
 from rest_framework.routers import DefaultRouter
-from core.views import AlertViewSet, SnapshotCreateView
+from core.views import AlertViewSet, SnapshotCreateView, code_entry_page
 
 # Router for ViewSets (like Alert)
 router = DefaultRouter()
@@ -33,4 +33,5 @@ urlpatterns = [
     # Snapshot creation endpoint
     path("api/events/<int:event_id>/snapshot/", SnapshotCreateView.as_view(), name="snapshot-create"),
     path('', include('core.urls_templates')),  # 👈 this line adds test frontend
+    path('scanner/', code_entry_page, name='code_entry_form'),
 ]
