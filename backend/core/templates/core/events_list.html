@@ -3,8 +3,8 @@
 
 {% block content %}
   <section>
-    <h2>Events</h2>
-    <div id="events-container">Loading events…</div>
+    <h2 style="margin-bottom: 1rem;">Events</h2>
+    <div id="events-container" class="events-grid">Loading events…</div>
   </section>
 {% endblock %}
 
@@ -13,23 +13,35 @@
   async function loadEvents() {
     const listEl = document.getElementById('events-container');
     try {
-      // CHANGE if your API endpoint differs
       const events = await apiFetch('/api/events/');
       if (!events || events.length === 0) {
         listEl.innerHTML = '<p>No events returned.</p>';
         return;
       }
-      const ul = document.createElement('ul');
-      events.forEach(ev => {
-        const li = document.createElement('li');
-        const a = document.createElement('a');
-        a.textContent = `${ev.name || 'Event #' + ev.id} — ${ev.location || ''}`;
-        a.href = `/test/events/${ev.id}/`; // our template detail page
-        li.appendChild(a);
-        ul.appendChild(li);
-      });
+
+      // Clear container and use grid layout
       listEl.innerHTML = '';
-      listEl.appendChild(ul);
+      events.forEach(ev => {
+        const card = document.createElement('div');
+        card.className = 'card event-card';
+
+        const title = document.createElement('h3');
+        title.textContent = ev.name || `Event #${ev.id}`;
+
+        const location = document.createElement('p');
+        location.textContent = ev.location ? `📍 ${ev.location}` : 'Location not specified';
+
+        const link = document.createElement('a');
+        link.href = `/test/events/${ev.id}/`;
+        link.textContent = 'View Details';
+        link.className = 'btn btn-primary';
+
+        card.appendChild(title);
+        card.appendChild(location);
+        card.appendChild(link);
+
+        listEl.appendChild(card);
+      });
     } catch (err) {
       listEl.innerHTML = `<pre style="color:red">${err.message}</pre>`;
     }
@@ -37,4 +49,25 @@
 
   document.addEventListener('DOMContentLoaded', loadEvents);
 </script>
+
+<style>
+  /* Events grid */
+  .events-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+    gap: 1.5rem;
+  }
+
+  .event-card h3 {
+    margin-bottom: 0.5rem;
+    font-size: 1.2rem;
+    color: #1e293b;
+  }
+
+  .event-card p {
+    margin-bottom: 1rem;
+    color: #475569;
+    font-size: 0.95rem;
+  }
+</style>
 {% endblock %}
