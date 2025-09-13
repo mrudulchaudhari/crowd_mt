@@ -15,7 +15,7 @@ urlpatterns = [
     path('', include(router.urls)),
     path('', include('core.api_urls')),
     path('api-token-auth/', CustomAuthToken.as_view(), name='api_token_auth'),
-    path("api/heatmap/", heatmap, name="heatmap"),
+    path("api/heatmap/<int:event_id>/", heatmap, name="heatmap"),
 
     # Template test UI
     path('', include('core.urls_templates')),  # 👈 this line adds test frontend
