@@ -2,36 +2,234 @@
 {% block title %}Event — {{ event.name }}{% endblock %}
 
 {% block content %}
-  <section>
-    <h2 id="event-title">{{ event.name }}</h2>
+  <section class="event-wrap">
+    <div class="card event-card--detail">
+      <div class="event-header">
+        <div>
+          <h2 id="event-title">{{ event.name }}</h2>
+          <p class="muted" id="event-location">
+            {% if event.location %}📍 {{ event.location }}{% else %}Location not specified{% endif %}
+          </p>
+        </div>
 
-    <div>
-      <h3>Current Headcount</h3>
-      <p id="headcount">Loading…</p>
+        <div class="meta">
+          <span class="badge" id="event-status">Open</span>
+        </div>
+      </div>
+
+      <div class="headcount-block">
+        <h3 class="small">Current headcount</h3>
+        <div id="headcount" class="headcount">Loading…</div>
+        <div class="headcount-meta">
+          <small>Last updated: <span id="last-updated">—</span></small>
+        </div>
+      </div>
+
+      <div class="actions">
+        <a class="btn btn-secondary" href="{% url 'core_templates:events_list' %}">← Back to events</a>
+        <a class="btn btn-primary" id="refresh-btn" role="button">Refresh now</a>
+      </div>
+    </div>
+
+    <div class="card">
+      <h4>About this event</h4>
+      <p class="muted">
+        Event ID: <code>{{ event.id }}</code> • Starts: {{ event.start_time|default:"—" }} • Ends: {{ event.end_time|default:"—" }}
+      </p>
+      {% if event.description %}
+      <p>{{ event.description }}</p>
+      {% else %}
+      <p class="muted">No description available.</p>
+      {% endif %}
     </div>
   </section>
 {% endblock %}
 
+
 {% block scripts %}
 <script>
-const EVENT_ID = {{ event.id }};
+  const EVENT_ID = {{ event.id }};
+  const API_URL = `/api/events/${EVENT_ID}/`;
+  const WS_URL_BASE = (location.protocol === 'https:' ? 'wss:' : 'ws:') + '//' + location.host;
 
-// Fetch event details (name + current_headcount) from API
-async function loadEvent() {
-  try {
-    const res = await fetch(`/api/events/${EVENT_ID}/`);
-    if (!res.ok) {
-      throw new Error(`${res.status} ${res.statusText}`);
-    }
-    const data = await res.json();
-    document.getElementById("event-title").innerText = data.name;
-    document.getElementById("headcount").innerText = data.current_headcount ?? "N/A";
-  } catch (err) {
-    document.getElementById("headcount").innerHTML =
-      `<span style="color:red">Error: ${err.message}</span>`;
+  const headcountEl = document.getElementById('headcount');
+  const lastUpdatedEl = document.getElementById('last-updated');
+  const eventTitleEl = document.getElementById('event-title');
+  const refreshBtn = document.getElementById('refresh-btn');
+
+  let currentCount = null;
+  let ws = null;
+  let wsConnected = false;
+
+  function flashElement(el) {
+    el.classList.add('pulse');
+    setTimeout(() => el.classList.remove('pulse'), 600);
   }
-}
 
-document.addEventListener("DOMContentLoaded", loadEvent);
+  async function fetchEventOnce() {
+    try {
+      const resp = await fetch(API_URL, { credentials: 'same-origin' });
+      if (!resp.ok) throw new Error(`${resp.status} ${resp.statusText}`);
+      const data = await resp.json();
+      renderEventData(data);
+    } catch (err) {
+      headcountEl.innerHTML = `<span style="color:var(--danger)">${err.message}</span>`;
+    }
+  }
+
+  function renderEventData(data) {
+    if (!data) return;
+    if (data.name) eventTitleEl.innerText = data.name;
+    const newCount = (data.current_headcount === null || data.current_headcount === undefined) ? 'N/A' : data.current_headcount;
+    // animate/flash if changed and numeric
+    if (typeof currentCount === 'number' && typeof newCount === 'number' && newCount !== currentCount) {
+      flashElement(headcountEl);
+    }
+    currentCount = (typeof newCount === 'number') ? newCount : newCount;
+    headcountEl.innerText = currentCount;
+    const now = new Date();
+    lastUpdatedEl.innerText = now.toLocaleString();
+  }
+
+  // Polling fallback (every 6s)
+  let pollInterval = null;
+  function startPolling() {
+    if (pollInterval) return;
+    pollInterval = setInterval(fetchEventOnce, 6000);
+  }
+  function stopPolling() {
+    if (pollInterval) {
+      clearInterval(pollInterval);
+      pollInterval = null;
+    }
+  }
+
+  // Try opening a WebSocket to get live updates from Channels.
+  // Expected path: ws/event/<event_id>/  <-- adjust if your routing differs.
+  function tryWebSocket() {
+    try {
+      ws = new WebSocket(`${WS_URL_BASE}/ws/event/${EVENT_ID}/`);
+      ws.addEventListener('open', () => {
+        wsConnected = true;
+        stopPolling(); // use ws updates instead of polling
+        document.getElementById('event-status').innerText = 'Live';
+      });
+      ws.addEventListener('message', (ev) => {
+        // assume message is JSON with { type: 'headcount', current_headcount: N }
+        try {
+          const payload = JSON.parse(ev.data);
+          // If the message is the whole event object or contains headcount:
+          if (payload.current_headcount !== undefined) {
+            renderEventData(payload);
+          } else if (payload.type === 'snapshot' && payload.current_headcount !== undefined) {
+            renderEventData(payload);
+          }
+        } catch (e) {
+          console.warn('WS parse error', e);
+        }
+      });
+      ws.addEventListener('close', () => {
+        wsConnected = false;
+        document.getElementById('event-status').innerText = 'Disconnected';
+        // fallback to polling
+        startPolling();
+        // try to reconnect after a bit
+        setTimeout(tryWebSocket, 5000);
+      });
+      ws.addEventListener('error', (err) => {
+        console.warn('WS error', err);
+        ws.close();
+      });
+    } catch (err) {
+      console.warn('WebSocket unavailable', err);
+      startPolling();
+    }
+  }
+
+  // Manual refresh
+  refreshBtn.addEventListener('click', () => {
+    fetchEventOnce();
+    flashElement(refreshBtn);
+  });
+
+  document.addEventListener('DOMContentLoaded', () => {
+    // initial fetch
+    fetchEventOnce();
+    // attempt websocket; polling is started automatically if ws fails
+    tryWebSocket();
+    // ensure polling runs when websockets are disabled
+    setTimeout(() => { if (!wsConnected) startPolling(); }, 800);
+  });
+
+  // clean up on unload
+  window.addEventListener('beforeunload', () => {
+    if (ws) ws.close();
+  });
 </script>
+
+<style>
+  /* Scoped styles for event detail */
+  .event-wrap {
+    max-width: 900px;
+    margin: 0 auto;
+    display: grid;
+    gap: 1.25rem;
+  }
+
+  .event-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 1rem;
+  }
+  .event-header h2 {
+    margin-bottom: 0.25rem;
+    font-size: 1.4rem;
+  }
+  .muted {
+    color: #64748b;
+    font-size: 0.95rem;
+  }
+
+  .meta { display:flex; align-items:center; gap:0.5rem; }
+  .badge {
+    background: #e6f0ff;
+    color: #0f172a;
+    padding: 0.3rem 0.6rem;
+    border-radius: 999px;
+    font-weight: 600;
+    font-size: 0.85rem;
+  }
+
+  .headcount-block { margin-top: 1rem; }
+  .headcount {
+    font-size: 3rem;
+    font-weight: 700;
+    margin: .4rem 0;
+    color: #0f172a;
+  }
+  .headcount-meta small { color: #64748b; }
+
+  .actions {
+    display:flex;
+    gap: .75rem;
+    margin-top: 1.25rem;
+  }
+
+  /* pulse animation for changes */
+  .pulse {
+    animation: pulse-change 0.6s ease;
+  }
+  @keyframes pulse-change {
+    0% { transform: scale(1); background: rgba(34,197,94,0); }
+    30% { transform: scale(1.06); background: rgba(34,197,94,0.12); }
+    100% { transform: scale(1); background: transparent; }
+  }
+
+  /* small styling for code bits */
+  code { background: #f1f5f9; padding: 0.15rem .35rem; border-radius: 6px; }
+
+  /* make refresh button small when animating */
+  #refresh-btn.pulse { transform: translateY(-1px); }
+</style>
 {% endblock %}

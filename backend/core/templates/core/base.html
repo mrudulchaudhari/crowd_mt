@@ -5,7 +5,110 @@
   <title>{% block title %}CrowdMgmt Test UI{% endblock %}</title>
   <meta name="viewport" content="width=device-width,initial-scale=1" />
   {% load static %}
-  {% comment %} <link rel="stylesheet" href="{% static 'core/style.css' %}"> {% endcomment %}
+  <style>
+    /* Reset & base */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    body {
+      font-family: "Segoe UI", Roboto, sans-serif;
+      line-height: 1.6;
+      background: #f7f9fb;
+      color: #333;
+      display: flex;
+      flex-direction: column;
+      min-height: 100vh;
+    }
+
+    /* Header */
+    header {
+      background: #1e293b;
+      color: white;
+      padding: 1rem 2rem;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.15);
+    }
+    header h1 {
+      font-size: 1.5rem;
+    }
+    header a {
+      text-decoration: none;
+      color: #38bdf8;
+      transition: color 0.3s;
+    }
+    header a:hover {
+      color: #a5f3fc;
+    }
+
+    /* Main content */
+    main {
+      flex: 1;
+      padding: 2rem;
+      max-width: 1000px;
+      margin: 0 auto;
+    }
+
+    /* Card style */
+    .card {
+      background: white;
+      border-radius: 12px;
+      padding: 1.5rem;
+      margin-bottom: 1.5rem;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+    }
+    .card:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 6px 16px rgba(0,0,0,0.12);
+    }
+
+    /* Buttons */
+    .btn {
+      display: inline-block;
+      padding: 0.6rem 1.2rem;
+      border-radius: 8px;
+      font-weight: 500;
+      text-decoration: none;
+      cursor: pointer;
+      transition: background 0.3s, transform 0.2s;
+    }
+    .btn-primary {
+      background: #2563eb;
+      color: white;
+      border: none;
+    }
+    .btn-primary:hover {
+      background: #1d4ed8;
+      transform: translateY(-1px);
+    }
+    .btn-secondary {
+      background: #e2e8f0;
+      color: #334155;
+    }
+    .btn-secondary:hover {
+      background: #cbd5e1;
+    }
+
+    /* Footer */
+    footer {
+      background: #1e293b;
+      color: #94a3b8;
+      text-align: center;
+      padding: 1rem;
+      font-size: 0.9rem;
+    }
+
+    /* Responsive */
+    @media (max-width: 768px) {
+      main {
+        padding: 1rem;
+      }
+      header h1 {
+        font-size: 1.2rem;
+      }
+    }
+  </style>
 </head>
 <body>
   <header>
@@ -13,8 +116,18 @@
   </header>
 
   <main id="main">
-    {% block content %}{% endblock %}
+    {% block content %}
+    <div class="card">
+      <h2>Welcome to CrowdMgmt</h2>
+      <p>This is a placeholder page. Replace this with your content.</p>
+      <a class="btn btn-primary" href="{% url 'core_templates:events_list' %}">View Events</a>
+    </div>
+    {% endblock %}
   </main>
+
+  <footer>
+    &copy; {{ year|default:"2025" }} CrowdMgmt. All rights reserved.
+  </footer>
 
   <script>
     // CSRF helper for fetch (Django default cookie name)
@@ -34,7 +147,6 @@
     }
     const CSRF_TOKEN = getCookie('csrftoken');
 
-    // simple fetch wrapper
     async function apiFetch(url, opts = {}) {
       opts.headers = opts.headers || {};
       if (!opts.method || opts.method.toUpperCase() === 'GET') {

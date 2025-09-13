@@ -32,4 +32,5 @@ urlpatterns = [
 
     # Snapshot creation endpoint
     path("api/events/<int:event_id>/snapshot/", SnapshotCreateView.as_view(), name="snapshot-create"),
+    path('', include('core.urls_templates')),  # 👈 this line adds test frontend
 ]
