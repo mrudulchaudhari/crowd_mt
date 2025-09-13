@@ -35,6 +35,7 @@ class EventSerializer(serializers.ModelSerializer):
             "id",
             "name",
             "date",
+            "location",
             "safe_threshold",
             "crowded_threshold",
             "created_at",

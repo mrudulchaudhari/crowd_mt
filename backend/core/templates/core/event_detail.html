@@ -1,281 +1,326 @@
 {% extends "core/base.html" %}
-
-{% block title %}Scanner — CrowdWatch{% endblock %}
+{% block title %}Event — {{ event.name }}{% endblock %}
 
 {% block content %}
-<div class="scanner-wrap">
-  <div class="card scanner-card">
-    <div class="scanner-header">
-      <div>
-        <h2 id="scanner-title">QR / Code Scanner</h2>
-        <p class="muted" id="scanner-sub">Paste token or enter numeric event id to check-in.</p>
+  <section class="event-wrap">
+    <div class="card event-card--detail">
+      <div class="event-header">
+        <div>
+          <h2 id="event-title">{{ event.name }}</h2>
+          <p class="muted" id="event-location">
+            {% if event.location %}📍 {{ event.location }}{% else %}Location not specified{% endif %}
+          </p>
+        </div>
+
+        <div class="meta">
+          <span class="badge" id="event-status">Loading…</span>
+        </div>
       </div>
 
-      <div class="meta">
-        <span class="badge badge--muted">Scanner</span>
+      <div class="thresholds">
+        <h4>Thresholds</h4>
+        <p class="muted">
+          Safety threshold:
+          <strong id="safety-thr">{% if event.safety_threshold %}{{ event.safety_threshold }}{% else %}—{% endif %}</strong>
+          &nbsp;•&nbsp;
+          Crowded threshold:
+          <strong id="crowded-thr">{% if event.crowded_threshold %}{{ event.crowded_threshold }}{% else %}—{% endif %}</strong>
+        </p>
+        <p class="muted">Thresholds configured: <strong id="threshold-configured">{% if event.safety_threshold or event.crowded_threshold %}Yes{% else %}No{% endif %}</strong></p>
+      </div>
+
+      <div class="headcount-block">
+        <h3 class="small">Current headcount</h3>
+        <div id="headcount" class="headcount">Loading…</div>
+        <div class="headcount-meta">
+          <small>Last updated: <span id="last-updated">—</span></small>
+        </div>
+      </div>
+
+      <div class="actions">
+        <a class="btn btn-secondary" href="{% url 'core_templates:events_list' %}">← Back to events</a>
+        <a class="btn btn-primary" id="refresh-btn" role="button">Refresh now</a>
       </div>
     </div>
 
-    <div class="scanner-body">
-      <div class="form-block">
-        <label for="token_input" class="block text-gray-700 font-semibold mb-2">Token / Event ID</label>
-        <input
-          type="text"
-          id="token_input"
-          name="token_input"
-          class="input-mono"
-          placeholder="Token (e.g. a1b2c3d4e5) or numeric event id"
-          autocomplete="off"
-          required
-        />
-
-        <div class="btn-row">
-          <button id="useTokenBtn" type="button" class="btn btn-primary">Scan by token</button>
-          <button id="useEventIdBtn" type="button" class="btn btn-secondary">Use as event id</button>
-        </div>
-
-        <div id="formError" class="muted error hidden"></div>
-        <div id="formSuccess" class="muted success hidden"></div>
-      </div>
-
-      <div class="result-block">
-        <div id="resultCard" class="result-card hidden">
-          <h3 id="evtName">Event</h3>
-          <p class="muted" id="evtLoc">Location not specified</p>
-
-          <div class="result-meta">
-            <div class="meta-item">Headcount: <strong id="evtHeadcount">—</strong></div>
-            <div class="meta-item">Event ID: <code id="evtId">—</code></div>
-          </div>
-
-          <div class="result-actions">
-            <a id="viewDetailsBtn" class="btn-link" href="#">View Event Details</a>
-            <button id="incrementBtn" class="btn btn-success">Increment Headcount</button>
-          </div>
-        </div>
-
-        <div id="idleCard" class="idle-card">
-          <svg class="idle-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M12 11c1.657 0 3-1.343 3-3S13.657 5 12 5 9 6.343 9 8s1.343 3 3 3zM12 13c-4 0-6 2-6 4v1h12v-1c0-2-2-4-6-4z" />
-          </svg>
-          <p class="muted">No scan yet. Paste a token or enter numeric id to find the event and update headcount.</p>
-        </div>
-      </div>
+    <div class="card">
+      <h4>About this event</h4>
+      <p class="muted">
+        Event ID: <code>{{ event.id }}</code> • Starts: {{ event.start_time|default:"—" }} • Ends: {{ event.end_time|default:"—" }}
+      </p>
+      {% if event.description %}
+      <p>{{ event.description }}</p>
+      {% else %}
+      <p class="muted">No description available.</p>
+      {% endif %}
     </div>
-
-    <div class="scanner-actions">
-      <a class="btn btn-secondary" href="{% url 'core_templates:events_list' %}">← Back to events</a>
-      <a class="btn btn-primary" id="open-camera" role="button">Open Camera (QR)</a>
-    </div>
-  </div>
-</div>
+  </section>
 {% endblock %}
+
 
 {% block scripts %}
 <script>
-(function(){
-  const tokenInput = document.getElementById('token_input');
-  const useTokenBtn = document.getElementById('useTokenBtn');
-  const useEventIdBtn = document.getElementById('useEventIdBtn');
-  const formError = document.getElementById('formError');
-  const formSuccess = document.getElementById('formSuccess');
+  const EVENT_ID = {{ event.id }};
+  const API_URL = `/api/events/${EVENT_ID}/`;
+  const STATUS_URL = `/api/status/?event_id=${EVENT_ID}`;
+  const WS_URL_BASE = (location.protocol === 'https:' ? 'wss:' : 'ws:') + '//' + location.host;
 
-  const resultCard = document.getElementById('resultCard');
-  const idleCard = document.getElementById('idleCard');
-  const evtName = document.getElementById('evtName');
-  const evtLoc = document.getElementById('evtLoc');
-  const evtHeadcount = document.getElementById('evtHeadcount');
-  const evtId = document.getElementById('evtId');
-  const viewDetailsBtn = document.getElementById('viewDetailsBtn');
-  const incrementBtn = document.getElementById('incrementBtn');
+  const headcountEl = document.getElementById('headcount');
+  const lastUpdatedEl = document.getElementById('last-updated');
+  const eventTitleEl = document.getElementById('event-title');
+  const refreshBtn = document.getElementById('refresh-btn');
 
-  function getCookie(name) {
-    let cookieValue = null;
-    if (document.cookie && document.cookie !== '') {
-      const cookies = document.cookie.split(';');
-      for (let i = 0; i < cookies.length; i++) {
-        const cookie = cookies[i].trim();
-        if (cookie.substring(0, name.length + 1) === (name + '=')) {
-          cookieValue = decodeURIComponent(cookie.substring(name.length + 1));
-          break;
-        }
+  const statusBadge = document.getElementById('event-status');
+  const safetyThrEl = document.getElementById('safety-thr');
+  const crowdedThrEl = document.getElementById('crowded-thr');
+  const thrConfiguredEl = document.getElementById('threshold-configured');
+
+  let currentCount = null;
+  let ws = null;
+  let wsConnected = false;
+
+  function setBadge(text, level) {
+    // level: 'ok' | 'warning' | 'critical' | 'loading' | 'disconnected' | 'live'
+    statusBadge.innerText = text;
+    statusBadge.className = 'badge'; // reset
+    if (level === 'ok') statusBadge.classList.add('badge--ok');
+    else if (level === 'warning') statusBadge.classList.add('badge--warn');
+    else if (level === 'critical') statusBadge.classList.add('badge--crit');
+    else if (level === 'live') statusBadge.classList.add('badge--live');
+    else if (level === 'disconnected') statusBadge.classList.add('badge--disc');
+    else statusBadge.classList.add('badge--muted');
+  }
+
+  function flashElement(el) {
+    el.classList.add('pulse');
+    setTimeout(() => el.classList.remove('pulse'), 600);
+  }
+
+  async function fetchStatus() {
+    try {
+      const r = await fetch(STATUS_URL, { credentials: 'same-origin' });
+      if (!r.ok) throw new Error(`${r.status} ${r.statusText}`);
+      const data = await r.json();
+      // expected fields: headcount, status, predicted_next_hour, timestamp
+      applyStatusData(data);
+    } catch (err) {
+      // fallback to event GET
+      console.warn('status fetch failed, falling back to event GET', err);
+      await fetchEventOnce(); // will call renderEventData
+    }
+  }
+
+  async function fetchEventOnce() {
+    try {
+      const resp = await fetch(API_URL, { credentials: 'same-origin' });
+      if (!resp.ok) throw new Error(`${resp.status} ${resp.statusText}`);
+      const data = await resp.json();
+      // update thresholds UI if available from event object
+      if (data.safety_threshold !== undefined) {
+        safetyThrEl.innerText = data.safety_threshold ?? '—';
       }
-    }
-    return cookieValue;
-  }
-  const csrftoken = getCookie('csrftoken');
-
-  function showError(msg){ formError.textContent = msg; formError.classList.remove('hidden'); formSuccess.classList.add('hidden'); }
-  function showSuccess(msg){ formSuccess.textContent = msg; formSuccess.classList.remove('hidden'); formError.classList.add('hidden'); }
-
-  async function scanByToken(token){
-    try{
-      const res = await fetch("{% url 'scan_by_token' %}", {
-        method: 'POST',
-        headers: {'Content-Type':'application/json', 'X-CSRFToken': csrftoken},
-        body: JSON.stringify({ token: token, increment: 1 })
-      });
-      const data = await res.json();
-      return data;
-    } catch(err){
-      console.error(err);
-      return { error: 'network' };
+      if (data.crowded_threshold !== undefined) {
+        crowdedThrEl.innerText = data.crowded_threshold ?? '—';
+      }
+      thrConfiguredEl.innerText = (data.safety_threshold || data.crowded_threshold) ? 'Yes' : 'No';
+      renderEventData(data);
+    } catch (err) {
+      headcountEl.innerHTML = `<span style="color:var(--danger)">${err.message}</span>`;
     }
   }
 
-  async function scanById(event_id){
-    try{
-      const res = await fetch("{% url 'scan' %}", {
-        method: 'POST',
-        headers: {'Content-Type':'application/json', 'X-CSRFToken': csrftoken},
-        body: JSON.stringify({ event_id: event_id, increment: 1 })
-      });
-      const data = await res.json();
-      return data;
-    } catch(err){
-      console.error(err);
-      return { error: 'network' };
+  function applyStatusData(data) {
+    if (!data) return;
+    // set counts
+    const last = data.headcount ?? null;
+    if (last !== null) {
+      headcountEl.innerText = last;
+      currentCount = typeof last === 'number' ? last : currentCount;
     }
+    // set last-updated
+    const ts = data.timestamp ? new Date(data.timestamp) : new Date();
+    lastUpdatedEl.innerText = ts.toLocaleString();
+
+    // update thresholds shown if included
+    // some status responses may not include thresholds, so keep existing DOM values otherwise
+
+    // prefer `data.status` if provided by serializer
+    const statusText = data.status ?? computeStatusTextFromCounts(last);
+    const level = mapStatusToLevel(statusText, last);
+    setBadge(statusText, level);
   }
 
-  useTokenBtn.addEventListener('click', async function(){
-    const val = tokenInput.value.trim();
-    if (!val){
-      showError('Please paste a token.');
-      return;
+  function computeStatusTextFromCounts(count) {
+    // fallback local compute if status endpoint isn't available
+    const safety = parseInt(safetyThrEl.innerText) || null;
+    const crowded = parseInt(crowdedThrEl.innerText) || null;
+    if (count === null || count === 'N/A') return 'Unknown';
+    if (crowded && count >= crowded) return 'Critical';
+    if (safety && count > safety) return 'Warning';
+    return 'OK';
+  }
+
+  function mapStatusToLevel(statusText, count) {
+    const s = (statusText || '').toString().toLowerCase();
+    if (s.includes('critical') || s.includes('capacity') || s.includes('danger')) return 'critical';
+    if (s.includes('warning') || s.includes('near') || s.includes('warning')) return 'warning';
+    if (s.includes('live')) return 'live';
+    if (s.includes('disconnected')) return 'disconnected';
+    return 'ok';
+  }
+
+  function renderEventData(data) {
+    if (!data) return;
+    if (data.name) eventTitleEl.innerText = data.name;
+
+    const newCount = (data.current_headcount === null || data.current_headcount === undefined) ? 'N/A' : data.current_headcount;
+
+    // animate/flash if changed and numeric
+    if (typeof currentCount === 'number' && typeof newCount === 'number' && newCount !== currentCount) {
+      flashElement(headcountEl);
     }
-    showSuccess('Scanning...');
-    const resp = await scanByToken(val);
-    if (resp && resp.headcount !== undefined && resp.event_id !== undefined){
-      renderEvent({
-        id: resp.event_id,
-        name: resp.event_name || `Event ${resp.event_id}`,
-        location: resp.event_location || '',
-        headcount: resp.headcount,
-        token: val
-      });
-      showSuccess('Checked in successfully');
+    currentCount = (typeof newCount === 'number') ? newCount : newCount;
+    headcountEl.innerText = currentCount;
+
+    // update thresholds if included
+    if (data.safety_threshold !== undefined) {
+      safetyThrEl.innerText = data.safety_threshold ?? '—';
+    }
+    if (data.crowded_threshold !== undefined) {
+      crowdedThrEl.innerText = data.crowded_threshold ?? '—';
+    }
+    thrConfiguredEl.innerText = (data.safety_threshold || data.crowded_threshold) ? 'Yes' : 'No';
+
+    // decide badge based on server-provided status if available
+    if (data.status) {
+      const level = mapStatusToLevel(data.status, currentCount);
+      setBadge(data.status, level);
     } else {
-      showError(resp.error || 'Event not found.');
+      // local compute
+      const txt = computeStatusTextFromCounts(currentCount);
+      const level = mapStatusToLevel(txt, currentCount);
+      setBadge(txt, level);
     }
-  });
 
-  useEventIdBtn.addEventListener('click', async function(){
-    const val = tokenInput.value.trim();
-    if (!val){
-      showError('Please enter an event id.');
-      return;
-    }
-    const id = parseInt(val, 10);
-    if (isNaN(id)){
-      showError('Event id should be numeric. For tokens, use Scan by token.');
-      return;
-    }
-    showSuccess('Scanning...');
-    const resp = await scanById(id);
-    if (resp && resp.headcount !== undefined && resp.event_id !== undefined){
-      renderEvent({
-        id: resp.event_id,
-        name: resp.event_name || `Event ${resp.event_id}`,
-        location: resp.event_location || '',
-        headcount: resp.headcount
-      });
-      showSuccess('Checked in successfully');
-    } else {
-      showError(resp.error || 'Event not found.');
-    }
-  });
-
-  function renderEvent(ev){
-    evtName.textContent = ev.name || 'Event';
-    evtLoc.textContent = ev.location || 'Location not specified';
-    evtHeadcount.textContent = ev.headcount ?? '—';
-    evtId.textContent = ev.id ?? '—';
-    viewDetailsBtn.href = ev.detail_url || `/events/${ev.id}/`;
-    resultCard.classList.remove('hidden');
-    idleCard.classList.add('hidden');
+    lastUpdatedEl.innerText = new Date().toLocaleString();
   }
 
-  incrementBtn.addEventListener('click', async function(){
-    const id = evtId.textContent;
-    if (!id || id === '—') return;
-    const resp = await scanById(id);
-    if (resp && resp.headcount !== undefined){
-      evtHeadcount.textContent = resp.headcount;
-      showSuccess('Headcount incremented.');
-    } else {
-      showError(resp.error || 'Could not increment.');
+  // Polling fallback (every 6s)
+  let pollInterval = null;
+  function startPolling() {
+    if (pollInterval) return;
+    pollInterval = setInterval(fetchStatus, 6000);
+  }
+  function stopPolling() {
+    if (pollInterval) {
+      clearInterval(pollInterval);
+      pollInterval = null;
     }
+  }
+
+  // WebSocket live updates: listens for headcount_update or event_update
+  function tryWebSocket() {
+    try {
+      ws = new WebSocket(`${WS_URL_BASE}/ws/event/${EVENT_ID}/`);
+      ws.addEventListener('open', () => {
+        wsConnected = true;
+        stopPolling();
+        setBadge('Live', 'live');
+      });
+      ws.addEventListener('message', (ev) => {
+        try {
+          const payload = JSON.parse(ev.data);
+          // handle different message types you broadcast from server
+          if (payload.type === 'headcount_update' && payload.data) {
+            // payload.data: {headcount, timestamp, source, event_id}
+            const d = payload.data;
+            applyStatusData({ headcount: d.headcount, timestamp: d.timestamp, status: null });
+          } else if (payload.type === 'event_update') {
+            // payload: {headcount, status}
+            applyStatusData({ headcount: payload.headcount, status: payload.status, timestamp: new Date().toISOString() });
+          } else if (payload.type === 'alert_message' && payload.data) {
+            // optionally show alerts in the UI (toast, etc.)
+            console.info('Alert:', payload.data);
+            // For critical alerts, show badge
+            setBadge('Critical', 'critical');
+          } else {
+            // fallback: if server sends full event object
+            if (payload.current_headcount !== undefined) {
+              renderEventData(payload);
+            }
+          }
+        } catch (e) {
+          console.warn('WS parse error', e);
+        }
+      });
+      ws.addEventListener('close', () => {
+        wsConnected = false;
+        setBadge('Disconnected', 'disconnected');
+        startPolling();
+        setTimeout(tryWebSocket, 5000);
+      });
+      ws.addEventListener('error', (err) => {
+        console.warn('WS error', err);
+        if (ws) ws.close();
+      });
+    } catch (err) {
+      console.warn('WebSocket unavailable', err);
+      startPolling();
+    }
+  }
+
+  // Manual refresh
+  refreshBtn.addEventListener('click', () => {
+    fetchStatus();
+    flashElement(refreshBtn);
   });
 
-  // Camera button placeholder: you can wire html5-qrcode later
-  document.getElementById('open-camera').addEventListener('click', function(){
-    alert('Camera scanner not yet enabled. I can add html5-qrcode page if you want.');
+  document.addEventListener('DOMContentLoaded', () => {
+    // initial fetch from status endpoint (preferred)
+    fetchStatus();
+    // attempt websocket; polling will start if ws fails
+    tryWebSocket();
+    setTimeout(() => { if (!wsConnected) startPolling(); }, 800);
   });
-})();
+
+  // cleanup
+  window.addEventListener('beforeunload', () => {
+    if (ws) ws.close();
+  });
 </script>
 
 <style>
-/* Scanner page styles modeled after event_detail.css from the app */
+  /* Scoped styles for event detail */
+  .event-wrap { max-width: 900px; margin: 0 auto; display: grid; gap: 1.25rem; }
 
-.scanner-wrap { max-width: 900px; margin: 0 auto; display: grid; gap: 1.25rem; }
+  .event-header { display: flex; justify-content: space-between; align-items: flex-start; gap: 1rem; }
+  .event-header h2 { margin-bottom: 0.25rem; font-size: 1.4rem; }
+  .muted { color: #64748b; font-size: 0.95rem; }
 
-.scanner-card { padding: 1rem; display:flex; flex-direction:column; gap:1rem; }
-.scanner-header { display: flex; justify-content: space-between; align-items: flex-start; gap: 1rem; }
-.scanner-header h2 { margin-bottom: 0.25rem; font-size: 1.4rem; }
-.muted { color: #64748b; font-size: 0.95rem; }
+  .meta { display:flex; align-items:center; gap:0.5rem; }
+  .badge { padding: 0.35rem 0.6rem; border-radius: 999px; font-weight: 700; font-size: 0.85rem; }
+  .badge--ok { background:#e6fffa; color:#065f46; }
+  .badge--warn { background:#fff7ed; color:#92400e; }
+  .badge--crit { background:#ffeef0; color:#9b1c1c; }
+  .badge--live { background:#e8f3ff; color:#0f172a; }
+  .badge--disc { background:#f1f5f9; color:#475569; }
+  .badge--muted { background:#eef2ff; color:#334155; }
 
-.meta { display:flex; align-items:center; gap:0.5rem; }
-.badge { padding: 0.35rem 0.6rem; border-radius: 999px; font-weight: 700; font-size: 0.85rem; }
-.badge--ok { background:#e6fffa; color:#065f46; }
-.badge--warn { background:#fff7ed; color:#92400e; }
-.badge--crit { background:#ffeef0; color:#9b1c1c; }
-.badge--live { background:#e8f3ff; color:#0f172a; }
-.badge--disc { background:#f1f5f9; color:#475569; }
-.badge--muted { background:#eef2ff; color:#334155; }
+  .thresholds h4 { margin-top: 0.6rem; margin-bottom: 0.2rem; }
+  .headcount-block { margin-top: 1rem; }
+  .headcount { font-size: 3rem; font-weight: 700; margin: .4rem 0; color: #0f172a; }
+  .headcount-meta small { color: #64748b; }
 
-/* Form and controls */
-.scanner-body { display:grid; grid-template-columns: 1fr 1fr; gap: 1rem; align-items:start; }
-.form-block { display:flex; flex-direction:column; gap:0.75rem; }
-.input-mono { font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, "Roboto Mono", "Courier New", monospace; padding: .6rem .75rem; border-radius: 8px; border: 1px solid #e6edf2; font-size: 1rem; }
-.btn-row { display:flex; gap:0.5rem; margin-top: 0.25rem; }
-.btn { display:inline-flex; align-items:center; justify-content:center; gap:0.5rem; padding:0.5rem 0.75rem; border-radius: 8px; font-weight:600; text-decoration:none; cursor:pointer; border: 1px solid transparent; }
-.btn-primary { background:#2563eb; color:#fff; border-color: rgba(37,99,235,0.9); }
-.btn-secondary { background:#f1f5f9; color:#0f172a; border-color: #e2e8f0; }
-.btn-success { background:#16a34a; color:#fff; border-color: rgba(22,163,74,0.9); }
-.btn-link { background:transparent; color:#2563eb; border:none; padding:0; font-weight:600; text-decoration:underline; }
+  .actions { display:flex; gap: .75rem; margin-top: 1.25rem; }
 
-/* Result */
-.result-block { display:flex; align-items:center; justify-content:center; min-height:160px; }
-.result-card { width:100%; }
-.result-card h3 { margin:0 0 .2rem 0; font-size:1.1rem; }
-.result-meta { display:flex; gap:1rem; margin:0.6rem 0; }
-.meta-item { background:#f8fafc; padding:0.35rem 0.6rem; border-radius:8px; font-size:0.95rem; }
+  .pulse { animation: pulse-change 0.6s ease; }
+  @keyframes pulse-change {
+    0% { transform: scale(1); background: rgba(34,197,94,0); }
+    30% { transform: scale(1.06); background: rgba(34,197,94,0.12); }
+    100% { transform: scale(1); background: transparent; }
+  }
 
-/* Idle */
-.idle-card { text-align:center; color:#64748b; }
-.idle-icon { width:48px; height:48px; stroke:#cbd5e1; margin-bottom:0.5rem; }
-
-/* Actions */
-.scanner-actions { display:flex; gap: .75rem; margin-top: 1rem; }
-
-/* Utility */
-.hidden { display:none !important; }
-.error { color:#9b1c1c; }
-.success { color:#065f46; }
-
-/* Pulse animation used elsewhere */
-.pulse { animation: pulse-change 0.6s ease; }
-@keyframes pulse-change {
-  0% { transform: scale(1); background: rgba(34,197,94,0); }
-  30% { transform: scale(1.06); background: rgba(34,197,94,0.12); }
-  100% { transform: scale(1); background: transparent; }
-}
-
-/* Responsive */
-@media (max-width: 900px) {
-  .scanner-body { grid-template-columns: 1fr; }
-  .scanner-card { padding: .75rem; }
-}
+  code { background: #f1f5f9; padding: 0.15rem .35rem; border-radius: 6px; }
+  #refresh-btn.pulse { transform: translateY(-1px); }
 </style>
 {% endblock %}

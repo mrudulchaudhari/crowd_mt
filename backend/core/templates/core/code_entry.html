@@ -31,7 +31,7 @@
 
         <div class="btn-row">
           <button id="useTokenBtn" type="button" class="btn btn-primary">Scan by token</button>
-          <button id="useEventIdBtn" type="button" class="btn btn-secondary">Use as event id</button>
+          {% comment %} <button id="useEventIdBtn" type="button" class="btn btn-secondary">Use as event id</button> {% endcomment %}
         </div>
 
         <div id="formError" class="muted error hidden"></div>
@@ -48,24 +48,24 @@
             <div class="meta-item">Event ID: <code id="evtId">—</code></div>
           </div>
 
-          <div class="result-actions">
+          {% comment %} <div class="result-actions">
             <a id="viewDetailsBtn" class="btn-link" href="#">View Event Details</a>
             <button id="incrementBtn" class="btn btn-success">Increment Headcount</button>
-          </div>
+          </div> {% endcomment %}
         </div>
 
-        <div id="idleCard" class="idle-card">
+        {% comment %} <div id="idleCard" class="idle-card">
           <svg class="idle-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor">
             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M12 11c1.657 0 3-1.343 3-3S13.657 5 12 5 9 6.343 9 8s1.343 3 3 3zM12 13c-4 0-6 2-6 4v1h12v-1c0-2-2-4-6-4z" />
           </svg>
           <p class="muted">No scan yet. Paste a token or enter numeric id to find the event and update headcount.</p>
-        </div>
+        </div> {% endcomment %}
       </div>
     </div>
 
     <div class="scanner-actions">
       <a class="btn btn-secondary" href="{% url 'core_templates:events_list' %}">← Back to events</a>
-      <a class="btn btn-primary" id="open-camera" role="button">Open Camera (QR)</a>
+      {% comment %} <a class="btn btn-primary" id="open-camera" role="button">Open Camera (QR)</a> {% endcomment %}
     </div>
   </div>
 </div>
