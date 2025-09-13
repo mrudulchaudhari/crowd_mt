@@ -11,6 +11,7 @@ https://docs.djangoproject.com/en/5.2/ref/settings/
 """
 
 from pathlib import Path
+import os
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -25,7 +26,7 @@ SECRET_KEY = "django-insecure-!f_!=!4ebw@0$i0og!-n&yjt645o^i)nro41u2y#8h%rz5_pga
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['your-app-name.onrender.com', 'localhost', '127.0.0.1']
 
 
 # Application definition
@@ -46,13 +47,12 @@ INSTALLED_APPS = [
 
     # Local apps
     'core',
-    "django_extensions",
 ]
 
 MIDDLEWARE = [
     "django.middleware.security.SecurityMiddleware",
+    'corsheaders.middleware.CorsMiddleware',
     "django.contrib.sessions.middleware.SessionMiddleware",
-    'corsheaders.middleware.CorsMiddleware', # ADDED: Handles CORS headers
     "django.middleware.common.CommonMiddleware",
     "django.middleware.csrf.CsrfViewMiddleware",
     "django.contrib.auth.middleware.AuthenticationMiddleware",
@@ -65,9 +65,8 @@ ROOT_URLCONF = "crowd_mgmt.urls"
 TEMPLATES = [
     {
         "BACKEND": "django.template.backends.django.DjangoTemplates",
-        "DIRS": [ BASE_DIR / "templates", BASE_DIR / "backend" / "templates" ],
+        "DIRS": [],
         "APP_DIRS": True,
-
         "OPTIONS": {
             "context_processors": [
                 "django.template.context_processors.request",
@@ -141,4 +140,3 @@ CORS_ALLOWED_ORIGINS = [
     "http://127.0.0.1:3000",
 ]
 
-APPEND_SLASH = True
