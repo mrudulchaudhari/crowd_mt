@@ -13,8 +13,20 @@
         </div>
 
         <div class="meta">
-          <span class="badge" id="event-status">Open</span>
+          <span class="badge" id="event-status">Loading…</span>
         </div>
+      </div>
+
+      <div class="thresholds">
+        <h4>Thresholds</h4>
+        <p class="muted">
+          Safety threshold:
+          <strong id="safety-thr">{% if event.safety_threshold %}{{ event.safety_threshold }}{% else %}—{% endif %}</strong>
+          &nbsp;•&nbsp;
+          Crowded threshold:
+          <strong id="crowded-thr">{% if event.crowded_threshold %}{{ event.crowded_threshold }}{% else %}—{% endif %}</strong>
+        </p>
+        <p class="muted">Thresholds configured: <strong id="threshold-configured">{% if event.safety_threshold or event.crowded_threshold %}Yes{% else %}No{% endif %}</strong></p>
       </div>
 
       <div class="headcount-block">
@@ -50,6 +62,7 @@
 <script>
   const EVENT_ID = {{ event.id }};
   const API_URL = `/api/events/${EVENT_ID}/`;
+  const STATUS_URL = `/api/status/?event_id=${EVENT_ID}`;
   const WS_URL_BASE = (location.protocol === 'https:' ? 'wss:' : 'ws:') + '//' + location.host;
 
   const headcountEl = document.getElementById('headcount');
@@ -57,13 +70,98 @@
   const eventTitleEl = document.getElementById('event-title');
   const refreshBtn = document.getElementById('refresh-btn');
 
+  const statusBadge = document.getElementById('event-status');
+  const safetyThrEl = document.getElementById('safety-thr');
+  const crowdedThrEl = document.getElementById('crowded-thr');
+  const thrConfiguredEl = document.getElementById('threshold-configured');
+
   let currentCount = null;
   let ws = null;
   let wsConnected = false;
 
+  // Helper: remove any badge--* classes then add the one we want
+  function setBadge(text, level) {
+    statusBadge.innerText = text;
+    // remove previous level classes
+    statusBadge.classList.remove('badge--ok','badge--warn','badge--crit','badge--live','badge--disc','badge--muted');
+    // always keep base 'badge' class
+    statusBadge.classList.add('badge');
+    if (level === 'ok') statusBadge.classList.add('badge--ok');
+    else if (level === 'warning') statusBadge.classList.add('badge--warn');
+    else if (level === 'critical') statusBadge.classList.add('badge--crit');
+    else if (level === 'live') statusBadge.classList.add('badge--live');
+    else if (level === 'disconnected') statusBadge.classList.add('badge--disc');
+    else statusBadge.classList.add('badge--muted');
+  }
+
   function flashElement(el) {
     el.classList.add('pulse');
     setTimeout(() => el.classList.remove('pulse'), 600);
+  }
+
+  // Parse text to integer safely; returns null if not a valid number
+  function toIntSafe(v) {
+    if (v === null || v === undefined) return null;
+    const n = Number(String(v).replace(/[^\d\-]/g, '')); // strip non-digits (keeps minus)
+    return Number.isFinite(n) ? n : null;
+  }
+
+  // Compute status locally given numeric counts & thresholds
+  function computeStatusTextFromCounts(count) {
+    const safety = toIntSafe(safetyThrEl.innerText);
+    const crowded = toIntSafe(crowdedThrEl.innerText);
+
+    if (count === null || count === undefined || count === 'N/A') return 'Unknown';
+    const cnum = toIntSafe(count);
+    if (cnum === null) return 'Unknown';
+
+    // priority: critical (>= crowded), warning (> safety), ok otherwise
+    if (crowded !== null && cnum >= crowded) return 'Critical';
+    if (safety !== null && cnum > safety) return 'Warning';
+    return 'OK';
+  }
+
+  function mapStatusToLevel(statusText) {
+    const s = (statusText || '').toString().toLowerCase();
+    if (s.includes('critical') || s.includes('capacity') || s.includes('danger')) return 'critical';
+    if (s.includes('warning') || s.includes('near')) return 'warning';
+    if (s.includes('live')) return 'live';
+    if (s.includes('disconnected')) return 'disconnected';
+    return 'ok';
+  }
+
+  function applyStatusData(data) {
+    if (!data) return;
+    const last = data.headcount ?? null;
+    if (last !== null) {
+      headcountEl.innerText = last;
+      currentCount = toIntSafe(last) ?? currentCount;
+    }
+
+    // timestamps
+    const ts = data.timestamp ? new Date(data.timestamp) : new Date();
+    lastUpdatedEl.innerText = ts.toLocaleString();
+
+    // prefer server status if provided; otherwise compute locally
+    const statusText = data.status ?? computeStatusTextFromCounts(last);
+    const level = mapStatusToLevel(statusText);
+    setBadge(statusText, level);
+  }
+
+  async function fetchStatus() {
+    try {
+      const r = await fetch(STATUS_URL, { credentials: 'same-origin' });
+      if (!r.ok) throw new Error(`${r.status} ${r.statusText}`);
+      const data = await r.json();
+      // update thresholds display if API returns them inside the event/status payload
+      if (data.safety_threshold !== undefined) safetyThrEl.innerText = data.safety_threshold ?? '—';
+      if (data.crowded_threshold !== undefined) crowdedThrEl.innerText = data.crowded_threshold ?? '—';
+      thrConfiguredEl.innerText = (toIntSafe(safetyThrEl.innerText) || toIntSafe(crowdedThrEl.innerText)) ? 'Yes' : 'No';
+      applyStatusData(data);
+    } catch (err) {
+      console.warn('status fetch failed, falling back to event GET', err);
+      await fetchEventOnce();
+    }
   }
 
   async function fetchEventOnce() {
@@ -71,58 +169,47 @@
       const resp = await fetch(API_URL, { credentials: 'same-origin' });
       if (!resp.ok) throw new Error(`${resp.status} ${resp.statusText}`);
       const data = await resp.json();
-      renderEventData(data);
+      // update thresholds UI
+      if (data.safety_threshold !== undefined) safetyThrEl.innerText = data.safety_threshold ?? '—';
+      if (data.crowded_threshold !== undefined) crowdedThrEl.innerText = data.crowded_threshold ?? '—';
+      thrConfiguredEl.innerText = (toIntSafe(safetyThrEl.innerText) || toIntSafe(crowdedThrEl.innerText)) ? 'Yes' : 'No';
+      applyStatusData({ headcount: data.current_headcount ?? data.current_headcount, status: data.status, timestamp: new Date().toISOString() });
     } catch (err) {
       headcountEl.innerHTML = `<span style="color:var(--danger)">${err.message}</span>`;
     }
   }
 
-  function renderEventData(data) {
-    if (!data) return;
-    if (data.name) eventTitleEl.innerText = data.name;
-    const newCount = (data.current_headcount === null || data.current_headcount === undefined) ? 'N/A' : data.current_headcount;
-    // animate/flash if changed and numeric
-    if (typeof currentCount === 'number' && typeof newCount === 'number' && newCount !== currentCount) {
-      flashElement(headcountEl);
-    }
-    currentCount = (typeof newCount === 'number') ? newCount : newCount;
-    headcountEl.innerText = currentCount;
-    const now = new Date();
-    lastUpdatedEl.innerText = now.toLocaleString();
-  }
-
-  // Polling fallback (every 6s)
+  // Polling fallback
   let pollInterval = null;
-  function startPolling() {
-    if (pollInterval) return;
-    pollInterval = setInterval(fetchEventOnce, 6000);
-  }
-  function stopPolling() {
-    if (pollInterval) {
-      clearInterval(pollInterval);
-      pollInterval = null;
-    }
-  }
+  function startPolling() { if (pollInterval) return; pollInterval = setInterval(fetchStatus, 6000); }
+  function stopPolling() { if (pollInterval) { clearInterval(pollInterval); pollInterval = null; } }
 
-  // Try opening a WebSocket to get live updates from Channels.
-  // Expected path: ws/event/<event_id>/  <-- adjust if your routing differs.
+  // WebSocket live updates (listens for headcount_update / event_update)
   function tryWebSocket() {
     try {
       ws = new WebSocket(`${WS_URL_BASE}/ws/event/${EVENT_ID}/`);
       ws.addEventListener('open', () => {
         wsConnected = true;
-        stopPolling(); // use ws updates instead of polling
-        document.getElementById('event-status').innerText = 'Live';
+        stopPolling();
+        setBadge('Live', 'live');
       });
       ws.addEventListener('message', (ev) => {
-        // assume message is JSON with { type: 'headcount', current_headcount: N }
         try {
           const payload = JSON.parse(ev.data);
-          // If the message is the whole event object or contains headcount:
-          if (payload.current_headcount !== undefined) {
-            renderEventData(payload);
-          } else if (payload.type === 'snapshot' && payload.current_headcount !== undefined) {
-            renderEventData(payload);
+          if (payload.type === 'headcount_update' && payload.data) {
+            const d = payload.data;
+            // payload.data: {headcount, timestamp, source, event_id}
+            applyStatusData({ headcount: d.headcount, timestamp: d.timestamp, status: null });
+          } else if (payload.type === 'event_update') {
+            applyStatusData({ headcount: payload.headcount, status: payload.status, timestamp: new Date().toISOString() });
+          } else if (payload.type === 'alert_message' && payload.data) {
+            // critical alert — prefer showing critical
+            setBadge('Critical', 'critical');
+            console.info('Alert:', payload.data);
+          } else {
+            if (payload.current_headcount !== undefined) {
+              applyStatusData({ headcount: payload.current_headcount, timestamp: payload.timestamp ?? new Date().toISOString() });
+            }
           }
         } catch (e) {
           console.warn('WS parse error', e);
@@ -130,15 +217,13 @@
       });
       ws.addEventListener('close', () => {
         wsConnected = false;
-        document.getElementById('event-status').innerText = 'Disconnected';
-        // fallback to polling
+        setBadge('Disconnected', 'disconnected');
         startPolling();
-        // try to reconnect after a bit
         setTimeout(tryWebSocket, 5000);
       });
       ws.addEventListener('error', (err) => {
         console.warn('WS error', err);
-        ws.close();
+        if (ws) ws.close();
       });
     } catch (err) {
       console.warn('WebSocket unavailable', err);
@@ -147,89 +232,51 @@
   }
 
   // Manual refresh
-  refreshBtn.addEventListener('click', () => {
-    fetchEventOnce();
-    flashElement(refreshBtn);
-  });
+  refreshBtn.addEventListener('click', () => { fetchStatus(); flashElement(refreshBtn); });
 
   document.addEventListener('DOMContentLoaded', () => {
-    // initial fetch
-    fetchEventOnce();
-    // attempt websocket; polling is started automatically if ws fails
+    fetchStatus();
     tryWebSocket();
-    // ensure polling runs when websockets are disabled
     setTimeout(() => { if (!wsConnected) startPolling(); }, 800);
   });
 
-  // clean up on unload
-  window.addEventListener('beforeunload', () => {
-    if (ws) ws.close();
-  });
+  // cleanup
+  window.addEventListener('beforeunload', () => { if (ws) ws.close(); });
 </script>
+
 
 <style>
   /* Scoped styles for event detail */
-  .event-wrap {
-    max-width: 900px;
-    margin: 0 auto;
-    display: grid;
-    gap: 1.25rem;
-  }
+  .event-wrap { max-width: 900px; margin: 0 auto; display: grid; gap: 1.25rem; }
 
-  .event-header {
-    display: flex;
-    justify-content: space-between;
-    align-items: flex-start;
-    gap: 1rem;
-  }
-  .event-header h2 {
-    margin-bottom: 0.25rem;
-    font-size: 1.4rem;
-  }
-  .muted {
-    color: #64748b;
-    font-size: 0.95rem;
-  }
+  .event-header { display: flex; justify-content: space-between; align-items: flex-start; gap: 1rem; }
+  .event-header h2 { margin-bottom: 0.25rem; font-size: 1.4rem; }
+  .muted { color: #64748b; font-size: 0.95rem; }
 
   .meta { display:flex; align-items:center; gap:0.5rem; }
-  .badge {
-    background: #e6f0ff;
-    color: #0f172a;
-    padding: 0.3rem 0.6rem;
-    border-radius: 999px;
-    font-weight: 600;
-    font-size: 0.85rem;
-  }
+  .badge { padding: 0.35rem 0.6rem; border-radius: 999px; font-weight: 700; font-size: 0.85rem; }
+  .badge--ok { background:#e6fffa; color:#065f46; }
+  .badge--warn { background:#fff7ed; color:#92400e; }
+  .badge--crit { background:#ffeef0; color:#9b1c1c; }
+  .badge--live { background:#e8f3ff; color:#0f172a; }
+  .badge--disc { background:#f1f5f9; color:#475569; }
+  .badge--muted { background:#eef2ff; color:#334155; }
 
+  .thresholds h4 { margin-top: 0.6rem; margin-bottom: 0.2rem; }
   .headcount-block { margin-top: 1rem; }
-  .headcount {
-    font-size: 3rem;
-    font-weight: 700;
-    margin: .4rem 0;
-    color: #0f172a;
-  }
+  .headcount { font-size: 3rem; font-weight: 700; margin: .4rem 0; color: #0f172a; }
   .headcount-meta small { color: #64748b; }
 
-  .actions {
-    display:flex;
-    gap: .75rem;
-    margin-top: 1.25rem;
-  }
+  .actions { display:flex; gap: .75rem; margin-top: 1.25rem; }
 
-  /* pulse animation for changes */
-  .pulse {
-    animation: pulse-change 0.6s ease;
-  }
+  .pulse { animation: pulse-change 0.6s ease; }
   @keyframes pulse-change {
     0% { transform: scale(1); background: rgba(34,197,94,0); }
     30% { transform: scale(1.06); background: rgba(34,197,94,0.12); }
     100% { transform: scale(1); background: transparent; }
   }
 
-  /* small styling for code bits */
   code { background: #f1f5f9; padding: 0.15rem .35rem; border-radius: 6px; }
-
-  /* make refresh button small when animating */
   #refresh-btn.pulse { transform: translateY(-1px); }
 </style>
 {% endblock %}
