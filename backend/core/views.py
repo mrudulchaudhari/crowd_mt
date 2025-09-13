@@ -180,6 +180,8 @@ def scan(request):
     return Response({"headcount": new_count, "event_id": event.id})
 
 
+# In views.py
+
 @api_view(["POST"])
 @permission_classes([AllowAny])
 def scan_by_token(request):
@@ -192,25 +194,48 @@ def scan_by_token(request):
     except Event.DoesNotExist:
         return Response({"error": "invalid token"}, status=404)
 
+    # --- START OF CHANGES ---
+
+    # 1. Get the direction from the request, default to 'in' if not provided.
+    direction = request.data.get("direction", "in").lower()
+    if direction not in ['in', 'out']:
+        return Response({"error": "Invalid direction. Must be 'in' or 'out'."}, status=400)
+
+    # 2. Get the base increment value (usually 1 person)
     try:
         increment = int(request.data.get("increment", 1))
     except (TypeError, ValueError):
         increment = 1
+    
+    # 3. If the direction is 'out', make the increment negative.
+    if direction == 'out':
+        increment = -abs(increment) # Use abs() to ensure it's negative
+
+    # --- END OF CHANGES ---
 
     last = HeadcountSnapshot.objects.filter(event=event).order_by("-timestamp").first()
-    new_count = (last.headcount if last else 0) + increment
+    
+    # Calculate the new count by applying the increment (which can be positive or negative)
+    last_headcount = last.headcount if last else 0
+    new_count = last_headcount + increment
+
+    # Add a check to prevent the headcount from going below zero
+    if new_count < 0:
+        new_count = 0
+
     snap = HeadcountSnapshot.objects.create(
         event=event, headcount=new_count, source="qr", timestamp=timezone.now()
     )
+    
+    # The rest of the function remains the same
     broadcast_snapshot(snap)
     alert = check_alerts_for_snapshot(snap)
     if alert:
         async_to_sync(get_channel_layer().group_send)(
             f"event_{event.id}", {"type": "alert_message", "data": AlertSerializer(alert).data}
         )
-    return Response({"headcount": new_count, "event_id": event.id, "token": token})
-
-
+        
+    return Response({"headcount": new_count, "event_id": event.id, "token": token, "direction": direction})
 # -----------------------
 # Admin manual update
 # -----------------------
