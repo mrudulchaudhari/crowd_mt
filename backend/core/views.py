@@ -2,6 +2,15 @@ from django.utils import timezone
 from django.conf import settings
 from django.db.models import Avg
 from django.db.models.functions import TruncSecond
+from django.http import JsonResponse
+from django.views.decorators.csrf import csrf_exempt
+from django.views.decorators.http import require_http_methods
+import json
+import os
+import joblib
+import numpy as np
+import pandas as pd
+from datetime import datetime
 
 from rest_framework import viewsets, mixins, status
 from rest_framework.decorators import api_view, permission_classes
@@ -27,6 +36,9 @@ from .serializers import (
 from .permissions import IsEventManager
 from .utils import generate_qr_datauri
 from .ml import run_ml_predict
+
+# Import the ml_service instance
+from .ml_service import ml_service
 
 
 # -----------------------
@@ -369,6 +381,208 @@ def qr_for_event(request, event_id):
     return Response({"qr_data_uri": data_uri, "scan_url": scan_url})
 
   
+# -----------------------
+# ML Model API Endpoints
+# -----------------------
+@api_view(['POST'])
+@permission_classes([AllowAny])
+def predict_api(request):
+    """
+    API endpoint for making predictions with the ML model.
+    
+    POST /api/predict/
+    
+    Request body:
+    {
+        "features": [feature1, feature2, ...],  # List of features in the correct order
+        "event_id": 1,  # Optional: If provided, will use event context for prediction
+        "timestamp": "2023-06-15T14:30:00Z"  # Optional: Timestamp for prediction
+    }
+    
+    Response:
+    {
+        "prediction": value,
+        "method": "model" or "heuristic",
+        "confidence": value  # If available
+    }
+    """
+    # Get features from request
+    features = request.data.get('features')
+    event_id = request.data.get('event_id')
+    timestamp_str = request.data.get('timestamp')
+    
+    # Validate input
+    if not features and not event_id:
+        return Response(
+            {"error": "Either features or event_id must be provided"}, 
+            status=status.HTTP_400_BAD_REQUEST
+        )
+    
+    # If event_id is provided, use run_ml_predict
+    if event_id:
+        try:
+            event = Event.objects.get(pk=event_id)
+            
+            # Use provided timestamp or current time
+            if timestamp_str:
+                try:
+                    timestamp = datetime.fromisoformat(timestamp_str.replace('Z', '+00:00'))
+                except ValueError:
+                    return Response(
+                        {"error": "Invalid timestamp format. Use ISO format (YYYY-MM-DDTHH:MM:SSZ)"},
+                        status=status.HTTP_400_BAD_REQUEST
+                    )
+            else:
+                timestamp = timezone.now()
+                
+            # Run prediction using the event context
+            prediction, method = run_ml_predict(event, timestamp)
+            
+            return Response({
+                "prediction": prediction,
+                "method": method,
+                "event_id": event_id,
+                "timestamp": timestamp.isoformat()
+            })
+            
+        except Event.DoesNotExist:
+            return Response(
+                {"error": f"Event with id {event_id} not found"}, 
+                status=status.HTTP_404_NOT_FOUND
+            )
+    
+    # If features are provided directly, use ml_service
+    try:
+        # Convert features to numpy array
+        features_array = np.array(features)
+        
+        # Make prediction
+        prediction = ml_service.predict(features_array)
+        
+        # Get probability if available
+        probabilities = None
+        try:
+            probabilities = ml_service.predict_proba(features_array)
+        except:
+            pass
+            
+        response_data = {
+            "prediction": prediction.tolist(),
+            "method": "model"
+        }
+        
+        if probabilities is not None:
+            response_data["probabilities"] = probabilities.tolist()
+            
+        return Response(response_data)
+        
+    except Exception as e:
+        return Response(
+            {"error": f"Prediction failed: {str(e)}"}, 
+            status=status.HTTP_400_BAD_REQUEST
+        )
+
+@api_view(['POST'])
+@permission_classes([AllowAny])
+def batch_predict_api(request):
+    """
+    API endpoint for making batch predictions with the ML model.
+    
+    POST /api/batch-predict/
+    
+    Request body:
+    {
+        "data": [
+            [feature1, feature2, ...],  # First sample
+            [feature1, feature2, ...],  # Second sample
+            ...
+        ]
+    }
+    
+    Response:
+    {
+        "predictions": [value1, value2, ...],
+        "probabilities": [[prob1, prob2, ...], ...] # If available
+    }
+    """
+    # Get data from request
+    data = request.data.get('data')
+    
+    # Validate input
+    if not data or not isinstance(data, list):
+        return Response(
+            {"error": "Data must be provided as a list of feature lists"}, 
+            status=status.HTTP_400_BAD_REQUEST
+        )
+    
+    try:
+        # Convert data to numpy array
+        data_array = np.array(data)
+        
+        # Make predictions
+        predictions = ml_service.predict(data_array)
+        
+        # Get probabilities if available
+        probabilities = None
+        try:
+            probabilities = ml_service.predict_proba(data_array)
+        except:
+            pass
+            
+        response_data = {
+            "predictions": predictions.tolist()
+        }
+        
+        if probabilities is not None:
+            response_data["probabilities"] = probabilities.tolist()
+            
+        return Response(response_data)
+        
+    except Exception as e:
+        return Response(
+            {"error": f"Batch prediction failed: {str(e)}"}, 
+            status=status.HTTP_400_BAD_REQUEST
+        )
+
+@api_view(['GET'])
+@permission_classes([AllowAny])
+def model_info_api(request):
+    """
+    API endpoint for getting information about the ML model.
+    
+    GET /api/model-info/
+    
+    Response:
+    {
+        "model_loaded": true/false,
+        "feature_importance": [value1, value2, ...] # If available
+        "model_path": "path/to/model",
+        "features": ["feature1", "feature2", ...] # If available
+    }
+    """
+    # Get model path
+    model_path = os.path.join(settings.BASE_DIR, 'ml_models', 'crowd_predictor.joblib')
+    
+    # Check if model exists
+    model_exists = os.path.exists(model_path)
+    
+    response_data = {
+        "model_loaded": ml_service.model_loaded,
+        "model_path": model_path,
+        "model_exists": model_exists
+    }
+    
+    # Get feature importance if available
+    feature_importance = ml_service.get_feature_importance()
+    if feature_importance:
+        response_data["feature_importance"] = feature_importance
+    
+    # Get feature names if available
+    if ml_service.model_loaded and hasattr(ml_service.model, 'feature_names_in_'):
+        response_data["features"] = ml_service.model.feature_names_in_.tolist()
+    
+    return Response(response_data)
+
 class SnapshotCreateView(APIView):
     """
     POST /api/snapshots/<event_id>/
@@ -449,3 +663,207 @@ class HeadcountSnapshotViewSet(viewsets.ReadOnlyModelViewSet):
         if event_id:
             qs = qs.filter(event_id=event_id)
         return qs
+    
+@api_view(['POST'])
+@permission_classes([AllowAny])
+def predict_api(request):
+    """
+    API endpoint for making predictions with the ML model.
+    
+    POST /api/predict/
+    
+    Request body:
+    {
+        "features": [feature1, feature2, ...],  # List of features in the correct order
+        "event_id": 1,  # Optional: If provided, will use event context for prediction
+        "timestamp": "2023-06-15T14:30:00Z"  # Optional: Timestamp for prediction
+    }
+    
+    Response:
+    {
+        "prediction": value,
+        "method": "model" or "heuristic",
+        "confidence": value  # If available
+    }
+    """
+    # Get features from request
+    features = request.data.get('features')
+    event_id = request.data.get('event_id')
+    timestamp_str = request.data.get('timestamp')
+    
+    # Validate input
+    if not features and not event_id:
+        return Response(
+            {"error": "Either features or event_id must be provided", "success": False}, 
+            status=status.HTTP_400_BAD_REQUEST
+        )
+    
+    # If event_id is provided, use run_ml_predict
+    if event_id:
+        try:
+            event = Event.objects.get(pk=event_id)
+            
+            # Use provided timestamp or current time
+            if timestamp_str:
+                try:
+                    timestamp = datetime.fromisoformat(timestamp_str.replace('Z', '+00:00'))
+                except ValueError:
+                    return Response(
+                        {"error": "Invalid timestamp format. Use ISO format (YYYY-MM-DDTHH:MM:SSZ)", "success": False},
+                        status=status.HTTP_400_BAD_REQUEST
+                    )
+            else:
+                timestamp = timezone.now()
+                
+            # Run prediction using the event context
+            prediction, method = run_ml_predict(event, timestamp)
+            
+            return Response({
+                "success": True,
+                "prediction": prediction,
+                "method": method,
+                "event_id": event_id,
+                "timestamp": timestamp.isoformat()
+            })
+            
+        except Event.DoesNotExist:
+            return Response(
+                {"error": f"Event with id {event_id} not found", "success": False}, 
+                status=status.HTTP_404_NOT_FOUND
+            )
+    
+    # If features are provided directly, use ml_service
+    try:
+        # Convert features to numpy array
+        features_array = np.array(features)
+        
+        # Make prediction
+        prediction = ml_service.predict(features_array)
+        
+        # Get probability if available
+        probabilities = None
+        try:
+            probabilities = ml_service.predict_proba(features_array)
+        except:
+            pass
+            
+        response_data = {
+            "success": True,
+            "prediction": prediction.tolist(),
+            "method": "model",
+            "timestamp": datetime.now().isoformat()
+        }
+        
+        if probabilities is not None:
+            response_data["probabilities"] = probabilities.tolist()
+            
+        return Response(response_data)
+        
+    except Exception as e:
+        return Response(
+            {"error": f"Prediction failed: {str(e)}", "success": False}, 
+            status=status.HTTP_400_BAD_REQUEST
+        )
+
+@api_view(['POST'])
+@permission_classes([AllowAny])
+def batch_predict_api(request):
+    """
+    API endpoint for making batch predictions with the ML model.
+    
+    POST /api/batch-predict/
+    
+    Request body:
+    {
+        "data": [
+            [feature1, feature2, ...],  # First sample
+            [feature1, feature2, ...],  # Second sample
+            ...
+        ]
+    }
+    
+    Response:
+    {
+        "predictions": [value1, value2, ...],
+        "probabilities": [[prob1, prob2, ...], ...] # If available
+    }
+    """
+    # Get data from request
+    data = request.data.get('data')
+    
+    # Validate input
+    if not data or not isinstance(data, list):
+        return Response(
+            {"error": "Data must be provided as a list of feature lists", "success": False}, 
+            status=status.HTTP_400_BAD_REQUEST
+        )
+    
+    try:
+        # Convert data to numpy array
+        data_array = np.array(data)
+        
+        # Make predictions
+        predictions = ml_service.predict(data_array)
+        
+        # Get probabilities if available
+        probabilities = None
+        try:
+            probabilities = ml_service.predict_proba(data_array)
+        except:
+            pass
+            
+        response_data = {
+            "success": True,
+            "predictions": predictions.tolist()
+        }
+        
+        if probabilities is not None:
+            response_data["probabilities"] = probabilities.tolist()
+            
+        return Response(response_data)
+        
+    except Exception as e:
+        return Response(
+            {"error": f"Batch prediction failed: {str(e)}", "success": False}, 
+            status=status.HTTP_400_BAD_REQUEST
+        )
+
+@api_view(['GET'])
+@permission_classes([AllowAny])
+def model_info_api(request):
+    """
+    API endpoint for getting information about the ML model.
+    
+    GET /api/model-info/
+    
+    Response:
+    {
+        "model_loaded": true/false,
+        "feature_importance": [value1, value2, ...] # If available
+        "model_path": "path/to/model",
+        "features": ["feature1", "feature2", ...] # If available
+    }
+    """
+    # Get model path
+    model_path = os.path.join(settings.BASE_DIR, 'ml_models', 'crowd_predictor.joblib')
+    
+    # Check if model exists
+    model_exists = os.path.exists(model_path)
+    
+    response_data = {
+        "success": True,
+        "model_loaded": ml_service.model_loaded,
+        "model_path": model_path,
+        "model_exists": model_exists
+    }
+    
+    # Get feature importance if available
+    feature_importance = ml_service.get_feature_importance()
+    if feature_importance:
+        response_data["feature_importance"] = feature_importance
+    
+    # Get feature names if available
+    if ml_service.model_loaded and hasattr(ml_service.model, 'feature_names_in_'):
+        response_data["features"] = ml_service.model.feature_names_in_.tolist()
+    
+    return Response(response_data)
